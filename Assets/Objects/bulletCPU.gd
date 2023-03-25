@@ -7,5 +7,8 @@ func _ready():
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta):
-	pass
+#func _process(delta):
+	#pass
+
+func bulletShooter(bullet):
+	add_child(bullet)

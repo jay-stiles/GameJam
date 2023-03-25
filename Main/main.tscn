@@ -1,10 +1,128 @@
-[gd_scene load_steps=3 format=3 uid="uid://db5637toinula"]
+[gd_scene load_steps=7 format=3 uid="uid://da1q3iiq7l08e"]
 
 [ext_resource type="PackedScene" uid="uid://cpohawpci1tla" path="res://MrGraye/MrGraye.tscn" id="1_cnnti"]
-[ext_resource type="PackedScene" uid="uid://c228alqio8o83" path="res://Assets/Objects/projectile_cpu.tscn" id="2_6ut24"]
+[ext_resource type="Script" path="res://Main/main.gd" id="1_nt5yq"]
+[ext_resource type="PackedScene" uid="uid://di4wdilv7jfi2" path="res://Assets/Objects/bulletCPU.tscn" id="2_6ut24"]
+[ext_resource type="Script" path="res://Main/TimerBars.gd" id="4_np42f"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_qrfqv"]
+bg_color = Color(0.4, 0.4, 0.4, 1)
+draw_center = false
+border_width_left = 4
+border_width_top = 4
+border_width_right = 4
+border_width_bottom = 4
+border_color = Color(0.4, 0.4, 0.4, 1)
+border_blend = true
+corner_detail = 16
+expand_margin_left = 10.0
+expand_margin_top = 3.0
+expand_margin_right = 10.0
+expand_margin_bottom = 3.0
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_rpu4b"]
+bg_color = Color(0.921569, 0, 0, 0.843137)
+expand_margin_left = 8.0
+expand_margin_right = 8.0
 
 [node name="main" type="Node2D"]
+script = ExtResource("1_nt5yq")
 
 [node name="MrGraye" parent="." instance=ExtResource("1_cnnti")]
 
-[node name="ProjectileCPU" parent="." instance=ExtResource("2_6ut24")]
+[node name="bulletCPU" parent="." instance=ExtResource("2_6ut24")]
+
+[node name="Overlay" type="CanvasLayer" parent="."]
+
+[node name="TimerBars" type="Node" parent="Overlay"]
+script = ExtResource("4_np42f")
+
+[node name="TimerBox" type="HBoxContainer" parent="Overlay/TimerBars"]
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -276.0
+offset_top = -240.0
+offset_right = -15.0
+grow_horizontal = 0
+grow_vertical = 0
+pivot_offset = Vector2(135, 110)
+alignment = 1
+
+[node name="vbShot" type="VBoxContainer" parent="Overlay/TimerBars/TimerBox"]
+layout_mode = 2
+size_flags_horizontal = 4
+alignment = 2
+
+[node name="HBoxContainer" type="HBoxContainer" parent="Overlay/TimerBars/TimerBox/vbShot"]
+layout_mode = 2
+alignment = 1
+
+[node name="time" type="Label" parent="Overlay/TimerBars/TimerBox/vbShot/HBoxContainer"]
+layout_mode = 2
+text = "0"
+horizontal_alignment = 1
+
+[node name="\'\'s" type="Label" parent="Overlay/TimerBars/TimerBox/vbShot/HBoxContainer"]
+layout_mode = 2
+text = "s"
+horizontal_alignment = 2
+vertical_alignment = 1
+
+[node name="shotTimer" type="ProgressBar" parent="Overlay/TimerBars/TimerBox/vbShot"]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 3
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_styles/background = SubResource("StyleBoxFlat_qrfqv")
+theme_override_styles/fill = SubResource("StyleBoxFlat_rpu4b")
+max_value = 0.4
+step = 0.001
+value = 0.3
+fill_mode = 3
+show_percentage = false
+
+[node name="Action" type="Label" parent="Overlay/TimerBars/TimerBox/vbShot"]
+layout_mode = 2
+text = "Pistol"
+
+[node name="vbShot2" type="VBoxContainer" parent="Overlay/TimerBars/TimerBox"]
+layout_mode = 2
+alignment = 2
+
+[node name="shotTimer" type="ProgressBar" parent="Overlay/TimerBars/TimerBox/vbShot2"]
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_styles/background = SubResource("StyleBoxFlat_qrfqv")
+theme_override_styles/fill = SubResource("StyleBoxFlat_rpu4b")
+value = 50.0
+fill_mode = 3
+show_percentage = false
+
+[node name="Label" type="Label" parent="Overlay/TimerBars/TimerBox/vbShot2"]
+layout_mode = 2
+text = "Pistol"
+
+[node name="vbShot3" type="VBoxContainer" parent="Overlay/TimerBars/TimerBox"]
+layout_mode = 2
+alignment = 2
+
+[node name="shotTimer" type="ProgressBar" parent="Overlay/TimerBars/TimerBox/vbShot3"]
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_styles/background = SubResource("StyleBoxFlat_qrfqv")
+theme_override_styles/fill = SubResource("StyleBoxFlat_rpu4b")
+value = 50.0
+fill_mode = 3
+show_percentage = false
+
+[node name="Label" type="Label" parent="Overlay/TimerBars/TimerBox/vbShot3"]
+layout_mode = 2
+text = "Pistol"
+
+[connection signal="bulletFired" from="MrGraye" to="." method="_on_mr_graye_bullet_fired"]
+[connection signal="inverted" from="MrGraye" to="Overlay/TimerBars" method="_on_mr_graye_inverted"]
+[connection signal="reloading" from="MrGraye" to="Overlay/TimerBars" method="_on_mr_graye_reloading"]
+[connection signal="shotTimer" from="MrGraye" to="Overlay/TimerBars" method="_on_mr_graye_shot_timer"]

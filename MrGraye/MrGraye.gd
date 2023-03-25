@@ -9,12 +9,13 @@ extends CharacterBody2D
 @onready var egMarker = $Cam/egR#.position
 #var bulletFile = preload("res://Assets/Objects/bullet.tscn")
 #var bullet_instance: bullet = bullet.instance()
-signal inverted()
-signal mgShot(bullet)
-
+signal inverted(invT_s, invert)
+signal bulletFired(bullet)
+signal shotTimer(STS, magAmt)
+signal reloading(reloadTime)
 
 var aniCut = 10
-
+# 0 = black   1 = white
 var invert = 0
 
 var invT = true
@@ -27,6 +28,11 @@ var bullet_direction = Vector2.ZERO
 #	--Away/Up = 0    Right = 90   Left = -90   Down/To = 180
 var bullet_angle = 0
 
+var isReloading = false
+var magSize = 11
+var magAmt = magSize
+var reloadTime = 2
+
 var step = true
 var stepSec = .30
 
@@ -34,22 +40,7 @@ var stepSec = .30
 var eg = last
 
 
-func get_cam_eg():
-	if eg == 0:
-		egMarker = $Cam/egR#.position
-		print("Switching to egR")
-	elif eg == 1:
-		egMarker = $Cam/egL#.position
-		print("Switching to egL")
-	elif eg == 2:
-		egMarker = $Cam/egA#.position
-		print("Switching to egA")
-	elif eg == 3:
-		egMarker = $Cam/egT#.position
-		print("Switching to egT")
-	print(eg)
-	print(egMarker.global_position)
-
+#get gun direction
 func get_eg():
 	if eg == 0:
 		egMarker = $egR#.position
@@ -71,7 +62,7 @@ func get_eg():
 	print(egMarker.global_position)
 
 
-
+#get bullet direction
 func get_bullet_direction():
 	if eg == 0:
 		bullet_direction.x = 1
@@ -86,6 +77,17 @@ func get_bullet_direction():
 		bullet_direction.x = 0
 		bullet_direction.y = 1
 
+
+func reload():
+	reloadTimer()
+
+func reloadTimer():
+	isReloading = true
+	$Audio/reloadSound.play()
+	emit_signal("reloading", reloadTime)
+	await get_tree().create_timer(reloadTime).timeout
+	magAmt = magSize
+	isReloading = false
 
 func shootTimer():
 	canShoot = false
@@ -111,7 +113,7 @@ func get_invert():
 	if Input.is_action_pressed("invert"):
 		if invT:
 			invertTimer()
-			#emit_signal()
+			emit_signal("inverted", invT_s, invert)
 			if invert == 0:
 				invert = 1
 				bewl = true
@@ -151,7 +153,7 @@ func _physics_process(delta):
 	stepSounds()
 	move_and_slide()
 
-
+#Walking animation player
 #Last-- Right=0  Left=1  Up=2  Down=3
 func aniPlayer():
 	var vx = velocity.x
@@ -229,11 +231,15 @@ func stepSounds():
 func _unhandled_input(event):
 	if Input.is_action_pressed("shoot"):
 		shoot()
+	if Input.is_action_pressed("reload"):
+		reload()
 
 func shoot():
-	if canShoot:
+	if canShoot and not isReloading:
+			magAmt -= 1
+			emit_signal("shotTimer", STS, magAmt)
 			var bullet_instance = bullet.instantiate()
-			add_child(bullet_instance)
+			#add_child(bullet_instance)
 			get_eg()
 			bullet_instance.global_position = egMarker.global_position
 			get_bullet_direction()
@@ -241,7 +247,7 @@ func shoot():
 			bullet_instance.setDir(bullet_direction)
 			bullet_instance.setInvert(invert)
 			shootTimer()
-			emit_signal("mgShot", bullet_instance)
+			emit_signal("bulletFired", bullet_instance)
 			$Audio/Shoot.play()
 			print("pssssst")
 

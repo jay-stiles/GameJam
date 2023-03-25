@@ -1,4 +1,4 @@
-[gd_scene load_steps=17 format=3 uid="uid://cpohawpci1tla"]
+[gd_scene load_steps=18 format=3 uid="uid://cpohawpci1tla"]
 
 [ext_resource type="Script" path="res://MrGraye/MrGraye.gd" id="1_2q82o"]
 [ext_resource type="PackedScene" uid="uid://xsejqut0jhwg" path="res://Assets/Objects/bullet.tscn" id="2_twoe2"]
@@ -6,6 +6,7 @@
 [ext_resource type="Texture2D" uid="uid://dmff7k2pi2o3a" path="res://Tilesets/CharW.png" id="3_xq6lr"]
 [ext_resource type="AudioStream" uid="uid://2h87l4umiibw" path="res://Assets/Audio/SuppressedPistolShort.mp3" id="4_aj36i"]
 [ext_resource type="AudioStream" uid="uid://b3mftvp0027u" path="res://Assets/Audio/stepSound.mp3" id="5_5jq32"]
+[ext_resource type="AudioStream" uid="uid://c30rm6g5lkcum" path="res://Assets/Audio/reloadSound.mp3" id="7_vtjxh"]
 
 [sub_resource type="Animation" id="Animation_hagi1"]
 resource_name = "FAway"
@@ -196,18 +197,6 @@ polygon = PackedVector2Array(-25, 50, 16, 50, 16, 42, 11, 39, 10, 12, 29, -1, 16
 
 [node name="Cam" type="Camera2D" parent="."]
 
-[node name="egR" type="Marker2D" parent="Cam"]
-position = Vector2(42, -5)
-
-[node name="egL" type="Marker2D" parent="Cam"]
-position = Vector2(-42, -5)
-
-[node name="egT" type="Marker2D" parent="Cam"]
-position = Vector2(-20, 12)
-
-[node name="egA" type="Marker2D" parent="Cam"]
-position = Vector2(25, -6)
-
 [node name="Audio" type="Node" parent="."]
 
 [node name="mgHit" type="AudioStreamPlayer" parent="Audio"]
@@ -219,6 +208,9 @@ volume_db = -17.829
 [node name="stepSound" type="AudioStreamPlayer" parent="Audio"]
 stream = ExtResource("5_5jq32")
 volume_db = -7.924
+
+[node name="reloadSound" type="AudioStreamPlayer" parent="Audio"]
+stream = ExtResource("7_vtjxh")
 
 [node name="egR" type="Marker2D" parent="."]
 position = Vector2(42, -5)
