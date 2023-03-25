@@ -4,7 +4,7 @@ extends CharacterBody2D
 @export var acceleration = 0.1
 @export var speed = 200
 @export var bullet: PackedScene
-
+@export var shSo: Node
 
 @onready var egMarker = $Cam/egR#.position
 #var bulletFile = preload("res://Assets/Objects/bullet.tscn")
@@ -12,7 +12,8 @@ extends CharacterBody2D
 signal inverted(invT_s, invert)
 signal bulletFired(bullet)
 signal shotTimer(STS, magAmt)
-signal reloading(reloadTime)
+signal reloading(reloadTime, magSize)
+signal emptyChamber()
 
 var aniCut = 10
 # 0 = black   1 = white
@@ -22,16 +23,20 @@ var invT = true
 var invT_s = 3
 var last = 0
 
+var shellPlay = 0
 var canShoot = true
 var STS = float(0.4)
 var bullet_direction = Vector2.ZERO
 #	--Away/Up = 0    Right = 90   Left = -90   Down/To = 180
 var bullet_angle = 0
 
+var canClick = true
 var isReloading = false
+var needReload = false
+var canReload = true
 var magSize = 11
 var magAmt = magSize
-var reloadTime = 2
+var reloadTime = 2.4
 
 var step = true
 var stepSec = .30
@@ -39,6 +44,7 @@ var stepSec = .30
 #gunpoint Marker2D:: Right=0  Left=1  Away/Up=2  To/Down=3
 var eg = last
 
+var rng = RandomNumberGenerator.new()
 
 #get gun direction
 func get_eg():
@@ -78,22 +84,45 @@ func get_bullet_direction():
 		bullet_direction.y = 1
 
 
+func shellHitGround():
+	shellPlay = rng.randi_range(0,2)
+	if shellPlay == 0:
+		$Audio/shellSound.play()
+	elif shellPlay == 1:
+		$Audio/shellSound2.play()
+	elif shellPlay == 2:
+		$Audio/shellSound3.play()
+
+
+func reloadTimerBewl():
+	canReload = false
+	await get_tree().create_timer(reloadTime).timeout
+	canReload = true
+
 func reload():
 	reloadTimer()
 
 func reloadTimer():
-	isReloading = true
-	$Audio/reloadSound.play()
-	emit_signal("reloading", reloadTime)
-	await get_tree().create_timer(reloadTime).timeout
-	magAmt = magSize
-	isReloading = false
+	if canReload:
+		reloadTimerBewl()
+		isReloading = true
+		$Audio/reloadSound.play()
+		emit_signal("reloading", reloadTime, magSize)
+		await get_tree().create_timer(reloadTime).timeout
+		magAmt = magSize
+		isReloading = false
+		needReload = false
+		canShoot = true
 
 func shootTimer():
 	canShoot = false
 	await get_tree().create_timer(STS).timeout
 	canShoot = true
 
+func clickTimer():
+	canClick = false
+	await get_tree().create_timer(STS).timeout
+	canClick = true
 
 func invertTimer():
 	invT = false
@@ -235,7 +264,16 @@ func _unhandled_input(event):
 		reload()
 
 func shoot():
-	if canShoot and not isReloading:
+	
+	if magAmt == 0 and not isReloading:
+		emit_signal("emptyChamber")
+		needReload = true
+		canShoot = false
+		if canClick:
+			clickTimer()
+			$Audio/emptyClick.play()
+
+	elif canShoot and not isReloading and not needReload:
 			magAmt -= 1
 			emit_signal("shotTimer", STS, magAmt)
 			var bullet_instance = bullet.instantiate()
@@ -249,6 +287,7 @@ func shoot():
 			shootTimer()
 			emit_signal("bulletFired", bullet_instance)
 			$Audio/Shoot.play()
+			shellHitGround()
 			print("pssssst")
 
 

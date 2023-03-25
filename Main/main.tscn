@@ -1,9 +1,12 @@
-[gd_scene load_steps=7 format=3 uid="uid://da1q3iiq7l08e"]
+[gd_scene load_steps=10 format=3 uid="uid://da1q3iiq7l08e"]
 
 [ext_resource type="PackedScene" uid="uid://cpohawpci1tla" path="res://MrGraye/MrGraye.tscn" id="1_cnnti"]
 [ext_resource type="Script" path="res://Main/main.gd" id="1_nt5yq"]
 [ext_resource type="PackedScene" uid="uid://di4wdilv7jfi2" path="res://Assets/Objects/bulletCPU.tscn" id="2_6ut24"]
 [ext_resource type="Script" path="res://Main/TimerBars.gd" id="4_np42f"]
+[ext_resource type="FontFile" uid="uid://c5mfmgf8df6t6" path="res://Assets/Fonts/SquareCool.ttf" id="5_85njg"]
+[ext_resource type="FontFile" uid="uid://bh64enw3tjsj7" path="res://Assets/Fonts/DashDot.ttf" id="6_hwxh4"]
+[ext_resource type="FontFile" uid="uid://deqkhsbxcjtto" path="res://Assets/Fonts/neatoHole.ttf" id="7_wt67e"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_qrfqv"]
 bg_color = Color(0.4, 0.4, 0.4, 1)
@@ -15,112 +18,299 @@ border_width_bottom = 4
 border_color = Color(0.4, 0.4, 0.4, 1)
 border_blend = true
 corner_detail = 16
-expand_margin_left = 10.0
+expand_margin_left = 3.0
 expand_margin_top = 3.0
-expand_margin_right = 10.0
+expand_margin_right = 3.0
 expand_margin_bottom = 3.0
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_rpu4b"]
 bg_color = Color(0.921569, 0, 0, 0.843137)
-expand_margin_left = 8.0
-expand_margin_right = 8.0
+corner_radius_top_left = 6
+corner_radius_top_right = 6
 
 [node name="main" type="Node2D"]
 script = ExtResource("1_nt5yq")
 
 [node name="MrGraye" parent="." instance=ExtResource("1_cnnti")]
+position = Vector2(576, 324)
 
 [node name="bulletCPU" parent="." instance=ExtResource("2_6ut24")]
 
 [node name="Overlay" type="CanvasLayer" parent="."]
+layer = 3
 
 [node name="TimerBars" type="Node" parent="Overlay"]
 script = ExtResource("4_np42f")
 
 [node name="TimerBox" type="HBoxContainer" parent="Overlay/TimerBars"]
+modulate = Color(1, 1, 1, 0.584314)
 anchors_preset = 3
 anchor_left = 1.0
 anchor_top = 1.0
 anchor_right = 1.0
 anchor_bottom = 1.0
-offset_left = -276.0
-offset_top = -240.0
-offset_right = -15.0
+offset_left = -370.0
+offset_top = -402.0
+offset_right = -23.0
+offset_bottom = -16.0
 grow_horizontal = 0
 grow_vertical = 0
 pivot_offset = Vector2(135, 110)
+theme_override_constants/separation = 25
 alignment = 1
 
 [node name="vbShot" type="VBoxContainer" parent="Overlay/TimerBars/TimerBox"]
 layout_mode = 2
-size_flags_horizontal = 4
 alignment = 2
 
-[node name="HBoxContainer" type="HBoxContainer" parent="Overlay/TimerBars/TimerBox/vbShot"]
+[node name="hbSpacer" type="HBoxContainer" parent="Overlay/TimerBars/TimerBox/vbShot"]
+layout_mode = 2
+
+[node name="spacer" type="Label" parent="Overlay/TimerBars/TimerBox/vbShot/hbSpacer"]
+layout_mode = 2
+text = "
+
+
+
+
+
+"
+
+[node name="hbShot" type="HBoxContainer" parent="Overlay/TimerBars/TimerBox/vbShot"]
+visible = false
 layout_mode = 2
 alignment = 1
 
-[node name="time" type="Label" parent="Overlay/TimerBars/TimerBox/vbShot/HBoxContainer"]
+[node name="time" type="Label" parent="Overlay/TimerBars/TimerBox/vbShot/hbShot"]
 layout_mode = 2
+theme_override_colors/font_color = Color(0.4, 0.4, 0.4, 1)
+theme_override_colors/font_shadow_color = Color(1, 1, 1, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/shadow_offset_x = 1
+theme_override_constants/shadow_offset_y = 1
+theme_override_constants/outline_size = 2
+theme_override_constants/shadow_outline_size = 0
+theme_override_fonts/font = ExtResource("5_85njg")
+theme_override_font_sizes/font_size = 20
 text = "0"
 horizontal_alignment = 1
 
-[node name="\'\'s" type="Label" parent="Overlay/TimerBars/TimerBox/vbShot/HBoxContainer"]
+[node name="s" type="Label" parent="Overlay/TimerBars/TimerBox/vbShot/hbShot"]
 layout_mode = 2
+theme_override_colors/font_color = Color(0.4, 0.4, 0.4, 1)
+theme_override_colors/font_shadow_color = Color(1, 1, 1, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 2
+theme_override_constants/shadow_outline_size = 0
+theme_override_fonts/font = ExtResource("5_85njg")
+theme_override_font_sizes/font_size = 20
 text = "s"
 horizontal_alignment = 2
 vertical_alignment = 1
 
-[node name="shotTimer" type="ProgressBar" parent="Overlay/TimerBars/TimerBox/vbShot"]
+[node name="shotBar" type="ProgressBar" parent="Overlay/TimerBars/TimerBox/vbShot"]
 layout_mode = 2
-size_flags_horizontal = 4
 size_flags_vertical = 3
 theme_override_colors/font_color = Color(0, 0, 0, 1)
 theme_override_styles/background = SubResource("StyleBoxFlat_qrfqv")
 theme_override_styles/fill = SubResource("StyleBoxFlat_rpu4b")
-max_value = 0.4
 step = 0.001
-value = 0.3
+value = 50.0
 fill_mode = 3
 show_percentage = false
 
 [node name="Action" type="Label" parent="Overlay/TimerBars/TimerBox/vbShot"]
 layout_mode = 2
+theme_override_colors/font_color = Color(0.4, 0.4, 0.4, 1)
+theme_override_colors/font_shadow_color = Color(1, 1, 1, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 2
+theme_override_fonts/font = ExtResource("5_85njg")
+theme_override_font_sizes/font_size = 24
 text = "Pistol"
+uppercase = true
 
-[node name="vbShot2" type="VBoxContainer" parent="Overlay/TimerBars/TimerBox"]
+[node name="vbReload" type="VBoxContainer" parent="Overlay/TimerBars/TimerBox"]
 layout_mode = 2
 alignment = 2
 
-[node name="shotTimer" type="ProgressBar" parent="Overlay/TimerBars/TimerBox/vbShot2"]
+[node name="hbSpacer" type="HBoxContainer" parent="Overlay/TimerBars/TimerBox/vbReload"]
+layout_mode = 2
+
+[node name="spacer" type="Label" parent="Overlay/TimerBars/TimerBox/vbReload/hbSpacer"]
+layout_mode = 2
+text = "
+
+
+"
+
+[node name="hbReload" type="HBoxContainer" parent="Overlay/TimerBars/TimerBox/vbReload"]
+visible = false
+layout_mode = 2
+alignment = 1
+
+[node name="time" type="Label" parent="Overlay/TimerBars/TimerBox/vbReload/hbReload"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.4, 0.4, 0.4, 1)
+theme_override_colors/font_shadow_color = Color(1, 1, 1, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/shadow_offset_x = 1
+theme_override_constants/shadow_offset_y = 1
+theme_override_constants/outline_size = 2
+theme_override_constants/shadow_outline_size = 0
+theme_override_fonts/font = ExtResource("5_85njg")
+theme_override_font_sizes/font_size = 20
+text = "0"
+horizontal_alignment = 1
+
+[node name="s" type="Label" parent="Overlay/TimerBars/TimerBox/vbReload/hbReload"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.4, 0.4, 0.4, 1)
+theme_override_colors/font_shadow_color = Color(1, 1, 1, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 2
+theme_override_constants/shadow_outline_size = 0
+theme_override_fonts/font = ExtResource("5_85njg")
+theme_override_font_sizes/font_size = 20
+text = "s"
+horizontal_alignment = 2
+vertical_alignment = 1
+
+[node name="reloadBar" type="ProgressBar" parent="Overlay/TimerBars/TimerBox/vbReload"]
 layout_mode = 2
 size_flags_vertical = 3
+theme_override_colors/font_color = Color(0, 0, 0, 1)
 theme_override_styles/background = SubResource("StyleBoxFlat_qrfqv")
 theme_override_styles/fill = SubResource("StyleBoxFlat_rpu4b")
+step = 0.001
 value = 50.0
 fill_mode = 3
 show_percentage = false
 
-[node name="Label" type="Label" parent="Overlay/TimerBars/TimerBox/vbShot2"]
+[node name="Action" type="Label" parent="Overlay/TimerBars/TimerBox/vbReload"]
 layout_mode = 2
-text = "Pistol"
+theme_override_colors/font_color = Color(0.4, 0.4, 0.4, 1)
+theme_override_colors/font_shadow_color = Color(1, 1, 1, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 2
+theme_override_fonts/font = ExtResource("5_85njg")
+theme_override_font_sizes/font_size = 24
+text = "Reload"
+uppercase = true
 
-[node name="vbShot3" type="VBoxContainer" parent="Overlay/TimerBars/TimerBox"]
+[node name="vbInvert" type="VBoxContainer" parent="Overlay/TimerBars/TimerBox"]
 layout_mode = 2
 alignment = 2
 
-[node name="shotTimer" type="ProgressBar" parent="Overlay/TimerBars/TimerBox/vbShot3"]
+[node name="hbInvert" type="HBoxContainer" parent="Overlay/TimerBars/TimerBox/vbInvert"]
+visible = false
+layout_mode = 2
+alignment = 1
+
+[node name="time" type="Label" parent="Overlay/TimerBars/TimerBox/vbInvert/hbInvert"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.4, 0.4, 0.4, 1)
+theme_override_colors/font_shadow_color = Color(1, 1, 1, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/shadow_offset_x = 1
+theme_override_constants/shadow_offset_y = 1
+theme_override_constants/outline_size = 2
+theme_override_constants/shadow_outline_size = 0
+theme_override_fonts/font = ExtResource("5_85njg")
+theme_override_font_sizes/font_size = 20
+text = "0"
+horizontal_alignment = 1
+
+[node name="s" type="Label" parent="Overlay/TimerBars/TimerBox/vbInvert/hbInvert"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.4, 0.4, 0.4, 1)
+theme_override_colors/font_shadow_color = Color(1, 1, 1, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 2
+theme_override_constants/shadow_outline_size = 0
+theme_override_fonts/font = ExtResource("5_85njg")
+theme_override_font_sizes/font_size = 20
+text = "s"
+horizontal_alignment = 2
+vertical_alignment = 1
+
+[node name="invertBar" type="ProgressBar" parent="Overlay/TimerBars/TimerBox/vbInvert"]
 layout_mode = 2
 size_flags_vertical = 3
+theme_override_colors/font_color = Color(0, 0, 0, 1)
 theme_override_styles/background = SubResource("StyleBoxFlat_qrfqv")
 theme_override_styles/fill = SubResource("StyleBoxFlat_rpu4b")
+step = 0.001
 value = 50.0
 fill_mode = 3
 show_percentage = false
 
-[node name="Label" type="Label" parent="Overlay/TimerBars/TimerBox/vbShot3"]
+[node name="Action" type="Label" parent="Overlay/TimerBars/TimerBox/vbInvert"]
 layout_mode = 2
-text = "Pistol"
+theme_override_colors/font_color = Color(0.4, 0.4, 0.4, 1)
+theme_override_colors/font_shadow_color = Color(1, 1, 1, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 2
+theme_override_fonts/font = ExtResource("5_85njg")
+theme_override_font_sizes/font_size = 24
+text = "INVERT"
+
+[node name="Magazine" type="HBoxContainer" parent="Overlay/TimerBars"]
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -236.0
+offset_top = -213.0
+offset_right = -160.0
+offset_bottom = -120.0
+grow_horizontal = 0
+grow_vertical = 0
+
+[node name="magAmt" type="Label" parent="Overlay/TimerBars/Magazine"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 1
+theme_override_colors/font_color = Color(0.4, 0.4, 0.4, 1)
+theme_override_colors/font_shadow_color = Color(1, 1, 1, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 2
+theme_override_constants/shadow_outline_size = 1
+theme_override_fonts/font = ExtResource("6_hwxh4")
+theme_override_font_sizes/font_size = 40
+text = "11"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="ReloadWarn" type="HBoxContainer" parent="Overlay/TimerBars"]
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -170.0
+offset_top = -100.0
+offset_right = 170.0
+grow_horizontal = 2
+grow_vertical = 0
+pivot_offset = Vector2(170, 50)
+
+[node name="Label" type="Label" parent="Overlay/TimerBars/ReloadWarn"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 1
+theme_override_colors/font_color = Color(0.4, 0.4, 0.4, 1)
+theme_override_colors/font_shadow_color = Color(1, 1, 1, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 2
+theme_override_constants/shadow_outline_size = 1
+theme_override_fonts/font = ExtResource("7_wt67e")
+theme_override_font_sizes/font_size = 40
+text = "RELOAD!"
+horizontal_alignment = 1
+vertical_alignment = 1
+uppercase = true
 
 [connection signal="bulletFired" from="MrGraye" to="." method="_on_mr_graye_bullet_fired"]
 [connection signal="inverted" from="MrGraye" to="Overlay/TimerBars" method="_on_mr_graye_inverted"]
