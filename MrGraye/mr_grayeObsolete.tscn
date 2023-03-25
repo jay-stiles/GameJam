@@ -1,0 +1,190 @@
+[gd_scene load_steps=14 format=3 uid="uid://omyk0tmkynpl"]
+
+[ext_resource type="Script" path="res://MrGraye/mr_grayeObsolete.gd" id="1_nsg14"]
+[ext_resource type="Texture2D" uid="uid://d33ft0h5vdiho" path="res://Tilesets/CharB.png" id="1_xq7e0"]
+[ext_resource type="Texture2D" uid="uid://bm4watb5iawwj" path="res://Tilesets/CharW.png" id="2_nd7oy"]
+
+[sub_resource type="Animation" id="Animation_hagi1"]
+resource_name = "FAway"
+length = 0.1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [8]
+}
+
+[sub_resource type="Animation" id="Animation_02wh5"]
+resource_name = "FLeft"
+length = 0.1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [4]
+}
+
+[sub_resource type="Animation" id="Animation_qk3xg"]
+resource_name = "FRight"
+length = 0.1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [6]
+}
+
+[sub_resource type="Animation" id="Animation_o8pet"]
+resource_name = "FTo"
+length = 0.1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [0]
+}
+
+[sub_resource type="Animation" id="Animation_wg36u"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [0]
+}
+
+[sub_resource type="Animation" id="Animation_wnqrf"]
+resource_name = "WalkAway"
+length = 0.6
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.3),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [10, 9]
+}
+
+[sub_resource type="Animation" id="Animation_fp1eq"]
+resource_name = "WalkL"
+length = 0.6
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.3),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [5, 4]
+}
+
+[sub_resource type="Animation" id="Animation_adby6"]
+resource_name = "WalkR"
+length = 0.6
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.3),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [7, 6]
+}
+
+[sub_resource type="Animation" id="Animation_3uo3k"]
+resource_name = "WalkTo"
+length = 0.6
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.3),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [1, 3]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_eea8b"]
+_data = {
+"FAway": SubResource("Animation_hagi1"),
+"FLeft": SubResource("Animation_02wh5"),
+"FRight": SubResource("Animation_qk3xg"),
+"FTo": SubResource("Animation_o8pet"),
+"RESET": SubResource("Animation_wg36u"),
+"WalkAway": SubResource("Animation_wnqrf"),
+"WalkL": SubResource("Animation_fp1eq"),
+"WalkR": SubResource("Animation_adby6"),
+"WalkTo": SubResource("Animation_3uo3k")
+}
+
+[node name="MrGraye" type="Node2D"]
+script = ExtResource("1_nsg14")
+
+[node name="Black" type="Sprite2D" parent="."]
+visible = false
+scale = Vector2(5, 5)
+texture = ExtResource("1_xq7e0")
+hframes = 3
+vframes = 4
+
+[node name="BlAni" type="AnimationPlayer" parent="Black"]
+libraries = {
+"": SubResource("AnimationLibrary_eea8b")
+}
+
+[node name="White" type="Sprite2D" parent="."]
+scale = Vector2(5, 5)
+texture = ExtResource("2_nd7oy")
+hframes = 3
+vframes = 4
+
+[node name="WhAni" type="AnimationPlayer" parent="White"]
+libraries = {
+"": SubResource("AnimationLibrary_eea8b")
+}
+
+[connection signal="animation_finished" from="Black/BlAni" to="." method="_on_bl_ani_animation_finished"]
+[connection signal="animation_finished" from="White/WhAni" to="." method="_on_wh_ani_animation_finished"]

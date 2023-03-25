@@ -1,0 +1,18 @@
+[gd_scene load_steps=4 format=3 uid="uid://c8p21ndu4rjig"]
+
+[ext_resource type="PackedScene" uid="uid://cpohawpci1tla" path="res://MrGraye/MrGraye.tscn" id="1_bvbbb"]
+[ext_resource type="Script" path="res://Maps/map_1.gd" id="1_h05vy"]
+[ext_resource type="PackedScene" uid="uid://11m10roqcp4n" path="res://Assets/Backgrounds/simple_background_layer.tscn" id="2_v2ejc"]
+
+[node name="map1" type="Node2D"]
+script = ExtResource("1_h05vy")
+
+[node name="MrGraye" type="Node" parent="."]
+
+[node name="CharacterBody2D" parent="MrGraye" instance=ExtResource("1_bvbbb")]
+
+[node name="Background" type="Node" parent="."]
+
+[node name="SimpleBackgroundLayer" parent="Background" instance=ExtResource("2_v2ejc")]
+
+[connection signal="inverted" from="MrGraye/CharacterBody2D" to="." method="_on_character_body_2d_inverted"]

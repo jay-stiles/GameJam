@@ -1,0 +1,10 @@
+[gd_scene load_steps=3 format=3 uid="uid://db5637toinula"]
+
+[ext_resource type="PackedScene" uid="uid://cpohawpci1tla" path="res://MrGraye/MrGraye.tscn" id="1_cnnti"]
+[ext_resource type="PackedScene" uid="uid://c228alqio8o83" path="res://Assets/Objects/projectile_cpu.tscn" id="2_6ut24"]
+
+[node name="main" type="Node2D"]
+
+[node name="MrGraye" parent="." instance=ExtResource("1_cnnti")]
+
+[node name="ProjectileCPU" parent="." instance=ExtResource("2_6ut24")]

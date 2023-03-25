@@ -1,0 +1,13 @@
+[gd_scene format=3 uid="uid://11m10roqcp4n"]
+
+[node name="SimpleBackgroundLayer" type="Node2D"]
+
+[node name="PB" type="ParallaxBackground" parent="."]
+
+[node name="PL" type="ParallaxLayer" parent="PB"]
+
+[node name="CR" type="ColorRect" parent="PB/PL"]
+offset_left = -582.0
+offset_top = -978.0
+offset_right = 1453.0
+offset_bottom = 1135.0
