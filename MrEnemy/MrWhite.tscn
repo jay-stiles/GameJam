@@ -1,17 +1,14 @@
-[gd_scene load_steps=23 format=3 uid="uid://cpohawpci1tla"]
+[gd_scene load_steps=20 format=3 uid="uid://dcwqv2ymtbue4"]
 
-[ext_resource type="Script" path="res://MrGraye/MrGraye.gd" id="1_2q82o"]
-[ext_resource type="PackedScene" uid="uid://xsejqut0jhwg" path="res://Assets/Objects/bullet.tscn" id="2_twoe2"]
-[ext_resource type="Texture2D" uid="uid://d33ft0h5vdiho" path="res://Tilesets/CharB.png" id="2_w7vk0"]
-[ext_resource type="Texture2D" uid="uid://dmff7k2pi2o3a" path="res://Tilesets/CharW.png" id="3_xq6lr"]
-[ext_resource type="AudioStream" uid="uid://2h87l4umiibw" path="res://Assets/Audio/SuppressedPistolShort.mp3" id="4_aj36i"]
-[ext_resource type="AudioStream" uid="uid://b3mftvp0027u" path="res://Assets/Audio/stepSound.mp3" id="5_5jq32"]
-[ext_resource type="AudioStream" uid="uid://d21s27tghyv4b" path="res://Assets/Audio/BulletImpactChar.mp3" id="5_lcgf7"]
-[ext_resource type="AudioStream" uid="uid://c30rm6g5lkcum" path="res://Assets/Audio/reloadSound.mp3" id="7_vtjxh"]
-[ext_resource type="AudioStream" uid="uid://dvtclo7wugsd2" path="res://Assets/Audio/gunClickFull.wav" id="8_2on3i"]
-[ext_resource type="AudioStream" uid="uid://6cf1xl5x2jcl" path="res://Assets/Audio/shellFallShort.wav" id="9_drbjr"]
-[ext_resource type="AudioStream" uid="uid://doxw1ln3snhxb" path="res://Assets/Audio/shellGround2.wav" id="10_dk3ku"]
-[ext_resource type="AudioStream" uid="uid://dgtly1xaxsith" path="res://Assets/Audio/INVERTorButton.wav" id="11_mm61b"]
+[ext_resource type="Script" path="res://MrEnemy/MrWhite.gd" id="1_5puls"]
+[ext_resource type="Texture2D" uid="uid://c4ethsmtb8j6r" path="res://Tilesets/EnemyW.png" id="1_63kox"]
+[ext_resource type="AudioStream" uid="uid://2h87l4umiibw" path="res://Assets/Audio/SuppressedPistolShort.mp3" id="5_0bi1k"]
+[ext_resource type="AudioStream" uid="uid://b3mftvp0027u" path="res://Assets/Audio/stepSound.mp3" id="6_dylr8"]
+[ext_resource type="AudioStream" uid="uid://c30rm6g5lkcum" path="res://Assets/Audio/reloadSound.mp3" id="7_6hcre"]
+[ext_resource type="AudioStream" uid="uid://dvtclo7wugsd2" path="res://Assets/Audio/gunClickFull.wav" id="8_kakeg"]
+[ext_resource type="AudioStream" uid="uid://6cf1xl5x2jcl" path="res://Assets/Audio/shellFallShort.wav" id="9_hcm5s"]
+[ext_resource type="AudioStream" uid="uid://doxw1ln3snhxb" path="res://Assets/Audio/shellGround2.wav" id="10_3md0x"]
+[ext_resource type="AudioStream" uid="uid://dgtly1xaxsith" path="res://Assets/Audio/INVERTorButton.wav" id="11_1dq7b"]
 
 [sub_resource type="Animation" id="Animation_hagi1"]
 resource_name = "FAway"
@@ -169,16 +166,15 @@ _data = {
 "WalkTo": SubResource("Animation_3uo3k")
 }
 
-[node name="MrGraye" type="CharacterBody2D" node_paths=PackedStringArray("shSo") groups=["player"]]
+[node name="MrWhite" type="CharacterBody2D" groups=["player"]]
+position = Vector2(576, 324)
 collision_layer = 7
 collision_mask = 7
-script = ExtResource("1_2q82o")
-bullet = ExtResource("2_twoe2")
-shSo = NodePath("Audio/shellSound")
+script = ExtResource("1_5puls")
 
 [node name="Black" type="Sprite2D" parent="."]
 scale = Vector2(5, 5)
-texture = ExtResource("2_w7vk0")
+texture = ExtResource("1_63kox")
 hframes = 3
 vframes = 4
 
@@ -190,7 +186,7 @@ libraries = {
 [node name="White" type="Sprite2D" parent="."]
 visible = false
 scale = Vector2(5, 5)
-texture = ExtResource("3_xq6lr")
+texture = ExtResource("1_63kox")
 hframes = 3
 vframes = 4
 
@@ -212,59 +208,59 @@ visible = false
 polygon = PackedVector2Array(-25, 50, 16, 50, 16, 42, 11, 39, 10, 12, 29, -1, 16, -10, 18, -19, 18, -39, 8, -47, -7, -48, -20, -39, -19, -25, -17, -17, -16, -11, -21, -7, -29, -3, -15, 10, -18, 38, -25, 42)
 
 [node name="Cam" type="Camera2D" parent="."]
+enabled = false
 zoom = Vector2(1.5, 1.5)
 
 [node name="Audio" type="Node" parent="."]
 
-[node name="mgHit" type="AudioStreamPlayer" parent="Audio"]
-stream = ExtResource("5_lcgf7")
+[node name="enemyHit" type="AudioStreamPlayer" parent="Audio"]
 
 [node name="Shoot" type="AudioStreamPlayer" parent="Audio"]
-stream = ExtResource("4_aj36i")
+stream = ExtResource("5_0bi1k")
 volume_db = -14.474
 
 [node name="stepSound" type="AudioStreamPlayer" parent="Audio"]
-stream = ExtResource("5_5jq32")
+stream = ExtResource("6_dylr8")
 volume_db = -12.621
 
 [node name="reloadSound" type="AudioStreamPlayer" parent="Audio"]
-stream = ExtResource("7_vtjxh")
+stream = ExtResource("7_6hcre")
 volume_db = -22.142
 
 [node name="emptyClick" type="AudioStreamPlayer" parent="Audio"]
-stream = ExtResource("8_2on3i")
+stream = ExtResource("8_kakeg")
 volume_db = -15.034
 
 [node name="shellSound" type="AudioStreamPlayer" parent="Audio"]
-stream = ExtResource("9_drbjr")
+stream = ExtResource("9_hcm5s")
 max_polyphony = 2
 
 [node name="shellSound2" type="AudioStreamPlayer" parent="Audio"]
-stream = ExtResource("9_drbjr")
+stream = ExtResource("9_hcm5s")
 pitch_scale = 1.33
 max_polyphony = 2
 
 [node name="shellSound3" type="AudioStreamPlayer" parent="Audio"]
-stream = ExtResource("9_drbjr")
+stream = ExtResource("9_hcm5s")
 pitch_scale = 0.77
 max_polyphony = 2
 
 [node name="shellSound4" type="AudioStreamPlayer" parent="Audio"]
-stream = ExtResource("10_dk3ku")
+stream = ExtResource("10_3md0x")
 volume_db = -4.77
 pitch_scale = 0.72
 
 [node name="shellSound5" type="AudioStreamPlayer" parent="Audio"]
-stream = ExtResource("10_dk3ku")
+stream = ExtResource("10_3md0x")
 volume_db = -5.368
 
 [node name="shellSound6" type="AudioStreamPlayer" parent="Audio"]
-stream = ExtResource("10_dk3ku")
+stream = ExtResource("10_3md0x")
 volume_db = -3.355
 pitch_scale = 1.41
 
 [node name="invert" type="AudioStreamPlayer" parent="Audio"]
-stream = ExtResource("11_mm61b")
+stream = ExtResource("11_1dq7b")
 max_polyphony = 3
 
 [node name="egR" type="Marker2D" parent="."]
@@ -346,7 +342,7 @@ scale_amount_min = 0.5
 scale_amount_max = 1.3
 color = Color(0.4, 0.4, 0.4, 1)
 
-[connection signal="animation_finished" from="Black/BlAni" to="." method="_on_step_finish_black"]
-[connection signal="animation_started" from="Black/BlAni" to="." method="_on_step_start_black"]
-[connection signal="animation_finished" from="White/WhAni" to="." method="_on_step_finish_white"]
-[connection signal="animation_started" from="White/WhAni" to="." method="_on_step_start_white"]
+[connection signal="animation_finished" from="Black/BlAni" to="." method="_on_step_finish_black" flags=18]
+[connection signal="animation_started" from="Black/BlAni" to="." method="_on_step_start_black" flags=18]
+[connection signal="animation_finished" from="White/WhAni" to="." method="_on_step_finish_white" flags=18]
+[connection signal="animation_started" from="White/WhAni" to="." method="_on_step_start_white" flags=18]

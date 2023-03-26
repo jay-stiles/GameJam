@@ -48,13 +48,14 @@ modulate = Color(1, 1, 1, 0.584314)
 anchors_preset = 1
 anchor_left = 1.0
 anchor_right = 1.0
-offset_left = -134.0
+offset_left = -126.0
 offset_top = 8.0
-offset_right = 4.0
+offset_right = 12.0
 offset_bottom = 208.0
 grow_horizontal = 0
 
 [node name="vbCoin" type="VBoxContainer" parent="Overlay/Stats/hbStats"]
+visible = false
 layout_mode = 2
 
 [node name="vbHealth" type="VBoxContainer" parent="Overlay/Stats/hbStats"]
@@ -87,7 +88,7 @@ theme_override_colors/font_color = Color(0, 0, 0, 1)
 theme_override_styles/background = SubResource("StyleBoxFlat_qrfqv")
 theme_override_styles/fill = SubResource("StyleBoxFlat_rpu4b")
 step = 0.001
-value = 50.0
+value = 100.0
 fill_mode = 2
 show_percentage = false
 

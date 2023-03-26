@@ -14,6 +14,7 @@ signal bulletFired(bullet)
 signal shotTimer(STS, magAmt)
 signal reloading(reloadTime, magSize)
 signal emptyChamber()
+signal struckByBullet()
 
 var aniCut = 10
 # 0 = black   1 = white
@@ -48,6 +49,11 @@ var rng = RandomNumberGenerator.new()
 
 var particleTime = 0.2
 
+func playerFunction():
+	pass
+
+func hitByBullet():
+	emit_signal("struckByBullet")
 
 func slow():
 	speed = 100

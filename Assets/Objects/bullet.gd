@@ -40,3 +40,11 @@ func removerWall():
 
 
 
+func hitByBullet():
+	pass
+
+func _on_body_entered(body):
+	if body.has_method("enemyFunction"):
+		hitByBullet()
+	if body.has_method("playerFunction"):
+		hitByBullet()

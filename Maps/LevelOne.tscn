@@ -1,4 +1,4 @@
-[gd_scene load_steps=13 format=3 uid="uid://sbrwru4b204g"]
+[gd_scene load_steps=14 format=3 uid="uid://sbrwru4b204g"]
 
 [ext_resource type="Script" path="res://Maps/LevelOne.gd" id="1_xf8q2"]
 [ext_resource type="PackedScene" uid="uid://da1q3iiq7l08e" path="res://Main/main.tscn" id="2_fub6l"]
@@ -10,12 +10,13 @@
 [ext_resource type="FontFile" uid="uid://c5mfmgf8df6t6" path="res://Assets/Fonts/SquareCool.ttf" id="8_6t6kf"]
 [ext_resource type="Script" path="res://Maps/detect.gd" id="9_8lk1y"]
 [ext_resource type="PackedScene" uid="uid://cfhkrvrfch2ba" path="res://Assets/Objects/key_black.tscn" id="10_babs1"]
+[ext_resource type="PackedScene" uid="uid://bucw5757p8eqb" path="res://Assets/Objects/door.tscn" id="11_4qa0h"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_2oun0"]
 size = Vector2(58, 384)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_kk0kc"]
-size = Vector2(41.5, 42.5)
+size = Vector2(32, 42.5)
 
 [node name="LevelOne" type="Node2D"]
 script = ExtResource("1_xf8q2")
@@ -169,6 +170,132 @@ position = Vector2(384, 256)
 [node name="FT_IW3" parent="FloorTiles/Floors/White" instance=ExtResource("3_vxlo2")]
 position = Vector2(384, 384)
 
+[node name="FT_IW13" parent="FloorTiles/Floors/White" instance=ExtResource("3_vxlo2")]
+position = Vector2(384, -544)
+
+[node name="FT_IW14" parent="FloorTiles/Floors/White" instance=ExtResource("3_vxlo2")]
+position = Vector2(384, -672)
+
+[node name="FT_IW15" parent="FloorTiles/Floors/White" instance=ExtResource("3_vxlo2")]
+position = Vector2(384, -800)
+
+[node name="FT_IW16" parent="FloorTiles/Floors/White" instance=ExtResource("3_vxlo2")]
+position = Vector2(384, -928)
+
+[node name="FT_IW17" parent="FloorTiles/Floors/White" instance=ExtResource("3_vxlo2")]
+position = Vector2(384, -992)
+
+[node name="FT_IW18" parent="FloorTiles/Floors/White" instance=ExtResource("3_vxlo2")]
+position = Vector2(512, -544)
+
+[node name="FT_IW19" parent="FloorTiles/Floors/White" instance=ExtResource("3_vxlo2")]
+position = Vector2(512, -672)
+
+[node name="FT_IW20" parent="FloorTiles/Floors/White" instance=ExtResource("3_vxlo2")]
+position = Vector2(512, -800)
+
+[node name="FT_IW21" parent="FloorTiles/Floors/White" instance=ExtResource("3_vxlo2")]
+position = Vector2(512, -928)
+
+[node name="FT_IW22" parent="FloorTiles/Floors/White" instance=ExtResource("3_vxlo2")]
+position = Vector2(512, -992)
+
+[node name="FT_IW23" parent="FloorTiles/Floors/White" instance=ExtResource("3_vxlo2")]
+position = Vector2(640, -544)
+
+[node name="FT_IW24" parent="FloorTiles/Floors/White" instance=ExtResource("3_vxlo2")]
+position = Vector2(640, -672)
+
+[node name="FT_IW25" parent="FloorTiles/Floors/White" instance=ExtResource("3_vxlo2")]
+position = Vector2(640, -800)
+
+[node name="FT_IW26" parent="FloorTiles/Floors/White" instance=ExtResource("3_vxlo2")]
+position = Vector2(640, -928)
+
+[node name="FT_IW27" parent="FloorTiles/Floors/White" instance=ExtResource("3_vxlo2")]
+position = Vector2(640, -992)
+
+[node name="FT_IW28" parent="FloorTiles/Floors/White" instance=ExtResource("3_vxlo2")]
+position = Vector2(768, -544)
+
+[node name="FT_IW29" parent="FloorTiles/Floors/White" instance=ExtResource("3_vxlo2")]
+position = Vector2(768, -672)
+
+[node name="FT_IW30" parent="FloorTiles/Floors/White" instance=ExtResource("3_vxlo2")]
+position = Vector2(768, -800)
+
+[node name="FT_IW31" parent="FloorTiles/Floors/White" instance=ExtResource("3_vxlo2")]
+position = Vector2(768, -928)
+
+[node name="FT_IW32" parent="FloorTiles/Floors/White" instance=ExtResource("3_vxlo2")]
+position = Vector2(768, -992)
+
+[node name="FT_IW33" parent="FloorTiles/Floors/White" instance=ExtResource("3_vxlo2")]
+position = Vector2(896, -544)
+
+[node name="FT_IW34" parent="FloorTiles/Floors/White" instance=ExtResource("3_vxlo2")]
+position = Vector2(896, -672)
+
+[node name="FT_IW35" parent="FloorTiles/Floors/White" instance=ExtResource("3_vxlo2")]
+position = Vector2(896, -800)
+
+[node name="FT_IW36" parent="FloorTiles/Floors/White" instance=ExtResource("3_vxlo2")]
+position = Vector2(896, -928)
+
+[node name="FT_IW37" parent="FloorTiles/Floors/White" instance=ExtResource("3_vxlo2")]
+position = Vector2(896, -992)
+
+[node name="FT_IW38" parent="FloorTiles/Floors/White" instance=ExtResource("3_vxlo2")]
+position = Vector2(1024, -544)
+
+[node name="FT_IW39" parent="FloorTiles/Floors/White" instance=ExtResource("3_vxlo2")]
+position = Vector2(1024, -672)
+
+[node name="FT_IW40" parent="FloorTiles/Floors/White" instance=ExtResource("3_vxlo2")]
+position = Vector2(1024, -800)
+
+[node name="FT_IW41" parent="FloorTiles/Floors/White" instance=ExtResource("3_vxlo2")]
+position = Vector2(1024, -928)
+
+[node name="FT_IW42" parent="FloorTiles/Floors/White" instance=ExtResource("3_vxlo2")]
+position = Vector2(1024, -992)
+
+[node name="FT_IW43" parent="FloorTiles/Floors/White" instance=ExtResource("3_vxlo2")]
+position = Vector2(1152, -544)
+
+[node name="FT_IW44" parent="FloorTiles/Floors/White" instance=ExtResource("3_vxlo2")]
+position = Vector2(1152, -672)
+
+[node name="FT_IW45" parent="FloorTiles/Floors/White" instance=ExtResource("3_vxlo2")]
+position = Vector2(1152, -800)
+
+[node name="FT_IW46" parent="FloorTiles/Floors/White" instance=ExtResource("3_vxlo2")]
+position = Vector2(1152, -928)
+
+[node name="FT_IW47" parent="FloorTiles/Floors/White" instance=ExtResource("3_vxlo2")]
+position = Vector2(1152, -992)
+
+[node name="FT_IW48" parent="FloorTiles/Floors/White" instance=ExtResource("3_vxlo2")]
+position = Vector2(1216, -544)
+
+[node name="FT_IW53" parent="FloorTiles/Floors/White" instance=ExtResource("3_vxlo2")]
+position = Vector2(1152, -512)
+
+[node name="FT_IW54" parent="FloorTiles/Floors/White" instance=ExtResource("3_vxlo2")]
+position = Vector2(1216, -512)
+
+[node name="FT_IW49" parent="FloorTiles/Floors/White" instance=ExtResource("3_vxlo2")]
+position = Vector2(1216, -672)
+
+[node name="FT_IW50" parent="FloorTiles/Floors/White" instance=ExtResource("3_vxlo2")]
+position = Vector2(1216, -800)
+
+[node name="FT_IW51" parent="FloorTiles/Floors/White" instance=ExtResource("3_vxlo2")]
+position = Vector2(1216, -928)
+
+[node name="FT_IW52" parent="FloorTiles/Floors/White" instance=ExtResource("3_vxlo2")]
+position = Vector2(1216, -992)
+
 [node name="FT_IW4" parent="FloorTiles/Floors/White" instance=ExtResource("3_vxlo2")]
 position = Vector2(512, 384)
 
@@ -259,6 +386,15 @@ position = Vector2(352, -1024)
 [node name="FT_Wall_HorzLong7" parent="FloorTiles/Walls/Horz" instance=ExtResource("6_2kpvo")]
 position = Vector2(608, -1024)
 
+[node name="FT_Wall_HorzLong10" parent="FloorTiles/Walls/Horz" instance=ExtResource("6_2kpvo")]
+position = Vector2(384, -416)
+
+[node name="FT_Wall_HorzLong11" parent="FloorTiles/Walls/Horz" instance=ExtResource("6_2kpvo")]
+position = Vector2(640, -416)
+
+[node name="FT_Wall_HorzLong12" parent="FloorTiles/Walls/Horz" instance=ExtResource("6_2kpvo")]
+position = Vector2(896, -416)
+
 [node name="FT_Wall_HorzLong8" parent="FloorTiles/Walls/Horz" instance=ExtResource("6_2kpvo")]
 position = Vector2(864, -1024)
 
@@ -279,9 +415,9 @@ position = Vector2(1120, 512)
 [node name="Text" type="Node" parent="."]
 
 [node name="Label" type="Label" parent="Text"]
-offset_left = 416.0
+offset_left = 415.992
 offset_top = -160.0
-offset_right = 752.0
+offset_right = 751.992
 offset_bottom = 245.0
 pivot_offset = Vector2(120, 0)
 theme_override_colors/font_color = Color(0.4, 0.4, 0.4, 1)
@@ -341,7 +477,9 @@ theme_override_colors/font_color = Color(0.4, 0.4, 0.4, 1)
 theme_override_fonts/font = ExtResource("8_6t6kf")
 theme_override_font_sizes/font_size = 20
 text = "Collect the Key to
-move on!"
+move on!
+
+Doors appear once collected."
 horizontal_alignment = 1
 
 [node name="firstArea" type="Area2D" parent="detect"]
@@ -350,6 +488,7 @@ collision_mask = 4
 monitorable = false
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="detect/firstArea"]
+visible = false
 position = Vector2(928, -192)
 shape = SubResource("RectangleShape2D_2oun0")
 
@@ -374,9 +513,15 @@ How odd!"
 horizontal_alignment = 1
 
 [node name="KeyBlack" parent="." instance=ExtResource("10_babs1")]
-position = Vector2(928, 176)
+position = Vector2(928, 192)
 scale = Vector2(2, 2)
+
+[node name="Door" type="Node" parent="."]
+
+[node name="Door" parent="Door" instance=ExtResource("11_4qa0h")]
+position = Vector2(848, -704)
 
 [connection signal="INVERT" from="main" to="." method="_on_main_invert"]
 [connection signal="body_entered" from="detect/firstArea" to="detect" method="_on_area_2d_body_entered"]
 [connection signal="body_entered" from="detect/secondArea" to="detect" method="_on_second_area_body_entered"]
+[connection signal="keyBlackConnected" from="KeyBlack" to="Door/Door" method="_on_key_black_key_black_connected"]

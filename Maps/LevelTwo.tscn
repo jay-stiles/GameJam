@@ -1,0 +1,824 @@
+[gd_scene load_steps=9 format=3 uid="uid://b3n3g6xe7gnhk"]
+
+[ext_resource type="PackedScene" uid="uid://da1q3iiq7l08e" path="res://Main/main.tscn" id="1_2as1t"]
+[ext_resource type="Script" path="res://Maps/LevelTwo.gd" id="1_mqllh"]
+[ext_resource type="PackedScene" uid="uid://bryildcex7h8u" path="res://Tilesets/MapTiles/ft_iw.tscn" id="2_su7qt"]
+[ext_resource type="PackedScene" uid="uid://dna0pr32dxgr3" path="res://Tilesets/MapTiles/ft_ib.tscn" id="3_a8asl"]
+[ext_resource type="PackedScene" uid="uid://ct4q2mxcwj005" path="res://Tilesets/MapTiles/ft_wall_horz_long.tscn" id="5_xipim"]
+[ext_resource type="PackedScene" uid="uid://bywa0hhph087u" path="res://Tilesets/MapTiles/ft_wall_vert.tscn" id="6_t3qyh"]
+[ext_resource type="PackedScene" uid="uid://xuphcqfcw7pq" path="res://Tilesets/MapTiles/ft_wall_vert_long.tscn" id="7_jg5l0"]
+[ext_resource type="FontFile" uid="uid://c5mfmgf8df6t6" path="res://Assets/Fonts/SquareCool.ttf" id="8_t3xoc"]
+
+[node name="LevelTwo" type="Node2D"]
+script = ExtResource("1_mqllh")
+
+[node name="main" parent="." instance=ExtResource("1_2as1t")]
+
+[node name="Tiles" type="Node" parent="."]
+
+[node name="Floor" type="Node" parent="Tiles"]
+
+[node name="White" type="Node" parent="Tiles/Floor"]
+
+[node name="SecondRoom" type="Node" parent="Tiles/Floor/White"]
+
+[node name="FT_IW_med" parent="Tiles/Floor/White/SecondRoom" instance=ExtResource("2_su7qt")]
+position = Vector2(640, 0)
+
+[node name="FT_IW_med2" parent="Tiles/Floor/White/SecondRoom" instance=ExtResource("2_su7qt")]
+position = Vector2(512, 0)
+
+[node name="FT_IW_med3" parent="Tiles/Floor/White/SecondRoom" instance=ExtResource("2_su7qt")]
+position = Vector2(384, 0)
+
+[node name="FT_IW_med4" parent="Tiles/Floor/White/SecondRoom" instance=ExtResource("2_su7qt")]
+position = Vector2(640, -128)
+
+[node name="FT_IW_med5" parent="Tiles/Floor/White/SecondRoom" instance=ExtResource("2_su7qt")]
+position = Vector2(512, -128)
+
+[node name="FT_IW_med6" parent="Tiles/Floor/White/SecondRoom" instance=ExtResource("2_su7qt")]
+position = Vector2(384, -128)
+
+[node name="FT_IW_med7" parent="Tiles/Floor/White/SecondRoom" instance=ExtResource("2_su7qt")]
+position = Vector2(640, -256)
+
+[node name="FT_IW_med8" parent="Tiles/Floor/White/SecondRoom" instance=ExtResource("2_su7qt")]
+position = Vector2(512, -256)
+
+[node name="FT_IW_med9" parent="Tiles/Floor/White/SecondRoom" instance=ExtResource("2_su7qt")]
+position = Vector2(384, -256)
+
+[node name="FT_IW_med10" parent="Tiles/Floor/White/SecondRoom" instance=ExtResource("2_su7qt")]
+position = Vector2(640, -384)
+
+[node name="FT_IW_med11" parent="Tiles/Floor/White/SecondRoom" instance=ExtResource("2_su7qt")]
+position = Vector2(512, -384)
+
+[node name="FT_IW_med12" parent="Tiles/Floor/White/SecondRoom" instance=ExtResource("2_su7qt")]
+position = Vector2(384, -384)
+
+[node name="FT_IW_med44" parent="Tiles/Floor/White/SecondRoom" instance=ExtResource("2_su7qt")]
+position = Vector2(256, 384)
+
+[node name="FT_IW_med45" parent="Tiles/Floor/White/SecondRoom" instance=ExtResource("2_su7qt")]
+position = Vector2(128, 384)
+
+[node name="FT_IW_med46" parent="Tiles/Floor/White/SecondRoom" instance=ExtResource("2_su7qt")]
+position = Vector2(0, 384)
+
+[node name="FT_IW_med47" parent="Tiles/Floor/White/SecondRoom" instance=ExtResource("2_su7qt")]
+position = Vector2(256, 256)
+
+[node name="FT_IW_med48" parent="Tiles/Floor/White/SecondRoom" instance=ExtResource("2_su7qt")]
+position = Vector2(128, 256)
+
+[node name="FT_IW_med49" parent="Tiles/Floor/White/SecondRoom" instance=ExtResource("2_su7qt")]
+position = Vector2(0, 256)
+
+[node name="FT_IW_med50" parent="Tiles/Floor/White/SecondRoom" instance=ExtResource("2_su7qt")]
+position = Vector2(256, 128)
+
+[node name="FT_IW_med51" parent="Tiles/Floor/White/SecondRoom" instance=ExtResource("2_su7qt")]
+position = Vector2(128, 128)
+
+[node name="FT_IW_med52" parent="Tiles/Floor/White/SecondRoom" instance=ExtResource("2_su7qt")]
+position = Vector2(0, 128)
+
+[node name="FT_IW_med13" parent="Tiles/Floor/White/SecondRoom" instance=ExtResource("2_su7qt")]
+position = Vector2(1024, 0)
+
+[node name="FT_IW_med14" parent="Tiles/Floor/White/SecondRoom" instance=ExtResource("2_su7qt")]
+position = Vector2(896, 0)
+
+[node name="FT_IW_med15" parent="Tiles/Floor/White/SecondRoom" instance=ExtResource("2_su7qt")]
+position = Vector2(768, 0)
+
+[node name="FT_IW_med16" parent="Tiles/Floor/White/SecondRoom" instance=ExtResource("2_su7qt")]
+position = Vector2(1024, -128)
+
+[node name="FT_IW_med17" parent="Tiles/Floor/White/SecondRoom" instance=ExtResource("2_su7qt")]
+position = Vector2(896, -128)
+
+[node name="FT_IW_med18" parent="Tiles/Floor/White/SecondRoom" instance=ExtResource("2_su7qt")]
+position = Vector2(768, -128)
+
+[node name="FT_IW_med19" parent="Tiles/Floor/White/SecondRoom" instance=ExtResource("2_su7qt")]
+position = Vector2(1024, -256)
+
+[node name="FT_IW_med20" parent="Tiles/Floor/White/SecondRoom" instance=ExtResource("2_su7qt")]
+position = Vector2(896, -256)
+
+[node name="FT_IW_med21" parent="Tiles/Floor/White/SecondRoom" instance=ExtResource("2_su7qt")]
+position = Vector2(768, -256)
+
+[node name="FT_IW_med22" parent="Tiles/Floor/White/SecondRoom" instance=ExtResource("2_su7qt")]
+position = Vector2(1024, -384)
+
+[node name="FT_IW_med23" parent="Tiles/Floor/White/SecondRoom" instance=ExtResource("2_su7qt")]
+position = Vector2(896, -384)
+
+[node name="FT_IW_med24" parent="Tiles/Floor/White/SecondRoom" instance=ExtResource("2_su7qt")]
+position = Vector2(768, -384)
+
+[node name="FT_IW_med25" parent="Tiles/Floor/White/SecondRoom" instance=ExtResource("2_su7qt")]
+position = Vector2(256, 0)
+
+[node name="FT_IW_med26" parent="Tiles/Floor/White/SecondRoom" instance=ExtResource("2_su7qt")]
+position = Vector2(256, -128)
+
+[node name="FT_IW_med27" parent="Tiles/Floor/White/SecondRoom" instance=ExtResource("2_su7qt")]
+position = Vector2(256, -256)
+
+[node name="FT_IW_med28" parent="Tiles/Floor/White/SecondRoom" instance=ExtResource("2_su7qt")]
+position = Vector2(256, -384)
+
+[node name="FT_IW_med29" parent="Tiles/Floor/White/SecondRoom" instance=ExtResource("2_su7qt")]
+position = Vector2(128, 0)
+
+[node name="FT_IW_med41" parent="Tiles/Floor/White/SecondRoom" instance=ExtResource("2_su7qt")]
+position = Vector2(0, -112)
+
+[node name="FT_IW_med42" parent="Tiles/Floor/White/SecondRoom" instance=ExtResource("2_su7qt")]
+position = Vector2(-128, -112)
+
+[node name="FT_IW_med43" parent="Tiles/Floor/White/SecondRoom" instance=ExtResource("2_su7qt")]
+position = Vector2(-256, -112)
+
+[node name="FT_IW_med30" parent="Tiles/Floor/White/SecondRoom" instance=ExtResource("2_su7qt")]
+position = Vector2(128, -128)
+
+[node name="FT_IW_med31" parent="Tiles/Floor/White/SecondRoom" instance=ExtResource("2_su7qt")]
+position = Vector2(128, -256)
+
+[node name="FT_IW_med32" parent="Tiles/Floor/White/SecondRoom" instance=ExtResource("2_su7qt")]
+position = Vector2(128, -384)
+
+[node name="FT_IW_med33" parent="Tiles/Floor/White/SecondRoom" instance=ExtResource("2_su7qt")]
+position = Vector2(-128, 384)
+
+[node name="FT_IW_med34" parent="Tiles/Floor/White/SecondRoom" instance=ExtResource("2_su7qt")]
+position = Vector2(-128, 256)
+
+[node name="FT_IW_med35" parent="Tiles/Floor/White/SecondRoom" instance=ExtResource("2_su7qt")]
+position = Vector2(-128, 128)
+
+[node name="FT_IW_med36" parent="Tiles/Floor/White/SecondRoom" instance=ExtResource("2_su7qt")]
+position = Vector2(-128, 0)
+
+[node name="FT_IW_med37" parent="Tiles/Floor/White/SecondRoom" instance=ExtResource("2_su7qt")]
+position = Vector2(-256, 384)
+
+[node name="FT_IW_med38" parent="Tiles/Floor/White/SecondRoom" instance=ExtResource("2_su7qt")]
+position = Vector2(-256, 256)
+
+[node name="FT_IW_med53" parent="Tiles/Floor/White/SecondRoom" instance=ExtResource("2_su7qt")]
+
+[node name="FT_IW_med39" parent="Tiles/Floor/White/SecondRoom" instance=ExtResource("2_su7qt")]
+position = Vector2(-256, 128)
+
+[node name="FT_IW_med40" parent="Tiles/Floor/White/SecondRoom" instance=ExtResource("2_su7qt")]
+position = Vector2(-256, 0)
+
+[node name="FourthRoom" type="Node" parent="Tiles/Floor/White"]
+
+[node name="FT_IW_med33" parent="Tiles/Floor/White/FourthRoom" instance=ExtResource("2_su7qt")]
+position = Vector2(1024, 384)
+
+[node name="FT_IW_med34" parent="Tiles/Floor/White/FourthRoom" instance=ExtResource("2_su7qt")]
+position = Vector2(896, 384)
+
+[node name="FT_IW_med35" parent="Tiles/Floor/White/FourthRoom" instance=ExtResource("2_su7qt")]
+position = Vector2(768, 384)
+
+[node name="FT_IW_med36" parent="Tiles/Floor/White/FourthRoom" instance=ExtResource("2_su7qt")]
+position = Vector2(1024, 256)
+
+[node name="FT_IW_med37" parent="Tiles/Floor/White/FourthRoom" instance=ExtResource("2_su7qt")]
+position = Vector2(896, 256)
+
+[node name="FT_IW_med38" parent="Tiles/Floor/White/FourthRoom" instance=ExtResource("2_su7qt")]
+position = Vector2(768, 256)
+
+[node name="FT_IW_med39" parent="Tiles/Floor/White/FourthRoom" instance=ExtResource("2_su7qt")]
+position = Vector2(1024, 128)
+
+[node name="FT_IW_med40" parent="Tiles/Floor/White/FourthRoom" instance=ExtResource("2_su7qt")]
+position = Vector2(896, 128)
+
+[node name="FT_IW_med41" parent="Tiles/Floor/White/FourthRoom" instance=ExtResource("2_su7qt")]
+position = Vector2(768, 128)
+
+[node name="Black" type="Node" parent="Tiles/Floor"]
+
+[node name="InitialRoom" type="Node" parent="Tiles/Floor/Black"]
+
+[node name="FT_IB_med" parent="Tiles/Floor/Black/InitialRoom" instance=ExtResource("3_a8asl")]
+position = Vector2(640, 384)
+
+[node name="FT_IB_med2" parent="Tiles/Floor/Black/InitialRoom" instance=ExtResource("3_a8asl")]
+position = Vector2(512, 384)
+
+[node name="FT_IB_med3" parent="Tiles/Floor/Black/InitialRoom" instance=ExtResource("3_a8asl")]
+position = Vector2(384, 384)
+
+[node name="FT_IB_med4" parent="Tiles/Floor/Black/InitialRoom" instance=ExtResource("3_a8asl")]
+position = Vector2(640, 256)
+
+[node name="FT_IB_med5" parent="Tiles/Floor/Black/InitialRoom" instance=ExtResource("3_a8asl")]
+position = Vector2(512, 256)
+
+[node name="FT_IB_med6" parent="Tiles/Floor/Black/InitialRoom" instance=ExtResource("3_a8asl")]
+position = Vector2(384, 256)
+
+[node name="FT_IB_med7" parent="Tiles/Floor/Black/InitialRoom" instance=ExtResource("3_a8asl")]
+position = Vector2(640, 128)
+
+[node name="FT_IB_med8" parent="Tiles/Floor/Black/InitialRoom" instance=ExtResource("3_a8asl")]
+position = Vector2(512, 128)
+
+[node name="FT_IB_med9" parent="Tiles/Floor/Black/InitialRoom" instance=ExtResource("3_a8asl")]
+position = Vector2(384, 128)
+
+[node name="ThirdRoom" type="Node" parent="Tiles/Floor/Black"]
+
+[node name="FT_IB_med10" parent="Tiles/Floor/Black/ThirdRoom" instance=ExtResource("3_a8asl")]
+position = Vector2(0, -240)
+
+[node name="FT_IB_med11" parent="Tiles/Floor/Black/ThirdRoom" instance=ExtResource("3_a8asl")]
+position = Vector2(-128, -240)
+
+[node name="FT_IB_med12" parent="Tiles/Floor/Black/ThirdRoom" instance=ExtResource("3_a8asl")]
+position = Vector2(-256, -240)
+
+[node name="FT_IB_med13" parent="Tiles/Floor/Black/ThirdRoom" instance=ExtResource("3_a8asl")]
+position = Vector2(0, -368)
+
+[node name="FT_IB_med14" parent="Tiles/Floor/Black/ThirdRoom" instance=ExtResource("3_a8asl")]
+position = Vector2(-128, -368)
+
+[node name="FT_IB_med15" parent="Tiles/Floor/Black/ThirdRoom" instance=ExtResource("3_a8asl")]
+position = Vector2(-256, -368)
+
+[node name="FT_IB_med16" parent="Tiles/Floor/Black/ThirdRoom" instance=ExtResource("3_a8asl")]
+position = Vector2(0, -496)
+
+[node name="FT_IB_med17" parent="Tiles/Floor/Black/ThirdRoom" instance=ExtResource("3_a8asl")]
+position = Vector2(-128, -496)
+
+[node name="FT_IB_med18" parent="Tiles/Floor/Black/ThirdRoom" instance=ExtResource("3_a8asl")]
+position = Vector2(-256, -496)
+
+[node name="FT_IB_med19" parent="Tiles/Floor/Black/ThirdRoom" instance=ExtResource("3_a8asl")]
+position = Vector2(384, -512)
+
+[node name="FT_IB_med20" parent="Tiles/Floor/Black/ThirdRoom" instance=ExtResource("3_a8asl")]
+position = Vector2(256, -512)
+
+[node name="FT_IB_med21" parent="Tiles/Floor/Black/ThirdRoom" instance=ExtResource("3_a8asl")]
+position = Vector2(128, -512)
+
+[node name="FT_IB_med22" parent="Tiles/Floor/Black/ThirdRoom" instance=ExtResource("3_a8asl")]
+position = Vector2(384, -640)
+
+[node name="FT_IB_med23" parent="Tiles/Floor/Black/ThirdRoom" instance=ExtResource("3_a8asl")]
+position = Vector2(256, -640)
+
+[node name="FT_IB_med24" parent="Tiles/Floor/Black/ThirdRoom" instance=ExtResource("3_a8asl")]
+position = Vector2(128, -640)
+
+[node name="FT_IB_med25" parent="Tiles/Floor/Black/ThirdRoom" instance=ExtResource("3_a8asl")]
+position = Vector2(384, -768)
+
+[node name="FT_IB_med26" parent="Tiles/Floor/Black/ThirdRoom" instance=ExtResource("3_a8asl")]
+position = Vector2(256, -768)
+
+[node name="FT_IB_med27" parent="Tiles/Floor/Black/ThirdRoom" instance=ExtResource("3_a8asl")]
+position = Vector2(128, -768)
+
+[node name="FT_IB_med28" parent="Tiles/Floor/Black/ThirdRoom" instance=ExtResource("3_a8asl")]
+position = Vector2(768, -512)
+
+[node name="FT_IB_med29" parent="Tiles/Floor/Black/ThirdRoom" instance=ExtResource("3_a8asl")]
+position = Vector2(640, -512)
+
+[node name="FT_IB_med30" parent="Tiles/Floor/Black/ThirdRoom" instance=ExtResource("3_a8asl")]
+position = Vector2(512, -512)
+
+[node name="FT_IB_med31" parent="Tiles/Floor/Black/ThirdRoom" instance=ExtResource("3_a8asl")]
+position = Vector2(768, -640)
+
+[node name="FT_IB_med32" parent="Tiles/Floor/Black/ThirdRoom" instance=ExtResource("3_a8asl")]
+position = Vector2(640, -640)
+
+[node name="FT_IB_med33" parent="Tiles/Floor/Black/ThirdRoom" instance=ExtResource("3_a8asl")]
+position = Vector2(512, -640)
+
+[node name="FT_IB_med34" parent="Tiles/Floor/Black/ThirdRoom" instance=ExtResource("3_a8asl")]
+position = Vector2(768, -768)
+
+[node name="FT_IB_med35" parent="Tiles/Floor/Black/ThirdRoom" instance=ExtResource("3_a8asl")]
+position = Vector2(640, -768)
+
+[node name="FT_IB_med36" parent="Tiles/Floor/Black/ThirdRoom" instance=ExtResource("3_a8asl")]
+position = Vector2(512, -768)
+
+[node name="FT_IB_med37" parent="Tiles/Floor/Black/ThirdRoom" instance=ExtResource("3_a8asl")]
+position = Vector2(1152, -512)
+
+[node name="FT_IB_med38" parent="Tiles/Floor/Black/ThirdRoom" instance=ExtResource("3_a8asl")]
+position = Vector2(1024, -512)
+
+[node name="FT_IB_med39" parent="Tiles/Floor/Black/ThirdRoom" instance=ExtResource("3_a8asl")]
+position = Vector2(896, -512)
+
+[node name="FT_IB_med40" parent="Tiles/Floor/Black/ThirdRoom" instance=ExtResource("3_a8asl")]
+position = Vector2(1152, -640)
+
+[node name="FT_IB_med41" parent="Tiles/Floor/Black/ThirdRoom" instance=ExtResource("3_a8asl")]
+position = Vector2(1024, -640)
+
+[node name="FT_IB_med42" parent="Tiles/Floor/Black/ThirdRoom" instance=ExtResource("3_a8asl")]
+position = Vector2(896, -640)
+
+[node name="FT_IB_med43" parent="Tiles/Floor/Black/ThirdRoom" instance=ExtResource("3_a8asl")]
+position = Vector2(1152, -768)
+
+[node name="FT_IB_med44" parent="Tiles/Floor/Black/ThirdRoom" instance=ExtResource("3_a8asl")]
+position = Vector2(1024, -768)
+
+[node name="FT_IB_med45" parent="Tiles/Floor/Black/ThirdRoom" instance=ExtResource("3_a8asl")]
+position = Vector2(896, -768)
+
+[node name="FT_IB_med46" parent="Tiles/Floor/Black/ThirdRoom" instance=ExtResource("3_a8asl")]
+position = Vector2(1408, -512)
+
+[node name="FT_IB_med47" parent="Tiles/Floor/Black/ThirdRoom" instance=ExtResource("3_a8asl")]
+position = Vector2(1280, -512)
+
+[node name="FT_IB_med48" parent="Tiles/Floor/Black/ThirdRoom" instance=ExtResource("3_a8asl")]
+position = Vector2(1152, -512)
+
+[node name="FT_IB_med49" parent="Tiles/Floor/Black/ThirdRoom" instance=ExtResource("3_a8asl")]
+position = Vector2(1408, -640)
+
+[node name="FT_IB_med50" parent="Tiles/Floor/Black/ThirdRoom" instance=ExtResource("3_a8asl")]
+position = Vector2(1280, -640)
+
+[node name="FT_IB_med51" parent="Tiles/Floor/Black/ThirdRoom" instance=ExtResource("3_a8asl")]
+position = Vector2(1152, -640)
+
+[node name="FT_IB_med52" parent="Tiles/Floor/Black/ThirdRoom" instance=ExtResource("3_a8asl")]
+position = Vector2(1408, -768)
+
+[node name="FT_IB_med53" parent="Tiles/Floor/Black/ThirdRoom" instance=ExtResource("3_a8asl")]
+position = Vector2(1280, -768)
+
+[node name="FT_IB_med54" parent="Tiles/Floor/Black/ThirdRoom" instance=ExtResource("3_a8asl")]
+position = Vector2(1152, -768)
+
+[node name="FT_IB_med55" parent="Tiles/Floor/Black/ThirdRoom" instance=ExtResource("3_a8asl")]
+position = Vector2(1408, -128)
+
+[node name="FT_IB_med56" parent="Tiles/Floor/Black/ThirdRoom" instance=ExtResource("3_a8asl")]
+position = Vector2(1280, -128)
+
+[node name="FT_IB_med57" parent="Tiles/Floor/Black/ThirdRoom" instance=ExtResource("3_a8asl")]
+position = Vector2(1152, -128)
+
+[node name="FT_IB_med58" parent="Tiles/Floor/Black/ThirdRoom" instance=ExtResource("3_a8asl")]
+position = Vector2(1408, -256)
+
+[node name="FT_IB_med59" parent="Tiles/Floor/Black/ThirdRoom" instance=ExtResource("3_a8asl")]
+position = Vector2(1280, -256)
+
+[node name="FT_IB_med60" parent="Tiles/Floor/Black/ThirdRoom" instance=ExtResource("3_a8asl")]
+position = Vector2(1152, -256)
+
+[node name="FT_IB_med61" parent="Tiles/Floor/Black/ThirdRoom" instance=ExtResource("3_a8asl")]
+position = Vector2(1408, -384)
+
+[node name="FT_IB_med62" parent="Tiles/Floor/Black/ThirdRoom" instance=ExtResource("3_a8asl")]
+position = Vector2(1280, -384)
+
+[node name="FT_IB_med63" parent="Tiles/Floor/Black/ThirdRoom" instance=ExtResource("3_a8asl")]
+position = Vector2(1152, -384)
+
+[node name="FT_IB_med64" parent="Tiles/Floor/Black/ThirdRoom" instance=ExtResource("3_a8asl")]
+position = Vector2(1408, 256)
+
+[node name="FT_IB_med65" parent="Tiles/Floor/Black/ThirdRoom" instance=ExtResource("3_a8asl")]
+position = Vector2(1280, 256)
+
+[node name="FT_IB_med66" parent="Tiles/Floor/Black/ThirdRoom" instance=ExtResource("3_a8asl")]
+position = Vector2(1152, 256)
+
+[node name="FT_IB_med67" parent="Tiles/Floor/Black/ThirdRoom" instance=ExtResource("3_a8asl")]
+position = Vector2(1408, 128)
+
+[node name="FT_IB_med68" parent="Tiles/Floor/Black/ThirdRoom" instance=ExtResource("3_a8asl")]
+position = Vector2(1280, 128)
+
+[node name="FT_IB_med69" parent="Tiles/Floor/Black/ThirdRoom" instance=ExtResource("3_a8asl")]
+position = Vector2(1152, 128)
+
+[node name="FT_IB_med70" parent="Tiles/Floor/Black/ThirdRoom" instance=ExtResource("3_a8asl")]
+position = Vector2(1408, 0)
+
+[node name="FT_IB_med71" parent="Tiles/Floor/Black/ThirdRoom" instance=ExtResource("3_a8asl")]
+position = Vector2(1280, 0)
+
+[node name="FT_IB_med72" parent="Tiles/Floor/Black/ThirdRoom" instance=ExtResource("3_a8asl")]
+position = Vector2(1152, 0)
+
+[node name="FT_IB_med73" parent="Tiles/Floor/Black/ThirdRoom" instance=ExtResource("3_a8asl")]
+position = Vector2(0, -512)
+
+[node name="FT_IB_med74" parent="Tiles/Floor/Black/ThirdRoom" instance=ExtResource("3_a8asl")]
+position = Vector2(-128, -512)
+
+[node name="FT_IB_med75" parent="Tiles/Floor/Black/ThirdRoom" instance=ExtResource("3_a8asl")]
+position = Vector2(-256, -512)
+
+[node name="FT_IB_med76" parent="Tiles/Floor/Black/ThirdRoom" instance=ExtResource("3_a8asl")]
+position = Vector2(0, -640)
+
+[node name="FT_IB_med77" parent="Tiles/Floor/Black/ThirdRoom" instance=ExtResource("3_a8asl")]
+position = Vector2(-128, -640)
+
+[node name="FT_IB_med78" parent="Tiles/Floor/Black/ThirdRoom" instance=ExtResource("3_a8asl")]
+position = Vector2(-256, -640)
+
+[node name="FT_IB_med79" parent="Tiles/Floor/Black/ThirdRoom" instance=ExtResource("3_a8asl")]
+position = Vector2(0, -768)
+
+[node name="FT_IB_med80" parent="Tiles/Floor/Black/ThirdRoom" instance=ExtResource("3_a8asl")]
+position = Vector2(-128, -768)
+
+[node name="FT_IB_med81" parent="Tiles/Floor/Black/ThirdRoom" instance=ExtResource("3_a8asl")]
+position = Vector2(-256, -768)
+
+[node name="FT_IB_med82" parent="Tiles/Floor/Black/ThirdRoom" instance=ExtResource("3_a8asl")]
+position = Vector2(1408, 640)
+
+[node name="FT_IB_med83" parent="Tiles/Floor/Black/ThirdRoom" instance=ExtResource("3_a8asl")]
+position = Vector2(1280, 640)
+
+[node name="FT_IB_med84" parent="Tiles/Floor/Black/ThirdRoom" instance=ExtResource("3_a8asl")]
+position = Vector2(1152, 640)
+
+[node name="FT_IB_med85" parent="Tiles/Floor/Black/ThirdRoom" instance=ExtResource("3_a8asl")]
+position = Vector2(1408, 512)
+
+[node name="FT_IB_med86" parent="Tiles/Floor/Black/ThirdRoom" instance=ExtResource("3_a8asl")]
+position = Vector2(1280, 512)
+
+[node name="FT_IB_med87" parent="Tiles/Floor/Black/ThirdRoom" instance=ExtResource("3_a8asl")]
+position = Vector2(1152, 512)
+
+[node name="FT_IB_med88" parent="Tiles/Floor/Black/ThirdRoom" instance=ExtResource("3_a8asl")]
+position = Vector2(1408, 384)
+
+[node name="FT_IB_med89" parent="Tiles/Floor/Black/ThirdRoom" instance=ExtResource("3_a8asl")]
+position = Vector2(1280, 384)
+
+[node name="FT_IB_med90" parent="Tiles/Floor/Black/ThirdRoom" instance=ExtResource("3_a8asl")]
+position = Vector2(1152, 384)
+
+[node name="FT_IB_med97" parent="Tiles/Floor/Black/ThirdRoom" instance=ExtResource("3_a8asl")]
+position = Vector2(1024, 768)
+
+[node name="FT_IB_med98" parent="Tiles/Floor/Black/ThirdRoom" instance=ExtResource("3_a8asl")]
+position = Vector2(896, 768)
+
+[node name="FT_IB_med99" parent="Tiles/Floor/Black/ThirdRoom" instance=ExtResource("3_a8asl")]
+position = Vector2(768, 768)
+
+[node name="FT_IB_med100" parent="Tiles/Floor/Black/ThirdRoom" instance=ExtResource("3_a8asl")]
+position = Vector2(1024, 640)
+
+[node name="FT_IB_med101" parent="Tiles/Floor/Black/ThirdRoom" instance=ExtResource("3_a8asl")]
+position = Vector2(896, 640)
+
+[node name="FT_IB_med139" parent="Tiles/Floor/Black/ThirdRoom" instance=ExtResource("3_a8asl")]
+position = Vector2(-128, 640)
+
+[node name="FT_IB_med140" parent="Tiles/Floor/Black/ThirdRoom" instance=ExtResource("3_a8asl")]
+position = Vector2(-128, 512)
+
+[node name="FT_IB_med141" parent="Tiles/Floor/Black/ThirdRoom" instance=ExtResource("3_a8asl")]
+position = Vector2(-256, 640)
+
+[node name="FT_IB_med142" parent="Tiles/Floor/Black/ThirdRoom" instance=ExtResource("3_a8asl")]
+position = Vector2(-256, 512)
+
+[node name="FT_IB_med143" parent="Tiles/Floor/Black/ThirdRoom" instance=ExtResource("3_a8asl")]
+position = Vector2(-128, 896)
+
+[node name="FT_IB_med144" parent="Tiles/Floor/Black/ThirdRoom" instance=ExtResource("3_a8asl")]
+position = Vector2(-128, 768)
+
+[node name="FT_IB_med145" parent="Tiles/Floor/Black/ThirdRoom" instance=ExtResource("3_a8asl")]
+position = Vector2(-256, 896)
+
+[node name="FT_IB_med146" parent="Tiles/Floor/Black/ThirdRoom" instance=ExtResource("3_a8asl")]
+position = Vector2(-256, 768)
+
+[node name="FT_IB_med102" parent="Tiles/Floor/Black/ThirdRoom" instance=ExtResource("3_a8asl")]
+position = Vector2(768, 640)
+
+[node name="FT_IB_med103" parent="Tiles/Floor/Black/ThirdRoom" instance=ExtResource("3_a8asl")]
+position = Vector2(1024, 512)
+
+[node name="FT_IB_med104" parent="Tiles/Floor/Black/ThirdRoom" instance=ExtResource("3_a8asl")]
+position = Vector2(896, 512)
+
+[node name="FT_IB_med105" parent="Tiles/Floor/Black/ThirdRoom" instance=ExtResource("3_a8asl")]
+position = Vector2(768, 512)
+
+[node name="FT_IB_med106" parent="Tiles/Floor/Black/ThirdRoom" instance=ExtResource("3_a8asl")]
+position = Vector2(1024, 896)
+
+[node name="FT_IB_med107" parent="Tiles/Floor/Black/ThirdRoom" instance=ExtResource("3_a8asl")]
+position = Vector2(896, 896)
+
+[node name="FT_IB_med108" parent="Tiles/Floor/Black/ThirdRoom" instance=ExtResource("3_a8asl")]
+position = Vector2(768, 896)
+
+[node name="FT_IB_med109" parent="Tiles/Floor/Black/ThirdRoom" instance=ExtResource("3_a8asl")]
+position = Vector2(1024, 768)
+
+[node name="FT_IB_med110" parent="Tiles/Floor/Black/ThirdRoom" instance=ExtResource("3_a8asl")]
+position = Vector2(896, 768)
+
+[node name="FT_IB_med111" parent="Tiles/Floor/Black/ThirdRoom" instance=ExtResource("3_a8asl")]
+position = Vector2(768, 768)
+
+[node name="FT_IB_med112" parent="Tiles/Floor/Black/ThirdRoom" instance=ExtResource("3_a8asl")]
+position = Vector2(1024, 640)
+
+[node name="FT_IB_med113" parent="Tiles/Floor/Black/ThirdRoom" instance=ExtResource("3_a8asl")]
+position = Vector2(896, 640)
+
+[node name="FT_IB_med114" parent="Tiles/Floor/Black/ThirdRoom" instance=ExtResource("3_a8asl")]
+position = Vector2(768, 640)
+
+[node name="FT_IB_med115" parent="Tiles/Floor/Black/ThirdRoom" instance=ExtResource("3_a8asl")]
+position = Vector2(640, 896)
+
+[node name="FT_IB_med116" parent="Tiles/Floor/Black/ThirdRoom" instance=ExtResource("3_a8asl")]
+position = Vector2(512, 896)
+
+[node name="FT_IB_med117" parent="Tiles/Floor/Black/ThirdRoom" instance=ExtResource("3_a8asl")]
+position = Vector2(384, 896)
+
+[node name="FT_IB_med118" parent="Tiles/Floor/Black/ThirdRoom" instance=ExtResource("3_a8asl")]
+position = Vector2(640, 768)
+
+[node name="FT_IB_med119" parent="Tiles/Floor/Black/ThirdRoom" instance=ExtResource("3_a8asl")]
+position = Vector2(512, 768)
+
+[node name="FT_IB_med120" parent="Tiles/Floor/Black/ThirdRoom" instance=ExtResource("3_a8asl")]
+position = Vector2(384, 768)
+
+[node name="FT_IB_med121" parent="Tiles/Floor/Black/ThirdRoom" instance=ExtResource("3_a8asl")]
+position = Vector2(640, 640)
+
+[node name="FT_IB_med122" parent="Tiles/Floor/Black/ThirdRoom" instance=ExtResource("3_a8asl")]
+position = Vector2(512, 640)
+
+[node name="FT_IB_med123" parent="Tiles/Floor/Black/ThirdRoom" instance=ExtResource("3_a8asl")]
+position = Vector2(384, 640)
+
+[node name="FT_IB_med124" parent="Tiles/Floor/Black/ThirdRoom" instance=ExtResource("3_a8asl")]
+position = Vector2(256, 896)
+
+[node name="FT_IB_med125" parent="Tiles/Floor/Black/ThirdRoom" instance=ExtResource("3_a8asl")]
+position = Vector2(128, 896)
+
+[node name="FT_IB_med126" parent="Tiles/Floor/Black/ThirdRoom" instance=ExtResource("3_a8asl")]
+position = Vector2(0, 896)
+
+[node name="FT_IB_med127" parent="Tiles/Floor/Black/ThirdRoom" instance=ExtResource("3_a8asl")]
+position = Vector2(256, 768)
+
+[node name="FT_IB_med128" parent="Tiles/Floor/Black/ThirdRoom" instance=ExtResource("3_a8asl")]
+position = Vector2(128, 768)
+
+[node name="FT_IB_med129" parent="Tiles/Floor/Black/ThirdRoom" instance=ExtResource("3_a8asl")]
+position = Vector2(0, 768)
+
+[node name="FT_IB_med130" parent="Tiles/Floor/Black/ThirdRoom" instance=ExtResource("3_a8asl")]
+position = Vector2(256, 640)
+
+[node name="FT_IB_med131" parent="Tiles/Floor/Black/ThirdRoom" instance=ExtResource("3_a8asl")]
+position = Vector2(128, 640)
+
+[node name="FT_IB_med132" parent="Tiles/Floor/Black/ThirdRoom" instance=ExtResource("3_a8asl")]
+position = Vector2(0, 640)
+
+[node name="FT_IB_med91" parent="Tiles/Floor/Black/ThirdRoom" instance=ExtResource("3_a8asl")]
+position = Vector2(1408, 896)
+
+[node name="FT_IB_med92" parent="Tiles/Floor/Black/ThirdRoom" instance=ExtResource("3_a8asl")]
+position = Vector2(1280, 896)
+
+[node name="FT_IB_med93" parent="Tiles/Floor/Black/ThirdRoom" instance=ExtResource("3_a8asl")]
+position = Vector2(1152, 896)
+
+[node name="FT_IB_med94" parent="Tiles/Floor/Black/ThirdRoom" instance=ExtResource("3_a8asl")]
+position = Vector2(1408, 768)
+
+[node name="FT_IB_med95" parent="Tiles/Floor/Black/ThirdRoom" instance=ExtResource("3_a8asl")]
+position = Vector2(1280, 768)
+
+[node name="FT_IB_med96" parent="Tiles/Floor/Black/ThirdRoom" instance=ExtResource("3_a8asl")]
+position = Vector2(1152, 768)
+
+[node name="FT_IB_med133" parent="Tiles/Floor/Black/ThirdRoom" instance=ExtResource("3_a8asl")]
+position = Vector2(640, 512)
+
+[node name="FT_IB_med134" parent="Tiles/Floor/Black/ThirdRoom" instance=ExtResource("3_a8asl")]
+position = Vector2(512, 512)
+
+[node name="FT_IB_med135" parent="Tiles/Floor/Black/ThirdRoom" instance=ExtResource("3_a8asl")]
+position = Vector2(384, 512)
+
+[node name="FT_IB_med136" parent="Tiles/Floor/Black/ThirdRoom" instance=ExtResource("3_a8asl")]
+position = Vector2(256, 512)
+
+[node name="FT_IB_med137" parent="Tiles/Floor/Black/ThirdRoom" instance=ExtResource("3_a8asl")]
+position = Vector2(128, 512)
+
+[node name="FT_IB_med138" parent="Tiles/Floor/Black/ThirdRoom" instance=ExtResource("3_a8asl")]
+position = Vector2(0, 512)
+
+[node name="Walls" type="Node" parent="Tiles"]
+
+[node name="Horz" type="Node" parent="Tiles/Walls"]
+
+[node name="FT_Wall_HorzLong" parent="Tiles/Walls/Horz" instance=ExtResource("5_xipim")]
+position = Vector2(-256, 1024)
+
+[node name="FT_Wall_HorzLong19" parent="Tiles/Walls/Horz" instance=ExtResource("5_xipim")]
+position = Vector2(-128, -128)
+
+[node name="FT_Wall_HorzLong20" parent="Tiles/Walls/Horz" instance=ExtResource("5_xipim")]
+position = Vector2(-288, -128)
+
+[node name="FT_Wall_HorzLong2" parent="Tiles/Walls/Horz" instance=ExtResource("5_xipim")]
+position = Vector2(0, 1024)
+
+[node name="FT_Wall_HorzLong23" parent="Tiles/Walls/Horz" instance=ExtResource("5_xipim")]
+position = Vector2(112, 512)
+
+[node name="FT_Wall_HorzLong24" parent="Tiles/Walls/Horz" instance=ExtResource("5_xipim")]
+position = Vector2(32, 512)
+
+[node name="FT_Wall_HorzLong3" parent="Tiles/Walls/Horz" instance=ExtResource("5_xipim")]
+position = Vector2(256, 1024)
+
+[node name="FT_Wall_HorzLong21" parent="Tiles/Walls/Horz" instance=ExtResource("5_xipim")]
+position = Vector2(384, 512)
+
+[node name="FT_Wall_HorzLong22" parent="Tiles/Walls/Horz" instance=ExtResource("5_xipim")]
+position = Vector2(528, 512)
+
+[node name="FT_Wall_HorzLong25" parent="Tiles/Walls/Horz" instance=ExtResource("5_xipim")]
+position = Vector2(768, 128)
+
+[node name="FT_Wall_HorzLong26" parent="Tiles/Walls/Horz" instance=ExtResource("5_xipim")]
+position = Vector2(912, 128)
+
+[node name="FT_Wall_HorzLong4" parent="Tiles/Walls/Horz" instance=ExtResource("5_xipim")]
+position = Vector2(512, 1024)
+
+[node name="FT_Wall_HorzLong5" parent="Tiles/Walls/Horz" instance=ExtResource("5_xipim")]
+position = Vector2(768, 1024)
+
+[node name="FT_Wall_HorzLong15" parent="Tiles/Walls/Horz" instance=ExtResource("5_xipim")]
+position = Vector2(128, -416)
+
+[node name="FT_Wall_HorzLong16" parent="Tiles/Walls/Horz" instance=ExtResource("5_xipim")]
+position = Vector2(384, -416)
+
+[node name="FT_Wall_HorzLong17" parent="Tiles/Walls/Horz" instance=ExtResource("5_xipim")]
+position = Vector2(640, -416)
+
+[node name="FT_Wall_HorzLong18" parent="Tiles/Walls/Horz" instance=ExtResource("5_xipim")]
+position = Vector2(896, -416)
+
+[node name="FT_Wall_HorzLong6" parent="Tiles/Walls/Horz" instance=ExtResource("5_xipim")]
+position = Vector2(1024, 1024)
+
+[node name="FT_Wall_HorzLong7" parent="Tiles/Walls/Horz" instance=ExtResource("5_xipim")]
+position = Vector2(1280, 1024)
+
+[node name="FT_Wall_HorzLong8" parent="Tiles/Walls/Horz" instance=ExtResource("5_xipim")]
+position = Vector2(-256, -800)
+
+[node name="FT_Wall_HorzLong9" parent="Tiles/Walls/Horz" instance=ExtResource("5_xipim")]
+position = Vector2(0, -800)
+
+[node name="FT_Wall_HorzLong10" parent="Tiles/Walls/Horz" instance=ExtResource("5_xipim")]
+position = Vector2(256, -800)
+
+[node name="FT_Wall_HorzLong11" parent="Tiles/Walls/Horz" instance=ExtResource("5_xipim")]
+position = Vector2(512, -800)
+
+[node name="FT_Wall_HorzLong12" parent="Tiles/Walls/Horz" instance=ExtResource("5_xipim")]
+position = Vector2(768, -800)
+
+[node name="FT_Wall_HorzLong13" parent="Tiles/Walls/Horz" instance=ExtResource("5_xipim")]
+position = Vector2(1024, -800)
+
+[node name="FT_Wall_HorzLong14" parent="Tiles/Walls/Horz" instance=ExtResource("5_xipim")]
+position = Vector2(1280, -800)
+
+[node name="Vert" type="Node" parent="Tiles/Walls"]
+
+[node name="FT_Wall_Vert" parent="Tiles/Walls/Vert" instance=ExtResource("6_t3qyh")]
+position = Vector2(-288, -800)
+
+[node name="FT_Wall_VertLong" parent="Tiles/Walls/Vert" instance=ExtResource("7_jg5l0")]
+position = Vector2(-288, 800)
+
+[node name="FT_Wall_VertLong2" parent="Tiles/Walls/Vert" instance=ExtResource("7_jg5l0")]
+position = Vector2(-288, 544)
+
+[node name="FT_Wall_VertLong3" parent="Tiles/Walls/Vert" instance=ExtResource("7_jg5l0")]
+position = Vector2(-288, 288)
+
+[node name="FT_Wall_VertLong15" parent="Tiles/Walls/Vert" instance=ExtResource("7_jg5l0")]
+position = Vector2(368, 288)
+
+[node name="FT_Wall_VertLong16" parent="Tiles/Walls/Vert" instance=ExtResource("7_jg5l0")]
+position = Vector2(368, 128)
+
+[node name="FT_Wall_VertLong19" parent="Tiles/Walls/Vert" instance=ExtResource("7_jg5l0")]
+position = Vector2(1136, 288)
+
+[node name="FT_Wall_VertLong20" parent="Tiles/Walls/Vert" instance=ExtResource("7_jg5l0")]
+position = Vector2(1136, 128)
+
+[node name="FT_Wall_VertLong17" parent="Tiles/Walls/Vert" instance=ExtResource("7_jg5l0")]
+position = Vector2(752, 128)
+
+[node name="FT_Wall_VertLong18" parent="Tiles/Walls/Vert" instance=ExtResource("7_jg5l0")]
+position = Vector2(752, 288)
+
+[node name="FT_Wall_VertLong5" parent="Tiles/Walls/Vert" instance=ExtResource("7_jg5l0")]
+position = Vector2(-288, -224)
+
+[node name="FT_Wall_VertLong6" parent="Tiles/Walls/Vert" instance=ExtResource("7_jg5l0")]
+position = Vector2(-288, -480)
+
+[node name="FT_Wall_VertLong7" parent="Tiles/Walls/Vert" instance=ExtResource("7_jg5l0")]
+position = Vector2(-288, -736)
+
+[node name="FT_Wall_VertLong4" parent="Tiles/Walls/Vert" instance=ExtResource("7_jg5l0")]
+position = Vector2(-288, 32)
+
+[node name="FT_Wall_Vert2" parent="Tiles/Walls/Vert" instance=ExtResource("6_t3qyh")]
+position = Vector2(1536, -800)
+
+[node name="FT_Wall_VertLong8" parent="Tiles/Walls/Vert" instance=ExtResource("7_jg5l0")]
+position = Vector2(1536, 800)
+
+[node name="FT_Wall_VertLong9" parent="Tiles/Walls/Vert" instance=ExtResource("7_jg5l0")]
+position = Vector2(1536, 544)
+
+[node name="FT_Wall_VertLong10" parent="Tiles/Walls/Vert" instance=ExtResource("7_jg5l0")]
+position = Vector2(1536, 288)
+
+[node name="FT_Wall_VertLong21" parent="Tiles/Walls/Vert" instance=ExtResource("7_jg5l0")]
+position = Vector2(1136, -128)
+
+[node name="FT_Wall_VertLong11" parent="Tiles/Walls/Vert" instance=ExtResource("7_jg5l0")]
+position = Vector2(1536, -224)
+
+[node name="FT_Wall_VertLong12" parent="Tiles/Walls/Vert" instance=ExtResource("7_jg5l0")]
+position = Vector2(1536, -480)
+
+[node name="FT_Wall_VertLong13" parent="Tiles/Walls/Vert" instance=ExtResource("7_jg5l0")]
+position = Vector2(1536, -736)
+
+[node name="FT_Wall_VertLong14" parent="Tiles/Walls/Vert" instance=ExtResource("7_jg5l0")]
+position = Vector2(1536, 32)
+
+[node name="Text" type="Node" parent="."]
+
+[node name="instruct1" type="Label" parent="Text"]
+offset_left = 448.0
+offset_top = 416.0
+offset_right = 722.0
+offset_bottom = 821.0
+theme_override_colors/font_color = Color(0.4, 0.4, 0.4, 1)
+theme_override_fonts/font = ExtResource("8_t3xoc")
+theme_override_font_sizes/font_size = 20
+text = "Sometimes Inverting
+Doesn't help you see
+youself..."
+horizontal_alignment = 1
+
+[connection signal="INVERT" from="main" to="." method="_on_main_invert"]

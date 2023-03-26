@@ -1,0 +1,22 @@
+[gd_scene load_steps=4 format=3 uid="uid://p8t8ldehw62u"]
+
+[ext_resource type="Script" path="res://Assets/Objects/key_white.gd" id="1_dk1sh"]
+[ext_resource type="Texture2D" uid="uid://8axslq6mvckj" path="res://Assets/Objects/KeyWhite.png" id="1_nbmx2"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_yugak"]
+size = Vector2(10.8, 19.2)
+
+[node name="key_white" type="Node2D"]
+script = ExtResource("1_dk1sh")
+
+[node name="KeySprite" type="Sprite2D" parent="."]
+texture = ExtResource("1_nbmx2")
+
+[node name="KeyArea" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="KeyArea"]
+visible = false
+position = Vector2(-1, -9.6)
+shape = SubResource("RectangleShape2D_yugak")
+
+[connection signal="body_entered" from="KeyArea" to="." method="_on_key_area_body_entered"]

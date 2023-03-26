@@ -7,7 +7,7 @@ func _ready():
 
 
 
+
 func _on_main_invert():
-	#print("Flipping Command sent....")
 	get_tree().call_group("FTIB", "flip")
 	get_tree().call_group("FTIW", "flip")
