@@ -33,3 +33,10 @@ func setInvert(invertr):
 
 func setRot(deg):
 	rotation_degrees = deg
+
+func removerWall():
+	#emit_signal()
+	queue_free()
+
+
+

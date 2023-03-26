@@ -1,0 +1,25 @@
+[gd_scene load_steps=6 format=3 uid="uid://sbrwru4b204g"]
+
+[ext_resource type="Script" path="res://Maps/LevelOne.gd" id="1_xf8q2"]
+[ext_resource type="PackedScene" uid="uid://da1q3iiq7l08e" path="res://Main/main.tscn" id="2_fub6l"]
+[ext_resource type="PackedScene" uid="uid://bryildcex7h8u" path="res://Tilesets/MapTiles/ft_iw.tscn" id="3_vxlo2"]
+[ext_resource type="PackedScene" uid="uid://dna0pr32dxgr3" path="res://Tilesets/MapTiles/ft_ib.tscn" id="4_0q1eg"]
+[ext_resource type="PackedScene" uid="uid://bywa0hhph087u" path="res://Tilesets/MapTiles/ft_wall_vert.tscn" id="4_4j8hs"]
+
+[node name="LevelOne" type="Node2D"]
+script = ExtResource("1_xf8q2")
+
+[node name="FloorTiles" type="Node" parent="."]
+
+[node name="FT_IW" parent="FloorTiles" instance=ExtResource("3_vxlo2")]
+position = Vector2(512, 256)
+
+[node name="FT_IB" parent="FloorTiles" instance=ExtResource("4_0q1eg")]
+position = Vector2(512, 160)
+
+[node name="FT_Wall_Vert" parent="FloorTiles" instance=ExtResource("4_4j8hs")]
+position = Vector2(496, 304)
+
+[node name="main" parent="." instance=ExtResource("2_fub6l")]
+
+[connection signal="INVERT" from="main" to="." method="_on_main_invert"]

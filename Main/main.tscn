@@ -261,9 +261,9 @@ anchor_left = 1.0
 anchor_top = 1.0
 anchor_right = 1.0
 anchor_bottom = 1.0
-offset_left = -236.0
+offset_left = -242.0
 offset_top = -213.0
-offset_right = -160.0
+offset_right = -150.0
 offset_bottom = -120.0
 grow_horizontal = 0
 grow_vertical = 0
@@ -278,7 +278,7 @@ theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
 theme_override_constants/outline_size = 2
 theme_override_constants/shadow_outline_size = 1
 theme_override_fonts/font = ExtResource("6_hwxh4")
-theme_override_font_sizes/font_size = 40
+theme_override_font_sizes/font_size = 65
 text = "11"
 horizontal_alignment = 1
 vertical_alignment = 1
@@ -313,6 +313,7 @@ vertical_alignment = 1
 uppercase = true
 
 [connection signal="bulletFired" from="MrGraye" to="." method="_on_mr_graye_bullet_fired"]
+[connection signal="inverted" from="MrGraye" to="." method="_on_mr_graye_inverted"]
 [connection signal="inverted" from="MrGraye" to="Overlay/TimerBars" method="_on_mr_graye_inverted"]
 [connection signal="reloading" from="MrGraye" to="Overlay/TimerBars" method="_on_mr_graye_reloading"]
 [connection signal="shotTimer" from="MrGraye" to="Overlay/TimerBars" method="_on_mr_graye_shot_timer"]

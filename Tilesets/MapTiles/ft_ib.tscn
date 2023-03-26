@@ -1,0 +1,14 @@
+[gd_scene load_steps=2 format=3 uid="uid://dna0pr32dxgr3"]
+
+[ext_resource type="Script" path="res://Tilesets/MapTiles/ft_ib.gd" id="1_572r5"]
+
+[node name="FT_IB_med" type="Node2D" groups=["FTIB"]]
+script = ExtResource("1_572r5")
+
+[node name="C" type="Sprite2D" parent="."]
+z_index = -2
+
+[node name="ColorRect" type="ColorRect" parent="C"]
+offset_right = 100.0
+offset_bottom = 100.0
+color = Color(0, 0, 0, 1)

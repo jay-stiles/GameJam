@@ -4,6 +4,8 @@ extends Node2D
 @onready var bullet_CPU = $bulletCPU
 @onready var MrGraye = $MrGraye
 
+signal INVERT()
+
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	#var bulletShooter = 
@@ -20,4 +22,4 @@ func _on_mr_graye_bullet_fired(bullet):
 
 
 func _on_mr_graye_inverted(invT_s, invert):
-	pass # Replace with function body.
+	emit_signal("INVERT")

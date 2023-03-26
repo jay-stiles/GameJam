@@ -1,0 +1,48 @@
+[gd_scene load_steps=7 format=3 uid="uid://bywa0hhph087u"]
+
+[ext_resource type="Script" path="res://Tilesets/MapTiles/FT_Wall_Vert.gd" id="1_bjxhe"]
+[ext_resource type="Texture2D" uid="uid://dqqan735gao4e" path="res://Tilesets/G.png" id="2_inmad"]
+[ext_resource type="AudioStream" uid="uid://d21s27tghyv4b" path="res://Assets/Audio/BulletImpactChar.mp3" id="3_h6uci"]
+[ext_resource type="AudioStream" uid="uid://bafl50vtonwmj" path="res://Assets/Audio/hitWall.wav" id="4_ct5u3"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_rasju"]
+size = Vector2(30.3928, 98.4461)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_fp0r1"]
+size = Vector2(31.8898, 99.8014)
+
+[node name="FT_Wall_Vert" type="Node2D"]
+script = ExtResource("1_bjxhe")
+
+[node name="wall" type="Sprite2D" parent="."]
+scale = Vector2(2, 6.25)
+texture = ExtResource("2_inmad")
+
+[node name="RigidBody2D" type="RigidBody2D" parent="."]
+freeze = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="RigidBody2D"]
+visible = false
+shape = SubResource("RectangleShape2D_rasju")
+
+[node name="Area2D" type="Area2D" parent="."]
+collision_layer = 2
+collision_mask = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+visible = false
+position = Vector2(0.0114403, 0.0363731)
+shape = SubResource("RectangleShape2D_fp0r1")
+
+[node name="Audio" type="Node" parent="."]
+
+[node name="impactPlayer" type="AudioStreamPlayer2D" parent="Audio"]
+stream = ExtResource("3_h6uci")
+
+[node name="impactWall" type="AudioStreamPlayer2D" parent="Audio"]
+stream = ExtResource("4_ct5u3")
+volume_db = 0.671
+max_polyphony = 6
+
+[connection signal="area_entered" from="Area2D" to="." method="_on_area_2d_area_entered"]
+[connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]

@@ -18,7 +18,7 @@ var shot = false
 var reload = false
 var invert = false
 var speedShoot = 4.5
-var speedReload = .9
+var speedReload = .75
 var speedInvert = .6
 
 func _physics_process(delta):
@@ -34,7 +34,6 @@ func _physics_process(delta):
 		if reloadProgress >=100:
 			reload = false
 	if invert:
-		print("INVERT?")
 		invertProgress += speedInvert
 		if invertProgress >=100:
 			invert = false
@@ -54,7 +53,6 @@ func invertTimer():
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	#$TimerBox/vbShot/shotTimer.max_value = 0.4
 	$ReloadWarn.visible = false
 	pass
 

@@ -1,0 +1,14 @@
+[gd_scene load_steps=2 format=3 uid="uid://bryildcex7h8u"]
+
+[ext_resource type="Script" path="res://Tilesets/MapTiles/ft_iw.gd" id="1_pq5mo"]
+
+[node name="FT_IW_med" type="Node2D" groups=["FTIW"]]
+script = ExtResource("1_pq5mo")
+
+[node name="C" type="Sprite2D" parent="."]
+z_index = -2
+
+[node name="ColorRect" type="ColorRect" parent="C"]
+show_behind_parent = true
+offset_right = 100.0
+offset_bottom = 100.0

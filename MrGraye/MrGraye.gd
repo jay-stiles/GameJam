@@ -46,26 +46,46 @@ var eg = last
 
 var rng = RandomNumberGenerator.new()
 
+var particleTime = 0.2
+
+
+func slow():
+	speed = 100
+func regSpeed():
+	speed = 200
+func fast():
+	speed = 300
+
+
 #get gun direction
 func get_eg():
 	if eg == 0:
-		egMarker = $egR#.position
-		print("Switching to egR")
+		egMarker = $egR
 		bullet_angle = 90
+		
+		$egR/psst.emitting = true
+		await get_tree().create_timer(particleTime).timeout
+		$egR/psst.emitting = false
 	elif eg == 1:
-		egMarker = $egL#.position
-		print("Switching to egL")
+		egMarker = $egL
 		bullet_angle = -90
+		$egL/psst.emitting = true
+		await get_tree().create_timer(particleTime).timeout
+		$egL/psst.emitting = false
 	elif eg == 2:
-		egMarker = $egA#.position
-		print("Switching to egA")
+		egMarker = $egA
 		bullet_angle = 0
+		$egA/psst.emitting = true
+		await get_tree().create_timer(particleTime).timeout
+		$egA/psst.emitting = false
 	elif eg == 3:
-		egMarker = $egT#.position
-		print("Switching to egT")
+		egMarker = $egT
 		bullet_angle = 180
-	print(eg)
-	print(egMarker.global_position)
+		$egT/psst.emitting = true
+		await get_tree().create_timer(particleTime).timeout
+		$egT/psst.emitting = false
+	#print(eg)
+	#print(egMarker.global_position)
 
 
 #get bullet direction
@@ -85,13 +105,22 @@ func get_bullet_direction():
 
 
 func shellHitGround():
-	shellPlay = rng.randi_range(0,2)
+	shellPlay = rng.randi_range(0,5)
 	if shellPlay == 0:
 		$Audio/shellSound.play()
 	elif shellPlay == 1:
 		$Audio/shellSound2.play()
 	elif shellPlay == 2:
 		$Audio/shellSound3.play()
+	elif shellPlay == 3:
+		await get_tree().create_timer(.6).timeout
+		$Audio/shellSound4.play()
+	elif shellPlay == 4:
+		await get_tree().create_timer(.4).timeout
+		$Audio/shellSound5.play()
+	elif shellPlay == 5:
+		await get_tree().create_timer(.8).timeout
+		$Audio/shellSound6.play()
 
 
 func reloadTimerBewl():
@@ -192,17 +221,17 @@ func aniPlayer():
 		$Black.visible = true
 		$White.visible = false
 		eg = last
-		if vx > aniCut and vx > vy:
+		if vx > aniCut and abs(vx) > abs(vy):
 			$Black/BlAni.play("WalkR")
 			#$Audio/stepSound.play()
 			last = 0
-		elif vx < -aniCut and vx < vy:
+		elif vx < -aniCut and abs(vx) > abs(vy):
 			$Black/BlAni.play("WalkL")
 			last = 1
-		elif vy < -aniCut and vy < vx:
+		elif vy < -aniCut and abs(vy) > abs(vx):
 			$Black/BlAni.play("WalkAway")
 			last = 2
-		elif vy > aniCut and vy > vx:
+		elif vy > aniCut and abs(vy) > abs(vx):
 			$Black/BlAni.play("WalkTo")
 			last = 3
 		
@@ -219,16 +248,16 @@ func aniPlayer():
 		eg = last
 		$Black.visible = false
 		$White.visible = true
-		if vx > aniCut and vx > vy:
+		if vx > aniCut and abs(vx) > abs(vy):
 			$White/WhAni.play("WalkR")
 			last = 0
-		elif vx < -aniCut and vx < vy:
+		elif vx < -aniCut and abs(vx) > abs(vy):
 			$White/WhAni.play("WalkL")
 			last = 1
-		elif vy < -aniCut and vy < vx:
+		elif vy < -aniCut and abs(vy) > abs(vx):
 			$White/WhAni.play("WalkAway")
 			last = 2
-		elif vy > aniCut and vy > vx:
+		elif vy > aniCut and abs(vy) > abs(vx):
 			$White/WhAni.play("WalkTo")
 			last = 3
 		
@@ -262,6 +291,14 @@ func _unhandled_input(event):
 		shoot()
 	if Input.is_action_pressed("reload"):
 		reload()
+	if Input.is_action_just_pressed("slow"):
+		slow()
+	if Input.is_action_just_released("slow"):
+		regSpeed()
+	if Input.is_action_just_pressed("fast"):
+		fast()
+	if Input.is_action_just_released("fast"):
+		regSpeed()
 
 func shoot():
 	

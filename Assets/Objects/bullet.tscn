@@ -13,6 +13,8 @@ colors = PackedColorArray(0.999999, 0.458546, 0.195946, 1, 0.761567, 3.44135e-06
 [node name="bullet" type="Area2D"]
 position = Vector2(0, -27)
 scale = Vector2(0.6, 0.6)
+collision_layer = 14
+collision_mask = 14
 script = ExtResource("1_lr101")
 
 [node name="bulletShape" type="CollisionShape2D" parent="."]
