@@ -10,5 +10,5 @@ z_index = -2
 
 [node name="ColorRect" type="ColorRect" parent="C"]
 show_behind_parent = true
-offset_right = 100.0
-offset_bottom = 100.0
+offset_right = 128.0
+offset_bottom = 128.0

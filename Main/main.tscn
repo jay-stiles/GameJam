@@ -1,8 +1,9 @@
-[gd_scene load_steps=10 format=3 uid="uid://da1q3iiq7l08e"]
+[gd_scene load_steps=11 format=3 uid="uid://da1q3iiq7l08e"]
 
 [ext_resource type="PackedScene" uid="uid://cpohawpci1tla" path="res://MrGraye/MrGraye.tscn" id="1_cnnti"]
 [ext_resource type="Script" path="res://Main/main.gd" id="1_nt5yq"]
 [ext_resource type="PackedScene" uid="uid://di4wdilv7jfi2" path="res://Assets/Objects/bulletCPU.tscn" id="2_6ut24"]
+[ext_resource type="Script" path="res://Main/Stats.gd" id="4_0vn1d"]
 [ext_resource type="Script" path="res://Main/TimerBars.gd" id="4_np42f"]
 [ext_resource type="FontFile" uid="uid://c5mfmgf8df6t6" path="res://Assets/Fonts/SquareCool.ttf" id="5_85njg"]
 [ext_resource type="FontFile" uid="uid://bh64enw3tjsj7" path="res://Assets/Fonts/DashDot.ttf" id="6_hwxh4"]
@@ -24,9 +25,9 @@ expand_margin_right = 3.0
 expand_margin_bottom = 3.0
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_rpu4b"]
-bg_color = Color(0.921569, 0, 0, 0.843137)
-corner_radius_top_left = 6
-corner_radius_top_right = 6
+bg_color = Color(0.921569, 0, 0, 0.827451)
+corner_radius_bottom_right = 6
+corner_radius_bottom_left = 6
 
 [node name="main" type="Node2D"]
 script = ExtResource("1_nt5yq")
@@ -38,6 +39,61 @@ position = Vector2(576, 324)
 
 [node name="Overlay" type="CanvasLayer" parent="."]
 layer = 3
+
+[node name="Stats" type="Node" parent="Overlay"]
+script = ExtResource("4_0vn1d")
+
+[node name="hbStats" type="HBoxContainer" parent="Overlay/Stats"]
+modulate = Color(1, 1, 1, 0.584314)
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -134.0
+offset_top = 8.0
+offset_right = 4.0
+offset_bottom = 208.0
+grow_horizontal = 0
+
+[node name="vbCoin" type="VBoxContainer" parent="Overlay/Stats/hbStats"]
+layout_mode = 2
+
+[node name="vbHealth" type="VBoxContainer" parent="Overlay/Stats/hbStats"]
+layout_mode = 2
+
+[node name="Action" type="Label" parent="Overlay/Stats/hbStats/vbHealth"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.4, 0.4, 0.4, 1)
+theme_override_colors/font_shadow_color = Color(1, 1, 1, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 2
+theme_override_fonts/font = ExtResource("5_85njg")
+theme_override_font_sizes/font_size = 24
+text = "Health "
+uppercase = true
+
+[node name="HBoxContainer" type="HBoxContainer" parent="Overlay/Stats/hbStats/vbHealth"]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="spacer" type="Label" parent="Overlay/Stats/hbStats/vbHealth/HBoxContainer"]
+layout_mode = 2
+text = "     "
+
+[node name="healthBar" type="ProgressBar" parent="Overlay/Stats/hbStats/vbHealth/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 1
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_styles/background = SubResource("StyleBoxFlat_qrfqv")
+theme_override_styles/fill = SubResource("StyleBoxFlat_rpu4b")
+step = 0.001
+value = 50.0
+fill_mode = 2
+show_percentage = false
+
+[node name="spacer2" type="Label" parent="Overlay/Stats/hbStats/vbHealth/HBoxContainer"]
+layout_mode = 2
+text = "        "
 
 [node name="TimerBars" type="Node" parent="Overlay"]
 script = ExtResource("4_np42f")

@@ -6,16 +6,17 @@
 [ext_resource type="AudioStream" uid="uid://bafl50vtonwmj" path="res://Assets/Audio/hitWall.wav" id="4_ct5u3"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_rasju"]
-size = Vector2(30.3928, 98.4461)
+size = Vector2(30.3928, 62.4706)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_fp0r1"]
-size = Vector2(31.8898, 99.8014)
+size = Vector2(31.8898, 63.8864)
 
-[node name="FT_Wall_Vert" type="Node2D"]
+[node name="FT_Wall_Vert" type="Node2D" groups=["wall"]]
 script = ExtResource("1_bjxhe")
 
 [node name="wall" type="Sprite2D" parent="."]
-scale = Vector2(2, 6.25)
+position = Vector2(16, 32)
+scale = Vector2(2, 4)
 texture = ExtResource("2_inmad")
 
 [node name="RigidBody2D" type="RigidBody2D" parent="."]
@@ -23,6 +24,7 @@ freeze = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="RigidBody2D"]
 visible = false
+position = Vector2(16, 32.0662)
 shape = SubResource("RectangleShape2D_rasju")
 
 [node name="Area2D" type="Area2D" parent="."]
@@ -31,7 +33,7 @@ collision_mask = 2
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
 visible = false
-position = Vector2(0.0114403, 0.0363731)
+position = Vector2(16.0114, 31.9246)
 shape = SubResource("RectangleShape2D_fp0r1")
 
 [node name="Audio" type="Node" parent="."]
@@ -41,7 +43,7 @@ stream = ExtResource("3_h6uci")
 
 [node name="impactWall" type="AudioStreamPlayer2D" parent="Audio"]
 stream = ExtResource("4_ct5u3")
-volume_db = 0.671
+volume_db = -12.064
 max_polyphony = 6
 
 [connection signal="area_entered" from="Area2D" to="." method="_on_area_2d_area_entered"]

@@ -1,25 +1,382 @@
-[gd_scene load_steps=6 format=3 uid="uid://sbrwru4b204g"]
+[gd_scene load_steps=13 format=3 uid="uid://sbrwru4b204g"]
 
 [ext_resource type="Script" path="res://Maps/LevelOne.gd" id="1_xf8q2"]
 [ext_resource type="PackedScene" uid="uid://da1q3iiq7l08e" path="res://Main/main.tscn" id="2_fub6l"]
 [ext_resource type="PackedScene" uid="uid://bryildcex7h8u" path="res://Tilesets/MapTiles/ft_iw.tscn" id="3_vxlo2"]
 [ext_resource type="PackedScene" uid="uid://dna0pr32dxgr3" path="res://Tilesets/MapTiles/ft_ib.tscn" id="4_0q1eg"]
 [ext_resource type="PackedScene" uid="uid://bywa0hhph087u" path="res://Tilesets/MapTiles/ft_wall_vert.tscn" id="4_4j8hs"]
+[ext_resource type="PackedScene" uid="uid://xuphcqfcw7pq" path="res://Tilesets/MapTiles/ft_wall_vert_long.tscn" id="4_nyg5k"]
+[ext_resource type="PackedScene" uid="uid://ct4q2mxcwj005" path="res://Tilesets/MapTiles/ft_wall_horz_long.tscn" id="6_2kpvo"]
+[ext_resource type="FontFile" uid="uid://c5mfmgf8df6t6" path="res://Assets/Fonts/SquareCool.ttf" id="8_6t6kf"]
+[ext_resource type="Script" path="res://Maps/detect.gd" id="9_8lk1y"]
+[ext_resource type="PackedScene" uid="uid://cfhkrvrfch2ba" path="res://Assets/Objects/key_black.tscn" id="10_babs1"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_2oun0"]
+size = Vector2(58, 384)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_kk0kc"]
+size = Vector2(41.5, 42.5)
 
 [node name="LevelOne" type="Node2D"]
 script = ExtResource("1_xf8q2")
 
 [node name="FloorTiles" type="Node" parent="."]
 
-[node name="FT_IW" parent="FloorTiles" instance=ExtResource("3_vxlo2")]
+[node name="Floors" type="Node" parent="FloorTiles"]
+
+[node name="Black" type="Node" parent="FloorTiles/Floors"]
+
+[node name="FT_IB" parent="FloorTiles/Floors/Black" instance=ExtResource("4_0q1eg")]
+position = Vector2(384, -128)
+
+[node name="FT_IB2" parent="FloorTiles/Floors/Black" instance=ExtResource("4_0q1eg")]
+position = Vector2(384, -256)
+
+[node name="FT_IB3" parent="FloorTiles/Floors/Black" instance=ExtResource("4_0q1eg")]
+position = Vector2(384, -384)
+
+[node name="FT_IB4" parent="FloorTiles/Floors/Black" instance=ExtResource("4_0q1eg")]
+position = Vector2(512, -128)
+
+[node name="FT_IB5" parent="FloorTiles/Floors/Black" instance=ExtResource("4_0q1eg")]
+position = Vector2(512, -256)
+
+[node name="FT_IB6" parent="FloorTiles/Floors/Black" instance=ExtResource("4_0q1eg")]
+position = Vector2(512, -384)
+
+[node name="FT_IB7" parent="FloorTiles/Floors/Black" instance=ExtResource("4_0q1eg")]
+position = Vector2(640, -128)
+
+[node name="FT_IB8" parent="FloorTiles/Floors/Black" instance=ExtResource("4_0q1eg")]
+position = Vector2(640, -256)
+
+[node name="FT_IB9" parent="FloorTiles/Floors/Black" instance=ExtResource("4_0q1eg")]
+position = Vector2(640, -384)
+
+[node name="FT_IB10" parent="FloorTiles/Floors/Black" instance=ExtResource("4_0q1eg")]
+position = Vector2(768, -128)
+
+[node name="FT_IB11" parent="FloorTiles/Floors/Black" instance=ExtResource("4_0q1eg")]
+position = Vector2(768, -256)
+
+[node name="FT_IB12" parent="FloorTiles/Floors/Black" instance=ExtResource("4_0q1eg")]
+position = Vector2(768, -384)
+
+[node name="FT_IB13" parent="FloorTiles/Floors/Black" instance=ExtResource("4_0q1eg")]
+position = Vector2(832, -128)
+
+[node name="FT_IB14" parent="FloorTiles/Floors/Black" instance=ExtResource("4_0q1eg")]
+position = Vector2(832, -256)
+
+[node name="FT_IB15" parent="FloorTiles/Floors/Black" instance=ExtResource("4_0q1eg")]
+position = Vector2(832, -384)
+
+[node name="FT_IB16" parent="FloorTiles/Floors/Black" instance=ExtResource("4_0q1eg")]
+position = Vector2(960, -128)
+
+[node name="FT_IB17" parent="FloorTiles/Floors/Black" instance=ExtResource("4_0q1eg")]
+position = Vector2(960, -256)
+
+[node name="FT_IB18" parent="FloorTiles/Floors/Black" instance=ExtResource("4_0q1eg")]
+position = Vector2(960, -384)
+
+[node name="FT_IB19" parent="FloorTiles/Floors/Black" instance=ExtResource("4_0q1eg")]
+position = Vector2(1088, -128)
+
+[node name="FT_IB20" parent="FloorTiles/Floors/Black" instance=ExtResource("4_0q1eg")]
+position = Vector2(1088, -256)
+
+[node name="FT_IB21" parent="FloorTiles/Floors/Black" instance=ExtResource("4_0q1eg")]
+position = Vector2(1088, -384)
+
+[node name="FT_IB22" parent="FloorTiles/Floors/Black" instance=ExtResource("4_0q1eg")]
+position = Vector2(1216, -128)
+
+[node name="FT_IB23" parent="FloorTiles/Floors/Black" instance=ExtResource("4_0q1eg")]
+position = Vector2(1216, -256)
+
+[node name="FT_IB24" parent="FloorTiles/Floors/Black" instance=ExtResource("4_0q1eg")]
+position = Vector2(1216, -384)
+
+[node name="FT_IB25" parent="FloorTiles/Floors/Black" instance=ExtResource("4_0q1eg")]
+position = Vector2(800, 384)
+
+[node name="FT_IB26" parent="FloorTiles/Floors/Black" instance=ExtResource("4_0q1eg")]
+position = Vector2(800, 256)
+
+[node name="FT_IB27" parent="FloorTiles/Floors/Black" instance=ExtResource("4_0q1eg")]
+position = Vector2(800, 128)
+
+[node name="FT_IB28" parent="FloorTiles/Floors/Black" instance=ExtResource("4_0q1eg")]
+position = Vector2(928, 384)
+
+[node name="FT_IB29" parent="FloorTiles/Floors/Black" instance=ExtResource("4_0q1eg")]
+position = Vector2(928, 256)
+
+[node name="FT_IB30" parent="FloorTiles/Floors/Black" instance=ExtResource("4_0q1eg")]
+position = Vector2(928, 128)
+
+[node name="FT_IB31" parent="FloorTiles/Floors/Black" instance=ExtResource("4_0q1eg")]
+position = Vector2(1056, 384)
+
+[node name="FT_IB32" parent="FloorTiles/Floors/Black" instance=ExtResource("4_0q1eg")]
+position = Vector2(1056, 256)
+
+[node name="FT_IB33" parent="FloorTiles/Floors/Black" instance=ExtResource("4_0q1eg")]
+position = Vector2(1056, 128)
+
+[node name="FT_IB34" parent="FloorTiles/Floors/Black" instance=ExtResource("4_0q1eg")]
+position = Vector2(1184, 384)
+
+[node name="FT_IB35" parent="FloorTiles/Floors/Black" instance=ExtResource("4_0q1eg")]
+position = Vector2(1184, 256)
+
+[node name="FT_IB36" parent="FloorTiles/Floors/Black" instance=ExtResource("4_0q1eg")]
+position = Vector2(1184, 128)
+
+[node name="FT_IB37" parent="FloorTiles/Floors/Black" instance=ExtResource("4_0q1eg")]
+position = Vector2(800, 32)
+
+[node name="FT_IB38" parent="FloorTiles/Floors/Black" instance=ExtResource("4_0q1eg")]
+position = Vector2(928, 32)
+
+[node name="FT_IB39" parent="FloorTiles/Floors/Black" instance=ExtResource("4_0q1eg")]
+position = Vector2(1056, 0)
+
+[node name="FT_IB40" parent="FloorTiles/Floors/Black" instance=ExtResource("4_0q1eg")]
+position = Vector2(1184, 0)
+
+[node name="FT_IB41" parent="FloorTiles/Floors/Black" instance=ExtResource("4_0q1eg")]
+position = Vector2(1216, 0)
+
+[node name="FT_IB42" parent="FloorTiles/Floors/Black" instance=ExtResource("4_0q1eg")]
+position = Vector2(1216, 128)
+
+[node name="FT_IB43" parent="FloorTiles/Floors/Black" instance=ExtResource("4_0q1eg")]
+position = Vector2(1216, 256)
+
+[node name="FT_IB44" parent="FloorTiles/Floors/Black" instance=ExtResource("4_0q1eg")]
+position = Vector2(1216, 384)
+
+[node name="White" type="Node" parent="FloorTiles/Floors"]
+
+[node name="FT_IW" parent="FloorTiles/Floors/White" instance=ExtResource("3_vxlo2")]
 position = Vector2(512, 256)
 
-[node name="FT_IB" parent="FloorTiles" instance=ExtResource("4_0q1eg")]
-position = Vector2(512, 160)
+[node name="FT_IW2" parent="FloorTiles/Floors/White" instance=ExtResource("3_vxlo2")]
+position = Vector2(384, 256)
 
-[node name="FT_Wall_Vert" parent="FloorTiles" instance=ExtResource("4_4j8hs")]
-position = Vector2(496, 304)
+[node name="FT_IW3" parent="FloorTiles/Floors/White" instance=ExtResource("3_vxlo2")]
+position = Vector2(384, 384)
+
+[node name="FT_IW4" parent="FloorTiles/Floors/White" instance=ExtResource("3_vxlo2")]
+position = Vector2(512, 384)
+
+[node name="FT_IW5" parent="FloorTiles/Floors/White" instance=ExtResource("3_vxlo2")]
+position = Vector2(640, 384)
+
+[node name="FT_IW6" parent="FloorTiles/Floors/White" instance=ExtResource("3_vxlo2")]
+position = Vector2(640, 256)
+
+[node name="FT_IW7" parent="FloorTiles/Floors/White" instance=ExtResource("3_vxlo2")]
+position = Vector2(640, 128)
+
+[node name="FT_IW8" parent="FloorTiles/Floors/White" instance=ExtResource("3_vxlo2")]
+position = Vector2(512, 128)
+
+[node name="FT_IW9" parent="FloorTiles/Floors/White" instance=ExtResource("3_vxlo2")]
+position = Vector2(384, 128)
+
+[node name="FT_IW10" parent="FloorTiles/Floors/White" instance=ExtResource("3_vxlo2")]
+position = Vector2(384, 0)
+
+[node name="FT_IW11" parent="FloorTiles/Floors/White" instance=ExtResource("3_vxlo2")]
+position = Vector2(512, 0)
+
+[node name="FT_IW12" parent="FloorTiles/Floors/White" instance=ExtResource("3_vxlo2")]
+position = Vector2(640, 0)
+
+[node name="Walls" type="Node" parent="FloorTiles"]
+
+[node name="Vert" type="Node" parent="FloorTiles/Walls"]
+
+[node name="FT_Wall_VertLong" parent="FloorTiles/Walls/Vert" instance=ExtResource("4_nyg5k")]
+position = Vector2(352, 256)
+
+[node name="FT_Wall_VertLong7" parent="FloorTiles/Walls/Vert" instance=ExtResource("4_nyg5k")]
+position = Vector2(768, 256)
+
+[node name="FT_Wall_VertLong8" parent="FloorTiles/Walls/Vert" instance=ExtResource("4_nyg5k")]
+position = Vector2(768, 0)
+
+[node name="FT_Wall_VertLong2" parent="FloorTiles/Walls/Vert" instance=ExtResource("4_nyg5k")]
+position = Vector2(352, 0)
+
+[node name="FT_Wall_VertLong3" parent="FloorTiles/Walls/Vert" instance=ExtResource("4_nyg5k")]
+position = Vector2(352, -256)
+
+[node name="FT_Wall_VertLong4" parent="FloorTiles/Walls/Vert" instance=ExtResource("4_nyg5k")]
+position = Vector2(352, -512)
+
+[node name="FT_Wall_VertLong5" parent="FloorTiles/Walls/Vert" instance=ExtResource("4_nyg5k")]
+position = Vector2(352, -768)
+
+[node name="FT_Wall_VertLong6" parent="FloorTiles/Walls/Vert" instance=ExtResource("4_nyg5k")]
+position = Vector2(352, -1024)
+
+[node name="FT_Wall_VertLong9" parent="FloorTiles/Walls/Vert" instance=ExtResource("4_nyg5k")]
+position = Vector2(1344, -1024)
+
+[node name="FT_Wall_VertLong10" parent="FloorTiles/Walls/Vert" instance=ExtResource("4_nyg5k")]
+position = Vector2(1344, -768)
+
+[node name="FT_Wall_VertLong11" parent="FloorTiles/Walls/Vert" instance=ExtResource("4_nyg5k")]
+position = Vector2(1344, -544)
+
+[node name="FT_Wall_VertLong12" parent="FloorTiles/Walls/Vert" instance=ExtResource("4_nyg5k")]
+position = Vector2(1344, -288)
+
+[node name="FT_Wall_VertLong13" parent="FloorTiles/Walls/Vert" instance=ExtResource("4_nyg5k")]
+position = Vector2(1344, -48)
+
+[node name="FT_Wall_VertLong14" parent="FloorTiles/Walls/Vert" instance=ExtResource("4_nyg5k")]
+position = Vector2(1344, 208)
+
+[node name="FT_Wall_Vert" parent="FloorTiles/Walls/Vert" instance=ExtResource("4_4j8hs")]
+position = Vector2(1344, 464)
+
+[node name="Horz" type="Node" parent="FloorTiles/Walls"]
+
+[node name="FT_Wall_HorzLong" parent="FloorTiles/Walls/Horz" instance=ExtResource("6_2kpvo")]
+position = Vector2(352, 512)
+
+[node name="FT_Wall_HorzLong5" parent="FloorTiles/Walls/Horz" instance=ExtResource("6_2kpvo")]
+position = Vector2(800, 0)
+
+[node name="FT_Wall_HorzLong6" parent="FloorTiles/Walls/Horz" instance=ExtResource("6_2kpvo")]
+position = Vector2(352, -1024)
+
+[node name="FT_Wall_HorzLong7" parent="FloorTiles/Walls/Horz" instance=ExtResource("6_2kpvo")]
+position = Vector2(608, -1024)
+
+[node name="FT_Wall_HorzLong8" parent="FloorTiles/Walls/Horz" instance=ExtResource("6_2kpvo")]
+position = Vector2(864, -1024)
+
+[node name="FT_Wall_HorzLong9" parent="FloorTiles/Walls/Horz" instance=ExtResource("6_2kpvo")]
+position = Vector2(1120, -1024)
+
+[node name="FT_Wall_HorzLong2" parent="FloorTiles/Walls/Horz" instance=ExtResource("6_2kpvo")]
+position = Vector2(608, 512)
+
+[node name="FT_Wall_HorzLong3" parent="FloorTiles/Walls/Horz" instance=ExtResource("6_2kpvo")]
+position = Vector2(864, 512)
+
+[node name="FT_Wall_HorzLong4" parent="FloorTiles/Walls/Horz" instance=ExtResource("6_2kpvo")]
+position = Vector2(1120, 512)
 
 [node name="main" parent="." instance=ExtResource("2_fub6l")]
 
+[node name="Text" type="Node" parent="."]
+
+[node name="Label" type="Label" parent="Text"]
+offset_left = 416.0
+offset_top = -160.0
+offset_right = 752.0
+offset_bottom = 245.0
+pivot_offset = Vector2(120, 0)
+theme_override_colors/font_color = Color(0.4, 0.4, 0.4, 1)
+theme_override_fonts/font = ExtResource("8_6t6kf")
+theme_override_font_sizes/font_size = 20
+text = "Right Click to ...
+
+'R' to Reload
+
+
+
+
+(or spacebar)
+Left Click to Shoot
+
+
+
+Hold Control to Walk Quickly
+
+Hold Shift to Walk Slowly
+"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Label3" type="Label" parent="Text"]
+offset_left = 464.0
+offset_top = 416.0
+offset_right = 704.0
+offset_bottom = 821.0
+theme_override_colors/font_color = Color(0.4, 0.4, 0.4, 1)
+theme_override_fonts/font = ExtResource("8_6t6kf")
+theme_override_font_sizes/font_size = 20
+text = "W, A, S, D to Move"
+horizontal_alignment = 1
+
+[node name="Label2" type="Label" parent="Text"]
+modulate = Color(0, 0, 0, 1)
+offset_left = 672.0
+offset_top = -160.0
+offset_right = 912.0
+offset_bottom = 29.0
+theme_override_colors/font_color = Color(0.4, 0.4, 0.4, 1)
+theme_override_fonts/font = ExtResource("8_6t6kf")
+theme_override_font_sizes/font_size = 20
+text = " INVERT!"
+
+[node name="detect" type="Node" parent="."]
+script = ExtResource("9_8lk1y")
+
+[node name="instruct1" type="Label" parent="detect"]
+visible = false
+offset_left = 832.0
+offset_top = 320.0
+offset_right = 1072.0
+offset_bottom = 725.0
+theme_override_colors/font_color = Color(0.4, 0.4, 0.4, 1)
+theme_override_fonts/font = ExtResource("8_6t6kf")
+theme_override_font_sizes/font_size = 20
+text = "Collect the Key to
+move on!"
+horizontal_alignment = 1
+
+[node name="firstArea" type="Area2D" parent="detect"]
+collision_layer = 4
+collision_mask = 4
+monitorable = false
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="detect/firstArea"]
+position = Vector2(928, -192)
+shape = SubResource("RectangleShape2D_2oun0")
+
+[node name="secondArea" type="Area2D" parent="detect"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="detect/secondArea"]
+position = Vector2(928, 176)
+shape = SubResource("RectangleShape2D_kk0kc")
+
+[node name="instruct2" type="Label" parent="detect"]
+visible = false
+offset_left = 832.0
+offset_top = 64.0
+offset_right = 1072.0
+offset_bottom = 469.0
+theme_override_colors/font_color = Color(0.4, 0.4, 0.4, 1)
+theme_override_fonts/font = ExtResource("8_6t6kf")
+theme_override_font_sizes/font_size = 20
+text = "Weren't any opponents
+guarding this one...
+How odd!"
+horizontal_alignment = 1
+
+[node name="KeyBlack" parent="." instance=ExtResource("10_babs1")]
+position = Vector2(928, 176)
+scale = Vector2(2, 2)
+
 [connection signal="INVERT" from="main" to="." method="_on_main_invert"]
+[connection signal="body_entered" from="detect/firstArea" to="detect" method="_on_area_2d_body_entered"]
+[connection signal="body_entered" from="detect/secondArea" to="detect" method="_on_second_area_body_entered"]

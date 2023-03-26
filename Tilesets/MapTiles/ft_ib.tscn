@@ -9,6 +9,6 @@ script = ExtResource("1_572r5")
 z_index = -2
 
 [node name="ColorRect" type="ColorRect" parent="C"]
-offset_right = 100.0
-offset_bottom = 100.0
+offset_right = 128.0
+offset_bottom = 128.0
 color = Color(0, 0, 0, 1)

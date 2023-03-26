@@ -170,6 +170,7 @@ func get_invert():
 	var carrot = true
 	if Input.is_action_pressed("invert"):
 		if invT:
+			$Audio/invert.play()
 			invertTimer()
 			emit_signal("inverted", invT_s, invert)
 			if invert == 0:
