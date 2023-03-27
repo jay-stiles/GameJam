@@ -1,0 +1,592 @@
+[gd_scene load_steps=21 format=3 uid="uid://bhrn4aqwfwuml"]
+
+[ext_resource type="Script" path="res://Menus/MainMenu.gd" id="1_rwryj"]
+[ext_resource type="FontFile" uid="uid://c5mfmgf8df6t6" path="res://Assets/Fonts/SquareCool.ttf" id="2_q8quc"]
+[ext_resource type="AudioStream" uid="uid://dgtly1xaxsith" path="res://Assets/Audio/INVERTorButton.wav" id="3_pdnxc"]
+[ext_resource type="StyleBox" uid="uid://ot5jbhdr0a8h" path="res://Menus/MainMenu.tres" id="3_thhm2"]
+[ext_resource type="StyleBox" uid="uid://chy7n1guas31t" path="res://Menus/buttonNormal.tres" id="3_yp2fb"]
+[ext_resource type="StyleBox" uid="uid://ehidppmoqq5e" path="res://Menus/MainMenuHover.tres" id="4_l10oc"]
+[ext_resource type="AudioStream" uid="uid://d3sbcrjvo8j0f" path="res://Assets/Audio/footstep.wav" id="4_skc1b"]
+[ext_resource type="Script" path="res://Main/Music.gd" id="5_esv5e"]
+[ext_resource type="AudioStream" uid="uid://blp7ousmfk18g" path="res://Assets/Audio/tenseIshBackgAudio.mp3" id="6_v1cxf"]
+[ext_resource type="AudioStream" uid="uid://yvs53umsq732" path="res://Assets/Audio/Investigate.mp3" id="7_hvfue"]
+[ext_resource type="AudioStream" uid="uid://xk06w0p6i1kx" path="res://Assets/Audio/Investigate2.mp3" id="8_5auhg"]
+[ext_resource type="PackedScene" uid="uid://ct4q2mxcwj005" path="res://Tilesets/MapTiles/ft_wall_horz_long.tscn" id="9_3b4i1"]
+[ext_resource type="Texture2D" uid="uid://d33ft0h5vdiho" path="res://Tilesets/CharB.png" id="10_a0p5w"]
+[ext_resource type="Texture2D" uid="uid://dmff7k2pi2o3a" path="res://Tilesets/CharW.png" id="10_gt1kj"]
+[ext_resource type="Texture2D" uid="uid://cqgjhedlvtk3d" path="res://Tilesets/W.png" id="11_5bipm"]
+[ext_resource type="AudioStream" uid="uid://b6lpo2rf5xnwa" path="res://Assets/Audio/startGameSound.wav" id="12_fq8s8"]
+[ext_resource type="Texture2D" uid="uid://dk66c6h6cbdd5" path="res://Tilesets/B.png" id="12_plcym"]
+[ext_resource type="Texture2D" uid="uid://efmekbnj32gn" path="res://Tilesets/EnemyB.png" id="13_bc2kw"]
+[ext_resource type="PackedScene" uid="uid://xuphcqfcw7pq" path="res://Tilesets/MapTiles/ft_wall_vert_long.tscn" id="13_r886j"]
+
+[sub_resource type="Gradient" id="Gradient_pt5ci"]
+colors = PackedColorArray(0.999999, 0.458546, 0.195946, 1, 0.761567, 3.44135e-06, 7.70092e-07, 1)
+
+[node name="MainMenu" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_right = 560.0
+offset_bottom = 370.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_rwryj")
+
+[node name="MMC" type="CanvasLayer" parent="."]
+layer = 3
+
+[node name="ColorRect" type="ColorRect" parent="MMC"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+color = Color(0, 0, 0, 1)
+
+[node name="Text" type="Node" parent="MMC/ColorRect"]
+
+[node name="INVERT" type="Button" parent="MMC/ColorRect/Text"]
+modulate = Color(1, 1, 1, 0)
+self_modulate = Color(1, 1, 1, 0)
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -414.0
+offset_top = 30.0
+offset_right = 486.0
+offset_bottom = 212.0
+grow_horizontal = 2
+pivot_offset = Vector2(330, 91)
+toggle_mode = true
+flat = true
+
+[node name="TextBox" type="CenterContainer" parent="MMC/ColorRect/Text"]
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -278.0
+offset_top = 32.0
+offset_right = 382.0
+offset_bottom = 214.0
+grow_horizontal = 2
+scale = Vector2(1.3, 1.3)
+pivot_offset = Vector2(330, 91)
+mouse_filter = 2
+
+[node name="HBoxContainer" type="HBoxContainer" parent="MMC/ColorRect/Text/TextBox"]
+layout_mode = 2
+mouse_filter = 2
+
+[node name="INV" type="Label" parent="MMC/ColorRect/Text/TextBox/HBoxContainer"]
+layout_mode = 2
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_colors/font_shadow_color = Color(0.309804, 0.309804, 0.309804, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/shadow_offset_x = 3
+theme_override_constants/shadow_offset_y = -3
+theme_override_constants/outline_size = 13
+theme_override_constants/shadow_outline_size = 10
+theme_override_fonts/font = ExtResource("2_q8quc")
+theme_override_font_sizes/font_size = 160
+text = "INV"
+metadata/_edit_use_anchors_ = true
+
+[node name="ERT" type="Label" parent="MMC/ColorRect/Text/TextBox/HBoxContainer"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_colors/font_shadow_color = Color(0.309804, 0.309804, 0.309804, 1)
+theme_override_colors/font_outline_color = Color(1, 1, 1, 1)
+theme_override_constants/shadow_offset_x = 3
+theme_override_constants/shadow_offset_y = -3
+theme_override_constants/outline_size = 13
+theme_override_constants/shadow_outline_size = 10
+theme_override_fonts/font = ExtResource("2_q8quc")
+theme_override_font_sizes/font_size = 160
+text = "ERT"
+metadata/_edit_use_anchors_ = true
+
+[node name="CenterContainer" type="CenterContainer" parent="MMC/ColorRect"]
+layout_mode = 1
+anchors_preset = 4
+anchor_top = 0.5
+anchor_bottom = 0.5
+offset_left = 131.0
+offset_top = -146.0
+offset_right = 683.0
+offset_bottom = 146.0
+grow_vertical = 2
+scale = Vector2(1.5, 1.5)
+pivot_offset = Vector2(230, 105)
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MMC/ColorRect/CenterContainer"]
+layout_mode = 2
+
+[node name="start" type="Button" parent="MMC/ColorRect/CenterContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.309804, 0.309804, 0.309804, 1)
+theme_override_colors/font_pressed_color = Color(1, 1, 1, 1)
+theme_override_colors/font_hover_color = Color(0.309804, 0.309804, 0.309804, 1)
+theme_override_colors/font_focus_color = Color(0.309804, 0.309804, 0.309804, 1)
+theme_override_colors/font_hover_pressed_color = Color(0.309804, 0.309804, 0.309804, 1)
+theme_override_colors/font_disabled_color = Color(0, 0, 0, 1)
+theme_override_colors/font_outline_color = Color(0.4, 0.4, 0.4, 1)
+theme_override_constants/outline_size = 4
+theme_override_fonts/font = ExtResource("2_q8quc")
+theme_override_font_sizes/font_size = 55
+theme_override_styles/normal = ExtResource("3_yp2fb")
+theme_override_styles/hover = ExtResource("4_l10oc")
+theme_override_styles/pressed = ExtResource("3_thhm2")
+theme_override_styles/disabled = ExtResource("4_l10oc")
+theme_override_styles/focus = ExtResource("3_yp2fb")
+text = "START"
+
+[node name="skip" type="Button" parent="MMC/ColorRect/CenterContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.309804, 0.309804, 0.309804, 1)
+theme_override_colors/font_pressed_color = Color(1, 1, 1, 1)
+theme_override_colors/font_hover_color = Color(0.309804, 0.309804, 0.309804, 1)
+theme_override_colors/font_focus_color = Color(0.309804, 0.309804, 0.309804, 1)
+theme_override_colors/font_hover_pressed_color = Color(0.309804, 0.309804, 0.309804, 1)
+theme_override_colors/font_disabled_color = Color(0, 0, 0, 1)
+theme_override_colors/font_outline_color = Color(0.4, 0.4, 0.4, 1)
+theme_override_constants/outline_size = 4
+theme_override_fonts/font = ExtResource("2_q8quc")
+theme_override_font_sizes/font_size = 55
+theme_override_styles/normal = ExtResource("3_yp2fb")
+theme_override_styles/hover = ExtResource("4_l10oc")
+theme_override_styles/pressed = ExtResource("3_thhm2")
+theme_override_styles/disabled = ExtResource("4_l10oc")
+theme_override_styles/focus = ExtResource("3_yp2fb")
+text = "Skip Intro"
+
+[node name="TF" type="Button" parent="MMC/ColorRect/CenterContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.309804, 0.309804, 0.309804, 1)
+theme_override_colors/font_pressed_color = Color(1, 1, 1, 1)
+theme_override_colors/font_hover_color = Color(0.309804, 0.309804, 0.309804, 1)
+theme_override_colors/font_focus_color = Color(0.309804, 0.309804, 0.309804, 1)
+theme_override_colors/font_hover_pressed_color = Color(0.309804, 0.309804, 0.309804, 1)
+theme_override_colors/font_disabled_color = Color(0, 0, 0, 1)
+theme_override_colors/font_outline_color = Color(0.4, 0.4, 0.4, 1)
+theme_override_constants/outline_size = 4
+theme_override_fonts/font = ExtResource("2_q8quc")
+theme_override_font_sizes/font_size = 55
+theme_override_styles/normal = ExtResource("3_yp2fb")
+theme_override_styles/hover = ExtResource("4_l10oc")
+theme_override_styles/pressed = ExtResource("3_thhm2")
+theme_override_styles/disabled = ExtResource("4_l10oc")
+theme_override_styles/focus = ExtResource("3_yp2fb")
+text = "Toggle Fullscreen"
+
+[node name="exit" type="Button" parent="MMC/ColorRect/CenterContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.309804, 0.309804, 0.309804, 1)
+theme_override_colors/font_pressed_color = Color(1, 1, 1, 1)
+theme_override_colors/font_hover_color = Color(0.309804, 0.309804, 0.309804, 1)
+theme_override_colors/font_focus_color = Color(0.309804, 0.309804, 0.309804, 1)
+theme_override_colors/font_hover_pressed_color = Color(0.309804, 0.309804, 0.309804, 1)
+theme_override_colors/font_disabled_color = Color(0, 0, 0, 1)
+theme_override_colors/font_outline_color = Color(0.4, 0.4, 0.4, 1)
+theme_override_constants/outline_size = 4
+theme_override_fonts/font = ExtResource("2_q8quc")
+theme_override_font_sizes/font_size = 55
+theme_override_styles/normal = ExtResource("3_yp2fb")
+theme_override_styles/hover = ExtResource("4_l10oc")
+theme_override_styles/pressed = ExtResource("3_thhm2")
+theme_override_styles/disabled = ExtResource("4_l10oc")
+theme_override_styles/focus = ExtResource("3_yp2fb")
+text = "EXIT"
+
+[node name="INVERTBUTTON" type="Node" parent="MMC/ColorRect"]
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MMC/ColorRect/INVERTBUTTON"]
+offset_left = 1162.5
+offset_top = 789.0
+offset_right = 1395.5
+offset_bottom = 875.0
+
+[node name="CenterContainer2" type="CenterContainer" parent="MMC/ColorRect/INVERTBUTTON/VBoxContainer"]
+layout_mode = 2
+
+[node name="HBoxContainer" type="HBoxContainer" parent="MMC/ColorRect/INVERTBUTTON/VBoxContainer/CenterContainer2"]
+z_index = 1
+layout_mode = 2
+mouse_filter = 2
+theme_override_constants/separation = 3
+
+[node name="INV" type="Label" parent="MMC/ColorRect/INVERTBUTTON/VBoxContainer/CenterContainer2/HBoxContainer"]
+layout_mode = 2
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_colors/font_shadow_color = Color(0.309804, 0.309804, 0.309804, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/shadow_offset_x = 2
+theme_override_constants/shadow_offset_y = -1
+theme_override_constants/outline_size = 8
+theme_override_constants/shadow_outline_size = 5
+theme_override_fonts/font = ExtResource("2_q8quc")
+theme_override_font_sizes/font_size = 50
+text = "INV"
+metadata/_edit_use_anchors_ = true
+
+[node name="ERT" type="Label" parent="MMC/ColorRect/INVERTBUTTON/VBoxContainer/CenterContainer2/HBoxContainer"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_colors/font_shadow_color = Color(0.309804, 0.309804, 0.309804, 1)
+theme_override_colors/font_outline_color = Color(1, 1, 1, 1)
+theme_override_constants/shadow_offset_x = 2
+theme_override_constants/shadow_offset_y = -2
+theme_override_constants/outline_size = 8
+theme_override_constants/shadow_outline_size = 5
+theme_override_fonts/font = ExtResource("2_q8quc")
+theme_override_font_sizes/font_size = 50
+text = "ERT"
+metadata/_edit_use_anchors_ = true
+
+[node name="InvertButton2" type="Button" parent="MMC/ColorRect/INVERTBUTTON/VBoxContainer/CenterContainer2"]
+layout_mode = 2
+theme_override_styles/normal = ExtResource("3_yp2fb")
+theme_override_styles/hover = ExtResource("4_l10oc")
+theme_override_styles/pressed = ExtResource("3_thhm2")
+theme_override_styles/disabled = ExtResource("4_l10oc")
+theme_override_styles/focus = ExtResource("3_yp2fb")
+text = "                                                      
+                                                      "
+
+[node name="ClickMe" type="Label" parent="MMC/ColorRect/INVERTBUTTON/VBoxContainer"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("2_q8quc")
+text = "(Click Me)"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="OnClick" type="AudioStreamPlayer" parent="MMC"]
+stream = ExtResource("3_pdnxc")
+pitch_scale = 2.0
+max_polyphony = 4
+
+[node name="OnLook" type="AudioStreamPlayer" parent="MMC"]
+stream = ExtResource("4_skc1b")
+volume_db = -10.0
+pitch_scale = 0.75
+max_polyphony = 8
+
+[node name="Terrain" type="Node" parent="MMC"]
+
+[node name="FT_Wall_VertLong" parent="MMC/Terrain" instance=ExtResource("13_r886j")]
+z_index = 3
+position = Vector2(1104, 741)
+
+[node name="FT_Wall_VertLong2" parent="MMC/Terrain" instance=ExtResource("13_r886j")]
+z_index = 3
+position = Vector2(1104, 485)
+
+[node name="FT_Wall_VertLong5" parent="MMC/Terrain" instance=ExtResource("13_r886j")]
+z_index = 3
+position = Vector2(1104, 261)
+
+[node name="FT_Wall_VertLong3" parent="MMC/Terrain" instance=ExtResource("13_r886j")]
+z_index = 3
+position = Vector2(1104, 1221)
+
+[node name="FT_Wall_VertLong4" parent="MMC/Terrain" instance=ExtResource("13_r886j")]
+z_index = 3
+position = Vector2(1104, 965)
+
+[node name="FT_Wall_VertLong6" parent="MMC/Terrain" instance=ExtResource("13_r886j")]
+z_index = 3
+position = Vector2(2273, 312)
+
+[node name="FT_Wall_VertLong7" parent="MMC/Terrain" instance=ExtResource("13_r886j")]
+z_index = 3
+position = Vector2(2273, 56)
+
+[node name="FT_Wall_VertLong8" parent="MMC/Terrain" instance=ExtResource("13_r886j")]
+z_index = 3
+position = Vector2(2273, -168)
+
+[node name="FT_Wall_VertLong9" parent="MMC/Terrain" instance=ExtResource("13_r886j")]
+z_index = 3
+position = Vector2(2273, 792)
+
+[node name="FT_Wall_VertLong10" parent="MMC/Terrain" instance=ExtResource("13_r886j")]
+z_index = 3
+position = Vector2(2273, 536)
+
+[node name="FT_Wall_HorzLong" parent="MMC/Terrain" instance=ExtResource("9_3b4i1")]
+position = Vector2(656, 256)
+
+[node name="FT_Wall_HorzLong2" parent="MMC/Terrain" instance=ExtResource("9_3b4i1")]
+position = Vector2(880, 256)
+
+[node name="FT_Wall_HorzLong3" parent="MMC/Terrain" instance=ExtResource("9_3b4i1")]
+position = Vector2(176, 256)
+
+[node name="FT_Wall_HorzLong4" parent="MMC/Terrain" instance=ExtResource("9_3b4i1")]
+position = Vector2(400, 256)
+
+[node name="FT_Wall_HorzLong5" parent="MMC/Terrain" instance=ExtResource("9_3b4i1")]
+position = Vector2(-272, 256)
+
+[node name="FT_Wall_HorzLong6" parent="MMC/Terrain" instance=ExtResource("9_3b4i1")]
+position = Vector2(-48, 256)
+
+[node name="FT_Wall_HorzLong7" parent="MMC/Terrain" instance=ExtResource("9_3b4i1")]
+position = Vector2(-752, 256)
+
+[node name="FT_Wall_HorzLong8" parent="MMC/Terrain" instance=ExtResource("9_3b4i1")]
+position = Vector2(-528, 256)
+
+[node name="FT_Wall_HorzLong9" parent="MMC/Terrain" instance=ExtResource("9_3b4i1")]
+position = Vector2(2043, 736)
+
+[node name="FT_Wall_HorzLong10" parent="MMC/Terrain" instance=ExtResource("9_3b4i1")]
+position = Vector2(1122, 1197)
+
+[node name="FT_Wall_HorzLong11" parent="MMC/Terrain" instance=ExtResource("9_3b4i1")]
+position = Vector2(1819, 736)
+
+[node name="FT_Wall_HorzLong12" parent="MMC/Terrain" instance=ExtResource("9_3b4i1")]
+position = Vector2(1115, 736)
+
+[node name="FT_Wall_HorzLong13" parent="MMC/Terrain" instance=ExtResource("9_3b4i1")]
+position = Vector2(1339, 736)
+
+[node name="MrGrayeB" type="Sprite2D" parent="MMC"]
+position = Vector2(1192, 616)
+scale = Vector2(7, 7)
+texture = ExtResource("10_a0p5w")
+hframes = 3
+vframes = 4
+frame = 6
+
+[node name="MrGrayeW" type="Sprite2D" parent="MMC"]
+position = Vector2(1192, 616)
+scale = Vector2(7, 7)
+texture = ExtResource("10_gt1kj")
+hframes = 3
+vframes = 4
+frame = 6
+
+[node name="MrBlack" type="Sprite2D" parent="MMC"]
+position = Vector2(2018, 587)
+scale = Vector2(7, 7)
+texture = ExtResource("13_bc2kw")
+hframes = 3
+vframes = 4
+frame = 4
+
+[node name="MrBlack2" type="Sprite2D" parent="MMC"]
+position = Vector2(2050, 51)
+scale = Vector2(7, 7)
+texture = ExtResource("13_bc2kw")
+hframes = 3
+vframes = 4
+
+[node name="Node" type="Node" parent="MMC"]
+
+[node name="egR" type="Marker2D" parent="MMC/Node"]
+position = Vector2(1246.4, 605.314)
+scale = Vector2(6.8, 6.8)
+
+[node name="psst" type="CPUParticles2D" parent="MMC/Node/egR"]
+amount = 100
+lifetime = 2.4
+explosiveness = 1.0
+lifetime_randomness = 1.0
+spread = 3.0
+gravity = Vector2(0, 0)
+initial_velocity_min = 3.0
+initial_velocity_max = 10.0
+linear_accel_max = 10.0
+damping_min = 5.0
+damping_max = 30.0
+scale_amount_min = 1.3
+scale_amount_max = 2.0
+color = Color(0.4, 0.4, 0.4, 1)
+
+[node name="bullet1" type="Node" parent="MMC/Node"]
+
+[node name="bulletW" type="Sprite2D" parent="MMC/Node/bullet1"]
+position = Vector2(1571, 608.5)
+rotation = 1.5708
+scale = Vector2(1, 1.067)
+texture = ExtResource("11_5bipm")
+region_enabled = true
+region_rect = Rect2(5, 0, 5, 15)
+
+[node name="bulletB" type="Sprite2D" parent="MMC/Node/bullet1"]
+visible = false
+position = Vector2(1835, 652)
+rotation = 1.5708
+scale = Vector2(1, 3)
+texture = ExtResource("12_plcym")
+
+[node name="bulletGrayParticles" type="CPUParticles2D" parent="MMC/Node/bullet1"]
+modulate = Color(0.4, 0.4, 0.4, 1)
+position = Vector2(1563, 608.5)
+rotation = 1.5708
+scale = Vector2(7, 7)
+amount = 80
+lifetime = 0.5
+preprocess = 0.5
+direction = Vector2(0, 553)
+spread = 2.0
+gravity = Vector2(0, 0)
+initial_velocity_min = 5.0
+initial_velocity_max = 50.0
+damping_max = 17.85
+
+[node name="bulletRedishParticles" type="CPUParticles2D" parent="MMC/Node/bullet1"]
+position = Vector2(1563, 608.5)
+rotation = 1.5708
+scale = Vector2(7, 7)
+amount = 60
+lifetime = 0.7
+preprocess = 0.6
+direction = Vector2(0, 553)
+spread = 1.0
+gravity = Vector2(0, 0)
+initial_velocity_min = 5.0
+initial_velocity_max = 50.0
+linear_accel_min = 2.0
+linear_accel_max = 5.0
+scale_amount_min = 0.5
+scale_amount_max = 2.0
+color_ramp = SubResource("Gradient_pt5ci")
+
+[node name="bullet2" type="Node" parent="MMC/Node"]
+
+[node name="bulletW" type="Sprite2D" parent="MMC/Node/bullet2"]
+visible = false
+position = Vector2(1571, 576.5)
+rotation = -1.5708
+scale = Vector2(1, 1.067)
+texture = ExtResource("11_5bipm")
+region_enabled = true
+region_rect = Rect2(5, 0, 5, 15)
+
+[node name="bulletB" type="Sprite2D" parent="MMC/Node/bullet2"]
+position = Vector2(1438.06, 575.56)
+rotation = -1.5708
+scale = Vector2(0.320029, -1.00779)
+texture = ExtResource("12_plcym")
+
+[node name="bulletGrayParticles" type="CPUParticles2D" parent="MMC/Node/bullet2"]
+modulate = Color(0.4, 0.4, 0.4, 1)
+position = Vector2(1446.06, 575.56)
+rotation = -1.5708
+scale = Vector2(7, 7)
+amount = 80
+lifetime = 0.5
+preprocess = 0.6
+direction = Vector2(0, 553)
+spread = 2.0
+gravity = Vector2(0, 0)
+initial_velocity_min = 5.0
+initial_velocity_max = 50.0
+damping_max = 17.85
+
+[node name="bulletRedishParticles" type="CPUParticles2D" parent="MMC/Node/bullet2"]
+position = Vector2(1446.06, 575.56)
+rotation = -1.5708
+scale = Vector2(7, 7)
+amount = 60
+lifetime = 0.7
+preprocess = 0.6
+direction = Vector2(0, 553)
+spread = 1.0
+gravity = Vector2(0, 0)
+initial_velocity_min = 5.0
+initial_velocity_max = 50.0
+linear_accel_min = 2.0
+linear_accel_max = 5.0
+scale_amount_min = 0.5
+scale_amount_max = 2.0
+color_ramp = SubResource("Gradient_pt5ci")
+
+[node name="psst" type="CPUParticles2D" parent="MMC/Node"]
+position = Vector2(1995, 40)
+scale = Vector2(7, 7)
+emitting = false
+amount = 100
+lifetime = 2.4
+preprocess = 1.2
+explosiveness = 1.0
+lifetime_randomness = 1.0
+direction = Vector2(-1, 0)
+spread = 3.0
+gravity = Vector2(0, 0)
+initial_velocity_min = 3.0
+initial_velocity_max = 10.0
+linear_accel_max = 10.0
+damping_min = 5.0
+damping_max = 25.0
+scale_amount_min = 1.3
+scale_amount_max = 2.0
+color = Color(0.4, 0.4, 0.4, 1)
+
+[node name="psst2" type="CPUParticles2D" parent="MMC/Node"]
+position = Vector2(1963, 576)
+scale = Vector2(7, 7)
+amount = 100
+lifetime = 2.4
+preprocess = 1.2
+explosiveness = 1.0
+lifetime_randomness = 1.0
+direction = Vector2(-1, 0)
+spread = 3.0
+gravity = Vector2(0, 0)
+initial_velocity_min = 3.0
+initial_velocity_max = 10.0
+linear_accel_max = 10.0
+damping_min = 5.0
+damping_max = 25.0
+scale_amount_min = 1.3
+scale_amount_max = 2.0
+color = Color(0.4, 0.4, 0.4, 1)
+
+[node name="Music" type="Node" parent="."]
+process_mode = 3
+script = ExtResource("5_esv5e")
+
+[node name="bgm1" type="AudioStreamPlayer" parent="Music"]
+stream = ExtResource("6_v1cxf")
+volume_db = -17.0
+
+[node name="bgm2" type="AudioStreamPlayer" parent="Music"]
+stream = ExtResource("7_hvfue")
+volume_db = -17.0
+
+[node name="bgm3" type="AudioStreamPlayer" parent="Music"]
+stream = ExtResource("8_5auhg")
+volume_db = -17.0
+
+[node name="OnClick" type="AudioStreamPlayer" parent="Music"]
+stream = ExtResource("3_pdnxc")
+pitch_scale = 2.0
+max_polyphony = 4
+
+[node name="invert" type="AudioStreamPlayer" parent="Music"]
+stream = ExtResource("3_pdnxc")
+max_polyphony = 3
+
+[node name="StartSound" type="AudioStreamPlayer" parent="Music"]
+stream = ExtResource("12_fq8s8")
+
+[connection signal="pressed" from="MMC/ColorRect/Text/INVERT" to="." method="_on_invert_pressed"]
+[connection signal="mouse_entered" from="MMC/ColorRect/CenterContainer/VBoxContainer/start" to="." method="_on_start_mouse_entered"]
+[connection signal="pressed" from="MMC/ColorRect/CenterContainer/VBoxContainer/start" to="." method="_on_start_pressed"]
+[connection signal="mouse_entered" from="MMC/ColorRect/CenterContainer/VBoxContainer/skip" to="." method="_on_skip_mouse_entered"]
+[connection signal="pressed" from="MMC/ColorRect/CenterContainer/VBoxContainer/skip" to="." method="_on_skip_pressed"]
+[connection signal="mouse_entered" from="MMC/ColorRect/CenterContainer/VBoxContainer/TF" to="." method="_on_tf_mouse_entered"]
+[connection signal="pressed" from="MMC/ColorRect/CenterContainer/VBoxContainer/TF" to="." method="_on_tf_pressed"]
+[connection signal="mouse_entered" from="MMC/ColorRect/CenterContainer/VBoxContainer/exit" to="." method="_on_exit_mouse_entered"]
+[connection signal="pressed" from="MMC/ColorRect/CenterContainer/VBoxContainer/exit" to="." method="_on_exit_pressed"]
+[connection signal="pressed" from="MMC/ColorRect/INVERTBUTTON/VBoxContainer/CenterContainer2/InvertButton2" to="." method="_on_invert_button_2_pressed"]
+[connection signal="finished" from="Music/bgm1" to="Music" method="_on_bgm_1_finished"]
+[connection signal="finished" from="Music/bgm2" to="Music" method="_on_bgm_2_finished"]
+[connection signal="finished" from="Music/bgm3" to="Music" method="_on_bgm_3_finished"]

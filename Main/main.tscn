@@ -1,4 +1,4 @@
-[gd_scene load_steps=11 format=3 uid="uid://da1q3iiq7l08e"]
+[gd_scene load_steps=22 format=3 uid="uid://da1q3iiq7l08e"]
 
 [ext_resource type="PackedScene" uid="uid://cpohawpci1tla" path="res://MrGraye/MrGraye.tscn" id="1_cnnti"]
 [ext_resource type="Script" path="res://Main/main.gd" id="1_nt5yq"]
@@ -8,6 +8,14 @@
 [ext_resource type="FontFile" uid="uid://c5mfmgf8df6t6" path="res://Assets/Fonts/SquareCool.ttf" id="5_85njg"]
 [ext_resource type="FontFile" uid="uid://bh64enw3tjsj7" path="res://Assets/Fonts/DashDot.ttf" id="6_hwxh4"]
 [ext_resource type="FontFile" uid="uid://deqkhsbxcjtto" path="res://Assets/Fonts/neatoHole.ttf" id="7_wt67e"]
+[ext_resource type="Script" path="res://Main/CanvasLayer.gd" id="9_v1p1f"]
+[ext_resource type="AudioStream" uid="uid://dgtly1xaxsith" path="res://Assets/Audio/INVERTorButton.wav" id="10_ufaqu"]
+[ext_resource type="AudioStream" uid="uid://d3sbcrjvo8j0f" path="res://Assets/Audio/footstep.wav" id="11_ci3y5"]
+[ext_resource type="Script" path="res://Main/Music.gd" id="12_daubg"]
+[ext_resource type="AudioStream" uid="uid://blp7ousmfk18g" path="res://Assets/Audio/tenseIshBackgAudio.mp3" id="13_xdhlx"]
+[ext_resource type="AudioStream" uid="uid://yvs53umsq732" path="res://Assets/Audio/Investigate.mp3" id="14_fx724"]
+[ext_resource type="AudioStream" uid="uid://xk06w0p6i1kx" path="res://Assets/Audio/Investigate2.mp3" id="15_11xro"]
+[ext_resource type="PackedScene" uid="uid://11m10roqcp4n" path="res://Assets/Backgrounds/simple_background_layer.tscn" id="16_fwh2i"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_qrfqv"]
 bg_color = Color(0.4, 0.4, 0.4, 1)
@@ -28,6 +36,45 @@ expand_margin_bottom = 3.0
 bg_color = Color(0.921569, 0, 0, 0.827451)
 corner_radius_bottom_right = 6
 corner_radius_bottom_left = 6
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_0hj40"]
+content_margin_top = 4.0
+content_margin_bottom = 4.0
+bg_color = Color(0, 0, 0, 1)
+border_width_top = 6
+border_width_right = 8
+border_color = Color(0.4, 0.4, 0.4, 1)
+border_blend = true
+corner_radius_top_left = 4
+corner_radius_top_right = 4
+corner_radius_bottom_right = 4
+corner_radius_bottom_left = 4
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_82x85"]
+content_margin_top = 4.0
+content_margin_bottom = 4.0
+bg_color = Color(1, 1, 1, 1)
+border_width_top = 6
+border_width_right = 8
+border_color = Color(0.4, 0.4, 0.4, 1)
+border_blend = true
+corner_radius_top_left = 4
+corner_radius_top_right = 4
+corner_radius_bottom_right = 4
+corner_radius_bottom_left = 4
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_7otru"]
+content_margin_top = 4.0
+content_margin_bottom = 4.0
+bg_color = Color(0.4, 0.4, 0.4, 1)
+border_width_top = 6
+border_width_right = 8
+border_color = Color(1, 1, 1, 1)
+border_blend = true
+corner_radius_top_left = 4
+corner_radius_top_right = 4
+corner_radius_bottom_right = 4
+corner_radius_bottom_left = 4
 
 [node name="main" type="Node2D"]
 script = ExtResource("1_nt5yq")
@@ -369,8 +416,203 @@ horizontal_alignment = 1
 vertical_alignment = 1
 uppercase = true
 
+[node name="PauseMenu" type="CanvasLayer" parent="."]
+process_mode = 2
+layer = 3
+visible = false
+script = ExtResource("9_v1p1f")
+
+[node name="ColorRect" type="ColorRect" parent="PauseMenu"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Text" type="Node" parent="PauseMenu/ColorRect"]
+
+[node name="TextBox" type="CenterContainer" parent="PauseMenu/ColorRect/Text"]
+visible = false
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -278.0
+offset_top = 32.0
+offset_right = 382.0
+offset_bottom = 214.0
+grow_horizontal = 2
+scale = Vector2(1.3, 1.3)
+pivot_offset = Vector2(330, 91)
+mouse_filter = 2
+
+[node name="HBoxContainer" type="HBoxContainer" parent="PauseMenu/ColorRect/Text/TextBox"]
+layout_mode = 2
+mouse_filter = 2
+
+[node name="INV" type="Label" parent="PauseMenu/ColorRect/Text/TextBox/HBoxContainer"]
+layout_mode = 2
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_colors/font_shadow_color = Color(0.309804, 0.309804, 0.309804, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/shadow_offset_x = 3
+theme_override_constants/shadow_offset_y = -3
+theme_override_constants/outline_size = 13
+theme_override_constants/shadow_outline_size = 10
+theme_override_fonts/font = ExtResource("5_85njg")
+theme_override_font_sizes/font_size = 160
+text = "INV"
+metadata/_edit_use_anchors_ = true
+
+[node name="ERT" type="Label" parent="PauseMenu/ColorRect/Text/TextBox/HBoxContainer"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_colors/font_shadow_color = Color(0.309804, 0.309804, 0.309804, 1)
+theme_override_colors/font_outline_color = Color(1, 1, 1, 1)
+theme_override_constants/shadow_offset_x = 3
+theme_override_constants/shadow_offset_y = -3
+theme_override_constants/outline_size = 13
+theme_override_constants/shadow_outline_size = 10
+theme_override_fonts/font = ExtResource("5_85njg")
+theme_override_font_sizes/font_size = 160
+text = "ERT"
+metadata/_edit_use_anchors_ = true
+
+[node name="CenterContainer" type="CenterContainer" parent="PauseMenu/ColorRect"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -226.5
+offset_top = -117.0
+offset_right = 226.5
+offset_bottom = 117.0
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(1.5, 1.5)
+pivot_offset = Vector2(230, 105)
+
+[node name="VBoxContainer" type="VBoxContainer" parent="PauseMenu/ColorRect/CenterContainer"]
+layout_mode = 2
+
+[node name="Res" type="Button" parent="PauseMenu/ColorRect/CenterContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.309804, 0.309804, 0.309804, 1)
+theme_override_colors/font_hover_color = Color(0.309804, 0.309804, 0.309804, 1)
+theme_override_colors/font_hover_pressed_color = Color(0.309804, 0.309804, 0.309804, 1)
+theme_override_constants/outline_size = 0
+theme_override_fonts/font = ExtResource("5_85njg")
+theme_override_font_sizes/font_size = 55
+theme_override_styles/normal = SubResource("StyleBoxFlat_0hj40")
+theme_override_styles/hover = SubResource("StyleBoxFlat_82x85")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_7otru")
+text = "Resume"
+
+[node name="TM" type="Button" parent="PauseMenu/ColorRect/CenterContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.309804, 0.309804, 0.309804, 1)
+theme_override_colors/font_hover_color = Color(0.309804, 0.309804, 0.309804, 1)
+theme_override_colors/font_hover_pressed_color = Color(0.309804, 0.309804, 0.309804, 1)
+theme_override_constants/outline_size = 0
+theme_override_fonts/font = ExtResource("5_85njg")
+theme_override_font_sizes/font_size = 55
+theme_override_styles/normal = SubResource("StyleBoxFlat_0hj40")
+theme_override_styles/hover = SubResource("StyleBoxFlat_82x85")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_7otru")
+text = "Toggle Music"
+
+[node name="TF" type="Button" parent="PauseMenu/ColorRect/CenterContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.309804, 0.309804, 0.309804, 1)
+theme_override_colors/font_hover_color = Color(0.309804, 0.309804, 0.309804, 1)
+theme_override_colors/font_hover_pressed_color = Color(0.309804, 0.309804, 0.309804, 1)
+theme_override_constants/outline_size = 0
+theme_override_fonts/font = ExtResource("5_85njg")
+theme_override_font_sizes/font_size = 55
+theme_override_styles/normal = SubResource("StyleBoxFlat_0hj40")
+theme_override_styles/hover = SubResource("StyleBoxFlat_82x85")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_7otru")
+text = " Toggle Fullscreen "
+
+[node name="MM" type="Button" parent="PauseMenu/ColorRect/CenterContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.309804, 0.309804, 0.309804, 1)
+theme_override_colors/font_hover_color = Color(0.309804, 0.309804, 0.309804, 1)
+theme_override_colors/font_hover_pressed_color = Color(0.309804, 0.309804, 0.309804, 1)
+theme_override_constants/outline_size = 0
+theme_override_fonts/font = ExtResource("5_85njg")
+theme_override_font_sizes/font_size = 55
+theme_override_styles/normal = SubResource("StyleBoxFlat_0hj40")
+theme_override_styles/hover = SubResource("StyleBoxFlat_82x85")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_7otru")
+text = "Main Menu"
+
+[node name="Exit" type="Button" parent="PauseMenu/ColorRect/CenterContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.309804, 0.309804, 0.309804, 1)
+theme_override_colors/font_hover_color = Color(0.309804, 0.309804, 0.309804, 1)
+theme_override_colors/font_hover_pressed_color = Color(0.309804, 0.309804, 0.309804, 1)
+theme_override_constants/outline_size = 0
+theme_override_fonts/font = ExtResource("5_85njg")
+theme_override_font_sizes/font_size = 55
+theme_override_styles/normal = SubResource("StyleBoxFlat_0hj40")
+theme_override_styles/hover = SubResource("StyleBoxFlat_82x85")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_7otru")
+text = "Exit INVERT"
+
+[node name="OnClick" type="AudioStreamPlayer" parent="PauseMenu"]
+stream = ExtResource("10_ufaqu")
+pitch_scale = 2.0
+max_polyphony = 4
+
+[node name="OnLook" type="AudioStreamPlayer" parent="PauseMenu"]
+stream = ExtResource("11_ci3y5")
+volume_db = -10.0
+pitch_scale = 0.75
+max_polyphony = 8
+
+[node name="Music" type="Node" parent="."]
+process_mode = 3
+script = ExtResource("12_daubg")
+
+[node name="bgm1" type="AudioStreamPlayer" parent="Music"]
+stream = ExtResource("13_xdhlx")
+volume_db = -17.0
+
+[node name="bgm2" type="AudioStreamPlayer" parent="Music"]
+stream = ExtResource("14_fx724")
+volume_db = -17.0
+
+[node name="bgm3" type="AudioStreamPlayer" parent="Music"]
+stream = ExtResource("15_11xro")
+volume_db = -17.0
+
+[node name="OnClick" type="AudioStreamPlayer" parent="Music"]
+stream = ExtResource("10_ufaqu")
+pitch_scale = 2.0
+max_polyphony = 4
+
+[node name="SimpleBackgroundLayer" parent="." instance=ExtResource("16_fwh2i")]
+
+[connection signal="ChangedHealth" from="MrGraye" to="Overlay/Stats" method="_on_mr_graye_changed_health"]
+[connection signal="PlayerDied" from="MrGraye" to="." method="_on_mr_graye_player_died"]
 [connection signal="bulletFired" from="MrGraye" to="." method="_on_mr_graye_bullet_fired"]
 [connection signal="inverted" from="MrGraye" to="." method="_on_mr_graye_inverted"]
 [connection signal="inverted" from="MrGraye" to="Overlay/TimerBars" method="_on_mr_graye_inverted"]
+[connection signal="pauser" from="MrGraye" to="PauseMenu" method="_on_pause"]
 [connection signal="reloading" from="MrGraye" to="Overlay/TimerBars" method="_on_mr_graye_reloading"]
 [connection signal="shotTimer" from="MrGraye" to="Overlay/TimerBars" method="_on_mr_graye_shot_timer"]
+[connection signal="mouse_entered" from="PauseMenu/ColorRect/CenterContainer/VBoxContainer/Res" to="PauseMenu" method="_on_button_mouse_entered"]
+[connection signal="pressed" from="PauseMenu/ColorRect/CenterContainer/VBoxContainer/Res" to="PauseMenu" method="_on_res_pressed"]
+[connection signal="mouse_entered" from="PauseMenu/ColorRect/CenterContainer/VBoxContainer/TM" to="PauseMenu" method="_on_button_mouse_entered"]
+[connection signal="pressed" from="PauseMenu/ColorRect/CenterContainer/VBoxContainer/TM" to="Music" method="_on_tm_pressed"]
+[connection signal="mouse_entered" from="PauseMenu/ColorRect/CenterContainer/VBoxContainer/TF" to="PauseMenu" method="_on_button_mouse_entered"]
+[connection signal="pressed" from="PauseMenu/ColorRect/CenterContainer/VBoxContainer/TF" to="PauseMenu" method="_on_tf_pressed"]
+[connection signal="mouse_entered" from="PauseMenu/ColorRect/CenterContainer/VBoxContainer/MM" to="PauseMenu" method="_on_button_mouse_entered"]
+[connection signal="pressed" from="PauseMenu/ColorRect/CenterContainer/VBoxContainer/MM" to="PauseMenu" method="_on_mm_pressed"]
+[connection signal="mouse_entered" from="PauseMenu/ColorRect/CenterContainer/VBoxContainer/Exit" to="PauseMenu" method="_on_button_mouse_entered"]
+[connection signal="pressed" from="PauseMenu/ColorRect/CenterContainer/VBoxContainer/Exit" to="PauseMenu" method="_on_exit_pressed"]
+[connection signal="finished" from="Music/bgm1" to="Music" method="_on_bgm_1_finished"]
+[connection signal="finished" from="Music/bgm2" to="Music" method="_on_bgm_2_finished"]
+[connection signal="finished" from="Music/bgm3" to="Music" method="_on_bgm_3_finished"]

@@ -23,3 +23,8 @@ func _on_mr_graye_bullet_fired(bullet):
 
 func _on_mr_graye_inverted(invT_s, invert):
 	emit_signal("INVERT")
+
+
+func _on_mr_graye_player_died():
+	get_tree().change_scene_to_file("res://Menus/DeathMenu.tscn")
+	

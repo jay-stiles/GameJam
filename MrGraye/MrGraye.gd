@@ -1,5 +1,8 @@
 extends CharacterBody2D
 
+class_name Player
+
+@export var health = 100
 @export var friction = 0.15
 @export var acceleration = 0.1
 @export var speed = 200
@@ -15,6 +18,10 @@ signal shotTimer(STS, magAmt)
 signal reloading(reloadTime, magSize)
 signal emptyChamber()
 signal struckByBullet()
+signal pauser()
+signal PlayerDied()
+signal ChangedHealth(currentHealth)
+
 
 var aniCut = 10
 # 0 = black   1 = white
@@ -49,18 +56,39 @@ var rng = RandomNumberGenerator.new()
 
 var particleTime = 0.2
 
+var stepSpeedScale = 1
+
 func playerFunction():
 	pass
 
-func hitByBullet():
+func checkWellbeing():
+	if health <=0:
+		emit_signal("PlayerDied")
+
+func hitByBullet(Damage):
 	emit_signal("struckByBullet")
+	health -= Damage
+	emit_signal("ChangedHealth", health)
+	checkWellbeing()
 
 func slow():
-	speed = 100
+	speed = 90
+	stepSpeedScale = 1.5
+	$Black/BlAni.speed_scale = 0.5
+	$White/WhAni.speed_scale = 0.5
+	$Audio/stepSound.pitch_scale = 0.75
 func regSpeed():
 	speed = 200
+	stepSpeedScale = 1
+	$Black/BlAni.speed_scale = 1
+	$White/WhAni.speed_scale = 1
+	$Audio/stepSound.pitch_scale = 1
 func fast():
 	speed = 300
+	stepSpeedScale = 0.5
+	$Black/BlAni.speed_scale = 1.5
+	$White/WhAni.speed_scale = 1.5
+	$Audio/stepSound.pitch_scale = 1.3
 
 
 #get gun direction
@@ -166,9 +194,14 @@ func invertTimer():
 
 
 func stepTimer():
+	$Audio/stepSound.play()
+
+
+func stepTimer2():
 	step = false
-	await get_tree().create_timer(stepSec).timeout
+	await get_tree().create_timer(stepSec*stepSpeedScale).timeout
 	step = true
+	$Audio/stepSound.play()
 
 
 func get_invert():
@@ -280,10 +313,16 @@ func aniPlayer():
 
 
 func is_moving():
-	if abs(velocity.x) > aniCut or abs(velocity.y) > aniCut:
+	if abs(velocity.x) > 3.5*stepSpeedScale or abs(velocity.y) > 3.5*stepSpeedScale:
 		return true
 	return false
 
+func is_movingSlow():
+	if abs(velocity.x) <= aniCut*4 and abs(velocity.y) <= aniCut*4:
+		if abs(velocity.x) > 1 and abs(velocity.y) > 1:
+			#$Audio/stepSound.play()
+			return true
+	return false
 
 func stepSounds():
 	if abs(velocity.x) > aniCut or abs(velocity.y) > aniCut:
@@ -306,6 +345,8 @@ func _unhandled_input(event):
 		fast()
 	if Input.is_action_just_released("fast"):
 		regSpeed()
+	if Input.is_action_just_released("pause"):
+		emit_signal("pauser")
 
 func shoot():
 	
@@ -338,26 +379,38 @@ func shoot():
 func _on_step_finish_black(anim_name):
 	if invert == 0:
 		if is_moving():
-			$Audio/stepSound.play()
+			#$Audio/stepSound.play()
+			stepTimer()
+			await get_tree().create_timer(stepSec*stepSpeedScale).timeout
+			stepTimer()
+			#$Audio/stepSound.play()
+			pass
 
 
 func _on_step_finish_white(anim_name):
 	if invert == 1:
 		if is_moving():
-			$Audio/stepSound.play()
+			#$Audio/stepSound.play()
+			stepTimer()
+			await get_tree().create_timer(stepSec*stepSpeedScale).timeout
+			stepTimer()
+			#$Audio/stepSound.play()
+			pass
 
 
 func _on_step_start_black(anim_name):
 	if invert == 0:
-		if is_moving():
-			if step:
-				stepTimer()
-				$Audio/stepSound.play()
+		#$Audio/stepSound.play()
+		if is_movingSlow():
+			#stepTimer()
+			#$Audio/stepSound.play()
+			pass
 
 
 func _on_step_start_white(anim_name):
 	if invert == 1:
-		if is_moving():
-			if step:
-				stepTimer()
-				$Audio/stepSound.play()
+		#$Audio/stepSound.play()
+		if is_movingSlow():
+			#stepTimer()
+			#$Audio/stepSound.play()
+			pass

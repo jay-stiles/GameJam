@@ -1,7 +1,8 @@
-[gd_scene load_steps=20 format=3 uid="uid://dkgi7byv1mx6w"]
+[gd_scene load_steps=21 format=3 uid="uid://dkgi7byv1mx6w"]
 
 [ext_resource type="Texture2D" uid="uid://efmekbnj32gn" path="res://Tilesets/EnemyB.png" id="1_iodrm"]
 [ext_resource type="Script" path="res://MrEnemy/MrBlack.gd" id="1_yd20y"]
+[ext_resource type="AudioStream" uid="uid://0k8io5uxhs74" path="res://Assets/Audio/splat.wav" id="3_5kgyb"]
 [ext_resource type="AudioStream" uid="uid://2h87l4umiibw" path="res://Assets/Audio/SuppressedPistolShort.mp3" id="5_fhigm"]
 [ext_resource type="AudioStream" uid="uid://b3mftvp0027u" path="res://Assets/Audio/stepSound.mp3" id="6_nccou"]
 [ext_resource type="AudioStream" uid="uid://c30rm6g5lkcum" path="res://Assets/Audio/reloadSound.mp3" id="7_7q3nw"]
@@ -166,8 +167,7 @@ _data = {
 "WalkTo": SubResource("Animation_3uo3k")
 }
 
-[node name="MrBlack" type="CharacterBody2D" groups=["player"]]
-position = Vector2(576, 324)
+[node name="MrBlack" type="CharacterBody2D" groups=["enemy"]]
 collision_layer = 7
 collision_mask = 7
 script = ExtResource("1_yd20y")
@@ -179,18 +179,6 @@ hframes = 3
 vframes = 4
 
 [node name="BlAni" type="AnimationPlayer" parent="Black"]
-libraries = {
-"": SubResource("AnimationLibrary_eea8b")
-}
-
-[node name="White" type="Sprite2D" parent="."]
-visible = false
-scale = Vector2(5, 5)
-texture = ExtResource("1_iodrm")
-hframes = 3
-vframes = 4
-
-[node name="WhAni" type="AnimationPlayer" parent="White"]
 libraries = {
 "": SubResource("AnimationLibrary_eea8b")
 }
@@ -207,13 +195,10 @@ collision_mask = 0
 visible = false
 polygon = PackedVector2Array(-25, 50, 16, 50, 16, 42, 11, 39, 10, 12, 29, -1, 16, -10, 18, -19, 18, -39, 8, -47, -7, -48, -20, -39, -19, -25, -17, -17, -16, -11, -21, -7, -29, -3, -15, 10, -18, 38, -25, 42)
 
-[node name="Cam" type="Camera2D" parent="."]
-enabled = false
-zoom = Vector2(1.5, 1.5)
-
 [node name="Audio" type="Node" parent="."]
 
 [node name="enemyHit" type="AudioStreamPlayer" parent="Audio"]
+stream = ExtResource("3_5kgyb")
 
 [node name="Shoot" type="AudioStreamPlayer" parent="Audio"]
 stream = ExtResource("5_fhigm")
@@ -344,5 +329,3 @@ color = Color(0.4, 0.4, 0.4, 1)
 
 [connection signal="animation_finished" from="Black/BlAni" to="." method="_on_step_finish_black" flags=18]
 [connection signal="animation_started" from="Black/BlAni" to="." method="_on_step_start_black" flags=18]
-[connection signal="animation_finished" from="White/WhAni" to="." method="_on_step_finish_white" flags=18]
-[connection signal="animation_started" from="White/WhAni" to="." method="_on_step_start_white" flags=18]

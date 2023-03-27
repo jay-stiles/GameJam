@@ -1,4 +1,4 @@
-[gd_scene load_steps=14 format=3 uid="uid://sbrwru4b204g"]
+[gd_scene load_steps=15 format=3 uid="uid://sbrwru4b204g"]
 
 [ext_resource type="Script" path="res://Maps/LevelOne.gd" id="1_xf8q2"]
 [ext_resource type="PackedScene" uid="uid://da1q3iiq7l08e" path="res://Main/main.tscn" id="2_fub6l"]
@@ -11,6 +11,7 @@
 [ext_resource type="Script" path="res://Maps/detect.gd" id="9_8lk1y"]
 [ext_resource type="PackedScene" uid="uid://cfhkrvrfch2ba" path="res://Assets/Objects/key_black.tscn" id="10_babs1"]
 [ext_resource type="PackedScene" uid="uid://bucw5757p8eqb" path="res://Assets/Objects/door.tscn" id="11_4qa0h"]
+[ext_resource type="AudioStream" uid="uid://b6lpo2rf5xnwa" path="res://Assets/Audio/startGameSound.wav" id="12_xnw88"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_2oun0"]
 size = Vector2(58, 384)
@@ -521,7 +522,11 @@ scale = Vector2(2, 2)
 [node name="Door" parent="Door" instance=ExtResource("11_4qa0h")]
 position = Vector2(848, -704)
 
+[node name="Win" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("12_xnw88")
+
 [connection signal="INVERT" from="main" to="." method="_on_main_invert"]
 [connection signal="body_entered" from="detect/firstArea" to="detect" method="_on_area_2d_body_entered"]
 [connection signal="body_entered" from="detect/secondArea" to="detect" method="_on_second_area_body_entered"]
 [connection signal="keyBlackConnected" from="KeyBlack" to="Door/Door" method="_on_key_black_key_black_connected"]
+[connection signal="moveToNext" from="Door/Door" to="." method="_on_door_move_to_next"]

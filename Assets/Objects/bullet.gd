@@ -3,6 +3,7 @@ extends Area2D
 class_name Bullet
 
 @export var SPEED = 18
+@export var Damage = 20
 var direction := Vector2.ZERO
 var inverter = 0
 var angle = 0
@@ -45,6 +46,8 @@ func hitByBullet():
 
 func _on_body_entered(body):
 	if body.has_method("enemyFunction"):
-		hitByBullet()
+		body.hitByBullet(Damage)
+		queue_free()
 	if body.has_method("playerFunction"):
-		hitByBullet()
+		body.hitByBullet(Damage)
+		queue_free()

@@ -15,6 +15,10 @@ func _ready():
 func _physics_process(delta):
 	pass
 
-func changeHealth(amt):
-	hBarPercent -= amt
+func changeHealth(currentHealth):
+	hBarPercent = currentHealth
 	hBar.value = hBarPercent
+
+
+func _on_mr_graye_changed_health(currentHealth):
+	changeHealth(currentHealth)
