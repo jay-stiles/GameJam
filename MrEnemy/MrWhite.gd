@@ -4,8 +4,8 @@ class_name Enemy
 
 @export var aniFrame = 0
 @export var health = 60
-@export var bullet: PackedScene
 
+@onready var egMarker = $egR
 @onready var brain = $Brain
 
 signal struckByBullet()
@@ -13,6 +13,8 @@ signal bulletFired(bullet)
 
 func _ready():
 	brain.starter(self)
+
+
 
 
 func hitByBullet(Damage):
@@ -46,3 +48,11 @@ func _physics_process(delta):
 
 	move_and_slide()
 	"""
+
+
+func _on_brain_fire_bullet(bullet):
+	emit_signal("bulletFired", bullet)
+
+
+func _on_brain_get_info():
+	$Brain.receiveInfo($egR, $egL, $egA, $egT)

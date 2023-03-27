@@ -1,8 +1,7 @@
-[gd_scene load_steps=26 format=3 uid="uid://dcwqv2ymtbue4"]
+[gd_scene load_steps=25 format=3 uid="uid://dcwqv2ymtbue4"]
 
 [ext_resource type="Script" path="res://MrEnemy/MrWhite.gd" id="1_5puls"]
 [ext_resource type="Texture2D" uid="uid://c4ethsmtb8j6r" path="res://Tilesets/EnemyW.png" id="1_63kox"]
-[ext_resource type="PackedScene" uid="uid://xsejqut0jhwg" path="res://Assets/Objects/bullet.tscn" id="2_i6rst"]
 [ext_resource type="AudioStream" uid="uid://0k8io5uxhs74" path="res://Assets/Audio/splat.wav" id="3_hejan"]
 [ext_resource type="AudioStream" uid="uid://2h87l4umiibw" path="res://Assets/Audio/SuppressedPistolShort.mp3" id="5_0bi1k"]
 [ext_resource type="AudioStream" uid="uid://b3mftvp0027u" path="res://Assets/Audio/stepSound.mp3" id="6_dylr8"]
@@ -182,7 +181,6 @@ radius = 418.12
 collision_layer = 7
 collision_mask = 7
 script = ExtResource("1_5puls")
-bullet = ExtResource("2_i6rst")
 
 [node name="WhAni" type="Sprite2D" parent="."]
 scale = Vector2(5, 5)
@@ -357,8 +355,14 @@ shape = SubResource("CircleShape2D_nwcfx")
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Brain/DZbig"]
 shape = SubResource("CircleShape2D_y6lm5")
 
+[node name="Audio" type="Node" parent="Brain"]
+
+[node name="Shoot" type="AudioStreamPlayer2D" parent="Brain/Audio"]
+
 [connection signal="animation_finished" from="WhAni/WhAni" to="." method="_on_step_finish_black" flags=18]
 [connection signal="animation_started" from="WhAni/WhAni" to="." method="_on_step_start_black" flags=18]
+[connection signal="fireBullet" from="Brain" to="." method="_on_brain_fire_bullet"]
+[connection signal="getInfo" from="Brain" to="." method="_on_brain_get_info"]
 [connection signal="body_entered" from="Brain/DZsmall" to="Brain" method="_on_d_zsmall_body_entered"]
 [connection signal="body_entered" from="Brain/DZmed" to="Brain" method="_on_d_zmed_body_entered"]
 [connection signal="body_entered" from="Brain/DZbig" to="Brain" method="_on_d_zbig_body_entered"]

@@ -9,7 +9,7 @@ class_name Player
 @export var bullet: PackedScene
 @export var shSo: Node
 
-@onready var egMarker = $Cam/egR#.position
+@onready var egMarker = $egR#.position
 #var bulletFile = preload("res://Assets/Objects/bullet.tscn")
 #var bullet_instance: bullet = bullet.instance()
 signal inverted(invT_s, invert)
