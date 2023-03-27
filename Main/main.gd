@@ -31,4 +31,18 @@ func _on_mr_graye_player_died():
 
 
 func _on_mr_white_bullet_fired(bullet):
+	print("Walter White is attempting to fire a bullet!")
+	bullet_CPU.bulletShooter(bullet)
+
+
+func _on_mr_white_2_bullet_fired(bullet):
+	print("Walter White 2 is attempting to fire a bullet!")
+	bullet_CPU.bulletShooter(bullet)
+
+
+func _on_mr_black_bullet_fired(bullet):
+	bullet_CPU.bulletShooter(bullet)
+
+
+func _on_mr_black_2_bullet_fired(bullet):
 	bullet_CPU.bulletShooter(bullet)

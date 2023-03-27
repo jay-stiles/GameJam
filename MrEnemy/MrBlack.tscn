@@ -1,7 +1,7 @@
-[gd_scene load_steps=21 format=3 uid="uid://dkgi7byv1mx6w"]
+[gd_scene load_steps=27 format=3 uid="uid://dkgi7byv1mx6w"]
 
 [ext_resource type="Texture2D" uid="uid://efmekbnj32gn" path="res://Tilesets/EnemyB.png" id="1_iodrm"]
-[ext_resource type="Script" path="res://MrEnemy/MrBlack.gd" id="1_yd20y"]
+[ext_resource type="Script" path="res://MrEnemy/MrWhite.gd" id="1_kswop"]
 [ext_resource type="AudioStream" uid="uid://0k8io5uxhs74" path="res://Assets/Audio/splat.wav" id="3_5kgyb"]
 [ext_resource type="AudioStream" uid="uid://2h87l4umiibw" path="res://Assets/Audio/SuppressedPistolShort.mp3" id="5_fhigm"]
 [ext_resource type="AudioStream" uid="uid://b3mftvp0027u" path="res://Assets/Audio/stepSound.mp3" id="6_nccou"]
@@ -10,6 +10,9 @@
 [ext_resource type="AudioStream" uid="uid://6cf1xl5x2jcl" path="res://Assets/Audio/shellFallShort.wav" id="9_foqo3"]
 [ext_resource type="AudioStream" uid="uid://doxw1ln3snhxb" path="res://Assets/Audio/shellGround2.wav" id="10_8fdpw"]
 [ext_resource type="AudioStream" uid="uid://dgtly1xaxsith" path="res://Assets/Audio/INVERTorButton.wav" id="11_2hort"]
+[ext_resource type="Script" path="res://MrEnemy/Brain.gd" id="11_61aly"]
+[ext_resource type="PackedScene" uid="uid://xsejqut0jhwg" path="res://Assets/Objects/bullet.tscn" id="12_5aa52"]
+[ext_resource type="AudioStream" uid="uid://c76nf6tfddp1q" path="res://Assets/Audio/enemyGunshot.wav" id="13_by24q"]
 
 [sub_resource type="Animation" id="Animation_hagi1"]
 resource_name = "FAway"
@@ -167,33 +170,40 @@ _data = {
 "WalkTo": SubResource("Animation_3uo3k")
 }
 
+[sub_resource type="CircleShape2D" id="CircleShape2D_47yg1"]
+radius = 111.364
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_1m1sg"]
+radius = 250.018
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_wwnlr"]
+radius = 418.12
+
 [node name="MrBlack" type="CharacterBody2D" groups=["enemy"]]
 collision_layer = 7
 collision_mask = 7
-script = ExtResource("1_yd20y")
+script = ExtResource("1_kswop")
 
-[node name="Black" type="Sprite2D" parent="."]
+[node name="White" type="Sprite2D" parent="."]
 scale = Vector2(5, 5)
 texture = ExtResource("1_iodrm")
 hframes = 3
 vframes = 4
 
-[node name="BlAni" type="AnimationPlayer" parent="Black"]
+[node name="WhAni" type="AnimationPlayer" parent="White"]
 libraries = {
 "": SubResource("AnimationLibrary_eea8b")
 }
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="."]
-visible = false
-polygon = PackedVector2Array(-25, 50, 16, 50, 16, 42, 11, 39, 10, 12, 29, -1, 16, -10, 18, -19, 18, -39, 8, -47, -7, -48, -20, -39, -19, -25, -17, -17, -16, -11, -21, -7, -29, -3, -15, 10, -18, 38, -25, 42)
+polygon = PackedVector2Array(-5, 50, 13, 48, 12, 44, 11, 39, 10, 12, 23, 1, 16, -10, 15, -19, 15, -38, 8, -47, -7, -48, -20, -39, -19, -25, -17, -17, -16, -11, -21, -7, -23, -3, -10, 5, -7, 25, -5, 42, -5, 47)
 
 [node name="Area2D" type="Area2D" parent="."]
 collision_layer = 8
 collision_mask = 0
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Area2D"]
-visible = false
-polygon = PackedVector2Array(-25, 50, 16, 50, 16, 42, 11, 39, 10, 12, 29, -1, 16, -10, 18, -19, 18, -39, 8, -47, -7, -48, -20, -39, -19, -25, -17, -17, -16, -11, -21, -7, -29, -3, -15, 10, -18, 38, -25, 42)
+polygon = PackedVector2Array(-5, 50, 13, 48, 14, 42, 11, 39, 10, 12, 22, 1, 16, -10, 16, -20, 15, -38, 8, -47, -7, -48, -20, -39, -19, -25, -17, -17, -16, -11, -21, -7, -24, -3, -10, 3, -7, 33, -5, 42)
 
 [node name="Audio" type="Node" parent="."]
 
@@ -288,7 +298,7 @@ scale_amount_max = 1.3
 color = Color(0.4, 0.4, 0.4, 1)
 
 [node name="egT" type="Marker2D" parent="."]
-position = Vector2(-20, 12)
+position = Vector2(-25, 16)
 
 [node name="psst" type="CPUParticles2D" parent="egT"]
 emitting = false
@@ -327,5 +337,41 @@ scale_amount_min = 0.5
 scale_amount_max = 1.3
 color = Color(0.4, 0.4, 0.4, 1)
 
-[connection signal="animation_finished" from="Black/BlAni" to="." method="_on_step_finish_black" flags=18]
-[connection signal="animation_started" from="Black/BlAni" to="." method="_on_step_start_black" flags=18]
+[node name="Brain" type="Node2D" parent="."]
+visible = false
+script = ExtResource("11_61aly")
+bullet = ExtResource("12_5aa52")
+
+[node name="DZsmall" type="Area2D" parent="Brain"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Brain/DZsmall"]
+shape = SubResource("CircleShape2D_47yg1")
+
+[node name="DZmed" type="Area2D" parent="Brain"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Brain/DZmed"]
+shape = SubResource("CircleShape2D_1m1sg")
+
+[node name="DZbig" type="Area2D" parent="Brain"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Brain/DZbig"]
+shape = SubResource("CircleShape2D_wwnlr")
+
+[node name="Audio" type="Node" parent="Brain"]
+
+[node name="Shoot" type="AudioStreamPlayer2D" parent="Brain/Audio"]
+stream = ExtResource("13_by24q")
+
+[connection signal="animation_finished" from="White/WhAni" to="." method="_on_step_finish_black" flags=18]
+[connection signal="animation_started" from="White/WhAni" to="." method="_on_step_start_black" flags=18]
+[connection signal="fireBullet" from="Brain" to="." method="_on_brain_fire_bullet"]
+[connection signal="getInfo" from="Brain" to="." method="_on_brain_get_info"]
+[connection signal="moveToPlayer" from="Brain" to="." method="_on_brain_move_to_player"]
+[connection signal="psstA" from="Brain" to="." method="_on_brain_psst_a"]
+[connection signal="psstL" from="Brain" to="." method="_on_brain_psst_l"]
+[connection signal="psstR" from="Brain" to="." method="_on_brain_psst_r"]
+[connection signal="psstT" from="Brain" to="." method="_on_brain_psst_t"]
+[connection signal="stateChanged" from="Brain" to="." method="_on_brain_state_changed"]
+[connection signal="body_entered" from="Brain/DZsmall" to="Brain" method="_on_d_zsmall_body_entered"]
+[connection signal="body_entered" from="Brain/DZmed" to="Brain" method="_on_d_zmed_body_entered"]
+[connection signal="body_entered" from="Brain/DZbig" to="Brain" method="_on_d_zbig_body_entered"]

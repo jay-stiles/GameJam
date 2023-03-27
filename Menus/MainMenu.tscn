@@ -263,6 +263,34 @@ text = "(Click Me)"
 horizontal_alignment = 1
 vertical_alignment = 1
 
+[node name="CenterContainer" type="CenterContainer" parent="MMC/ColorRect/INVERTBUTTON"]
+visible = false
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_left = 16.0
+offset_top = -241.0
+offset_right = 1081.0
+offset_bottom = -24.0
+grow_vertical = 0
+
+[node name="Desc" type="Label" parent="MMC/ColorRect/INVERTBUTTON/CenterContainer"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.4, 0.4, 0.4, 1)
+theme_override_colors/font_outline_color = Color(0.309804, 0.309804, 0.309804, 1)
+theme_override_constants/outline_size = 1
+theme_override_fonts/font = ExtResource("2_q8quc")
+theme_override_font_sizes/font_size = 24
+text = "You, Mr. Graye, narrowly escaped being mind-controlled by the Entities that
+infected his companions. Now, all that is left of them are the shells of 
+what once were, and a burning desire to eliminate those who oppose
+the mysterious Entites. 
+Use the technology you stole and modified to fight the thralls,
+and possibly defeat the Entites that control them.
+
+"
+horizontal_alignment = 1
+
 [node name="OnClick" type="AudioStreamPlayer" parent="MMC"]
 stream = ExtResource("3_pdnxc")
 pitch_scale = 2.0

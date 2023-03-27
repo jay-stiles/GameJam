@@ -1,4 +1,4 @@
-[gd_scene load_steps=12 format=3 uid="uid://b3n3g6xe7gnhk"]
+[gd_scene load_steps=15 format=3 uid="uid://b3n3g6xe7gnhk"]
 
 [ext_resource type="PackedScene" uid="uid://da1q3iiq7l08e" path="res://Main/main.tscn" id="1_2as1t"]
 [ext_resource type="Script" path="res://Maps/LevelTwo.gd" id="1_mqllh"]
@@ -11,6 +11,9 @@
 [ext_resource type="PackedScene" uid="uid://dcwqv2ymtbue4" path="res://MrEnemy/MrWhite.tscn" id="9_4s6s1"]
 [ext_resource type="PackedScene" uid="uid://cfhkrvrfch2ba" path="res://Assets/Objects/key_black.tscn" id="10_wtw3v"]
 [ext_resource type="PackedScene" uid="uid://dkgi7byv1mx6w" path="res://MrEnemy/MrBlack.tscn" id="11_c80cb"]
+[ext_resource type="PackedScene" uid="uid://dvpapnxe34o3e" path="res://Assets/Objects/door2.tscn" id="12_v4yoc"]
+[ext_resource type="AudioStream" uid="uid://b6lpo2rf5xnwa" path="res://Assets/Audio/startGameSound.wav" id="13_fr35c"]
+[ext_resource type="AudioStream" uid="uid://dec5caf5gnaqp" path="res://Assets/Audio/enemyDeathSound.wav" id="14_xgmxf"]
 
 [node name="LevelTwo" type="Node2D"]
 script = ExtResource("1_mqllh")
@@ -824,10 +827,6 @@ Doesn't help you see
 youself..."
 horizontal_alignment = 1
 
-[node name="KeyBlack" parent="." instance=ExtResource("10_wtw3v")]
-position = Vector2(592, 672)
-scale = Vector2(2, 2)
-
 [node name="Enemies" type="Node2D" parent="."]
 
 [node name="MrWhite" parent="Enemies" instance=ExtResource("9_4s6s1")]
@@ -842,5 +841,32 @@ position = Vector2(-176, -688)
 [node name="MrWhite2" parent="Enemies" instance=ExtResource("9_4s6s1")]
 position = Vector2(1312, -592)
 
+[node name="Door2" type="Node" parent="."]
+
+[node name="Door2" parent="Door2" instance=ExtResource("12_v4yoc")]
+
+[node name="Key" type="Node" parent="."]
+
+[node name="KeyBlack" parent="Key" instance=ExtResource("10_wtw3v")]
+position = Vector2(592, 672)
+scale = Vector2(2, 2)
+
+[node name="Audio" type="Node" parent="."]
+
+[node name="Win" type="AudioStreamPlayer" parent="Audio"]
+stream = ExtResource("13_fr35c")
+
+[node name="EnemyDie" type="AudioStreamPlayer2D" parent="Audio"]
+stream = ExtResource("14_xgmxf")
+
 [connection signal="INVERT" from="main" to="." method="_on_main_invert"]
 [connection signal="bulletFired" from="Enemies/MrWhite" to="main" method="_on_mr_white_bullet_fired"]
+[connection signal="enemyDied" from="Enemies/MrWhite" to="." method="_on_mr_white_enemy_died"]
+[connection signal="bulletFired" from="Enemies/MrBlack" to="main" method="_on_mr_black_bullet_fired"]
+[connection signal="enemyDied" from="Enemies/MrBlack" to="." method="_on_mr_black_enemy_died"]
+[connection signal="bulletFired" from="Enemies/MrBlack2" to="main" method="_on_mr_black_2_bullet_fired"]
+[connection signal="enemyDied" from="Enemies/MrBlack2" to="." method="_on_mr_black_2_enemy_died"]
+[connection signal="bulletFired" from="Enemies/MrWhite2" to="main" method="_on_mr_white_2_bullet_fired"]
+[connection signal="enemyDied" from="Enemies/MrWhite2" to="." method="_on_mr_white_2_enemy_died"]
+[connection signal="moveToNext" from="Door2/Door2" to="." method="_on_door_2_move_to_next"]
+[connection signal="keyBlackConnected" from="Key/KeyBlack" to="Door2/Door2" method="_on_key_black_key_black_connected"]

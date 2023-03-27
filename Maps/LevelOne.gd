@@ -15,4 +15,5 @@ func _on_main_invert():
 
 func _on_door_move_to_next():
 	$Win.play()
+	await get_tree().create_timer(.3).timeout
 	get_tree().change_scene_to_file("res://Maps/LevelTwo.tscn")
